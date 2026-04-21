@@ -76,38 +76,38 @@
         
         .flag-card:hover {
             transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 30px -12px rgba(225, 29, 63, 0.25);
+            box-shadow: 0 20px 30px -12px rgba(225, 29, 63, 0.15);
             border-color: #e11d3f !important;
             background: rgba(255, 255, 255, 1);
         }
         
-        /* FIXED: No extra space above/below flags */
+        /* FIXED: object-fit: contain to prevent cutting flags */
         .flag-img {
             width: 100%;
             max-width: 100px;
             height: 70px;
-            object-fit: contain !important;
-            border-radius: 0px !important;
+            object-fit: contain !important; /* Back to contain so flags aren't cut */
+            border-radius: 4px !important; /* Kept the slight rounding */
             margin: 0 auto 8px auto !important;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08); 
             background: transparent;
             display: block;
             border: none;
+            box-shadow: none !important;
         }
         
         .schengen-flag {
             width: 100%;
             max-width: 95px;
             height: 65px;
-            object-fit: contain !important;
-            border-radius: 0px !important;
+            object-fit: contain !important; /* Back to contain so flags aren't cut */
+            border-radius: 4px !important; /* Kept the slight rounding */
             margin: 0 auto 6px auto !important;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
             cursor: pointer;
             transition: all 0.3s ease;
             background: transparent;
             display: block;
             border: none;
+            box-shadow: none !important;
         }
         
         .schengen-flag:hover {
@@ -135,7 +135,6 @@
             box-shadow: 0 16px 28px -10px rgba(0,0,0,0.12);
         }
         
-        /* Reduced spacing for country name */
         .flag-card span, .schengen-country span {
             margin-top: 2px !important;
             margin-bottom: 0 !important;
@@ -167,7 +166,6 @@
             width: 100%;
         }
         
-        /* Responsive adjustments - flag sizes same */
         @media (max-width: 640px) {
             .flag-img { max-width: 75px; height: 55px; margin-bottom: 5px !important; }
             .schengen-flag { max-width: 70px; height: 50px; margin-bottom: 4px !important; }
@@ -430,14 +428,14 @@
                     <p class="text-xs mt-4 opacity-70">Independent • Ethical • Transparent</p>
                 </div>
                 <div>
-    <h4 class="font-bold mb-4">Quick Links</h4>
-    <ul class="space-y-2 text-sm">
-        <li><a href="index.html#about" class="hover:text-red-300">About</a></li>
-        <li><a href="index.html#faq" class="hover:text-red-300">FAQ</a></li>
-        <li><a href="index.html#apply" class="hover:text-red-300">Apply</a></li>
-        <li><a href="index.html#terms" class="hover:text-red-300">Terms</a></li>
-    </ul>
-</div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html#about" class="hover:text-red-300">About</a></li>
+                        <li><a href="index.html#faq" class="hover:text-red-300">FAQ</a></li>
+                        <li><a href="index.html#apply" class="hover:text-red-300">Apply</a></li>
+                        <li><a href="index.html#terms" class="hover:text-red-300">Terms</a></li>
+                    </ul>
+                </div>
                 <div>
                     <h4 class="font-bold mb-4">Contact</h4>
                     <p class="text-sm group">
