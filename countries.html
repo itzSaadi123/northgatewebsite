@@ -9,7 +9,6 @@
     <meta name="robots" content="index, follow">
     <title>NorthGate Visa | Countries & Destinations</title>
     
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="shortcut icon" href="favicon.png">
     
@@ -35,7 +34,7 @@
             background: white;
         }
         
-        /* Background Logo - Thora neechay kiya (top: 55%) */
+        /* Background Logo */
         .bg-logo-fixed {
             position: fixed;
             top: 55%;
@@ -56,13 +55,12 @@
             background: transparent;
         }
         
-        /* Make sections transparent so background logo shows through */
         section {
             background: transparent !important;
             position: relative;
         }
         
-        /* Cards have white background with slight transparency */
+        /* Cards */
         .flag-card {
             transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
             cursor: pointer;
@@ -83,38 +81,33 @@
             background: rgba(255, 255, 255, 1);
         }
         
-        /* STRAIGHT RECTANGLE FLAGS - NO ROUNDED CORNERS */
+        /* FIXED: No extra space above/below flags */
         .flag-img {
             width: 100%;
             max-width: 100px;
-            height: auto;
-            aspect-ratio: 4/3;
-            object-fit: cover;
-            object-position: center;
+            height: 70px;
+            object-fit: contain !important;
             border-radius: 0px !important;
-            margin: 0 auto 14px auto;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.12);
-            background: #f0f0f0;
+            margin: 0 auto 8px auto !important;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08); 
+            background: transparent;
             display: block;
-            border: 1px solid #e0e0e0;
+            border: none;
         }
         
-        /* STRAIGHT RECTANGLE FLAGS FOR SCHENGEN SECTION */
         .schengen-flag {
             width: 100%;
             max-width: 95px;
-            height: auto;
-            aspect-ratio: 4/3;
-            object-fit: cover;
-            object-position: center;
+            height: 65px;
+            object-fit: contain !important;
             border-radius: 0px !important;
-            margin: 0 auto 12px auto;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+            margin: 0 auto 6px auto !important;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
             cursor: pointer;
             transition: all 0.3s ease;
-            background: #f0f0f0;
+            background: transparent;
             display: block;
-            border: 1px solid #e0e0e0;
+            border: none;
         }
         
         .schengen-flag:hover {
@@ -140,6 +133,12 @@
             transform: translateY(-6px);
             background: rgba(255, 255, 255, 1);
             box-shadow: 0 16px 28px -10px rgba(0,0,0,0.12);
+        }
+        
+        /* Reduced spacing for country name */
+        .flag-card span, .schengen-country span {
+            margin-top: 2px !important;
+            margin-bottom: 0 !important;
         }
         
         .heading-font {
@@ -168,131 +167,41 @@
             width: 100%;
         }
         
-        /* Responsive adjustments */
+        /* Responsive adjustments - flag sizes same */
         @media (max-width: 640px) {
-            .flag-img {
-                max-width: 80px;
-            }
-            .schengen-flag {
-                max-width: 75px;
-            }
-            .flag-card {
-                padding: 14px 8px !important;
-            }
-            .schengen-country {
-                padding: 14px 8px;
-            }
-            .flag-card span, .schengen-country span {
-                font-size: 12px;
-                font-weight: 600;
-            }
-            .bg-logo-fixed {
-                width: 80%;
-                max-width: 350px;
-                opacity: 0.2;
-                top: 55%;
-            }
+            .flag-img { max-width: 75px; height: 55px; margin-bottom: 5px !important; }
+            .schengen-flag { max-width: 70px; height: 50px; margin-bottom: 4px !important; }
+            .flag-card { padding: 14px 8px !important; }
+            .schengen-country { padding: 14px 8px; }
+            .flag-card span, .schengen-country span { font-size: 12px; font-weight: 600; margin-top: 1px !important; }
+            .bg-logo-fixed { width: 80%; max-width: 350px; opacity: 0.2; top: 55%; }
         }
         
         @media (min-width: 641px) and (max-width: 768px) {
-            .flag-img {
-                max-width: 90px;
-            }
-            .schengen-flag {
-                max-width: 85px;
-            }
-            .flag-card {
-                padding: 16px 12px;
-            }
-            .schengen-country {
-                padding: 16px 12px;
-            }
-            .bg-logo-fixed {
-                width: 60%;
-                opacity: 0.21;
-                top: 55%;
-            }
-        }
-        
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .flag-img {
-                max-width: 100px;
-            }
-            .schengen-flag {
-                max-width: 95px;
-            }
-            .flag-card {
-                padding: 20px 12px;
-            }
-            .bg-logo-fixed {
-                width: 55%;
-                opacity: 0.22;
-                top: 55%;
-            }
+            .flag-img { max-width: 85px; height: 62px; margin-bottom: 6px !important; }
+            .schengen-flag { max-width: 80px; height: 58px; margin-bottom: 5px !important; }
+            .flag-card { padding: 16px 12px; }
+            .schengen-country { padding: 16px 12px; }
+            .bg-logo-fixed { width: 60%; opacity: 0.21; top: 55%; }
         }
         
         @media (min-width: 1025px) {
-            .flag-img {
-                max-width: 110px;
-            }
-            .schengen-flag {
-                max-width: 105px;
-            }
-            .flag-card {
-                padding: 22px 14px;
-            }
-            .schengen-country {
-                padding: 20px 14px;
-            }
-            .bg-logo-fixed {
-                width: 50%;
-                opacity: 0.22;
-                top: 55%;
-            }
+            .flag-img { max-width: 100px; height: 70px; margin-bottom: 8px !important; }
+            .schengen-flag { max-width: 95px; height: 65px; margin-bottom: 6px !important; }
+            .flag-card { padding: 22px 14px; }
+            .schengen-country { padding: 20px 14px; }
+            .bg-logo-fixed { width: 50%; opacity: 0.22; top: 55%; }
         }
         
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #8b0000;
-            border-radius: 4px;
-        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #8b0000; border-radius: 4px; }
         
-        .grid > div {
-            min-width: 0;
-        }
-        
-        /* Override any rounded corners from tailwind */
-        .rounded-xl, .rounded-2xl, .rounded-3xl, .rounded-full {
-            border-radius: 0px !important;
-        }
-        
-        /* Keep footer logo rounded */
-        .rounded-full.bg-white {
-            border-radius: 50% !important;
-        }
-        
-        /* Keep WhatsApp button rounded */
-        .bg-green-600 {
-            border-radius: 9999px !important;
-        }
-        
-        /* Keep section titles visible */
-        .text-center span, .text-center h2, .text-center p {
-            position: relative;
-            z-index: 2;
-        }
-        
-        /* Title background badges - make them solid */
-        .text-center span.bg-gradient-to-r {
-            background: linear-gradient(to right, #fee2e2, #dbeafe) !important;
-            padding: 4px 16px;
-        }
-        
+        .rounded-xl, .rounded-2xl, .rounded-3xl, .rounded-full { border-radius: 0px !important; }
+        .rounded-full.bg-white { border-radius: 50% !important; }
+        .bg-green-600 { border-radius: 9999px !important; }
+        .text-center span, .text-center h2, .text-center p { position: relative; z-index: 2; }
+        .text-center span.bg-gradient-to-r { background: linear-gradient(to right, #fee2e2, #dbeafe) !important; padding: 4px 16px; }
         h2.bg-gradient-to-r {
             background: linear-gradient(135deg, #1e293b, #475569) !important;
             -webkit-background-clip: text !important;
@@ -303,12 +212,10 @@
 </head>
 <body>
 
-    <!-- Background Logo - Thora neechay kiya gaya (top: 55%) -->
     <img src="favicon.png" class="bg-logo-fixed" alt="NorthGate Background Logo" onerror="this.style.display='none'">
 
     <div class="content-wrapper">
 
-        <!-- NAVBAR -->
         <nav class="bg-white/95 backdrop-blur-md border-b border-red-200 sticky top-0 z-50 shadow-sm">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center py-3 md:py-4">
@@ -355,7 +262,6 @@
             </div>
         </nav>
 
-        <!-- COUNTRIES SECTION - Transparent background -->
         <section class="py-12 sm:py-16 md:py-20 min-h-screen">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-8 sm:mb-12">
@@ -365,95 +271,94 @@
                 </div>
                 
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 md:gap-6">
-                    <div onclick="openFormLink('usa')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center hover:border-red-500 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <div onclick="openFormLink('usa')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center shadow-sm">
                         <img src="https://flagcdn.com/w320/us.png" class="flag-img" alt="USA Flag">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800 mt-2">USA</span>
+                        <span class="text-sm sm:text-base font-semibold text-gray-800">USA</span>
                     </div>
-                    <div onclick="openFormLink('canada')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center hover:border-red-500 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <div onclick="openFormLink('canada')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center shadow-sm">
                         <img src="https://flagcdn.com/w320/ca.png" class="flag-img" alt="Canada Flag">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800 mt-2">Canada</span>
+                        <span class="text-sm sm:text-base font-semibold text-gray-800">Canada</span>
                     </div>
-                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center hover:border-red-500 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center shadow-sm">
                         <img src="https://flagcdn.com/w320/gb.png" class="flag-img" alt="UK Flag">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800 mt-2">UK</span>
+                        <span class="text-sm sm:text-base font-semibold text-gray-800">UK</span>
                     </div>
-                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center hover:border-red-500 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center shadow-sm">
                         <img src="https://flagcdn.com/w320/my.png" class="flag-img" alt="Malaysia Flag">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800 mt-2">Malaysia</span>
+                        <span class="text-sm sm:text-base font-semibold text-gray-800">Malaysia</span>
                     </div>
-                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center hover:border-red-500 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center shadow-sm">
                         <img src="https://flagcdn.com/w320/sg.png" class="flag-img" alt="Singapore Flag">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800 mt-2">Singapore</span>
+                        <span class="text-sm sm:text-base font-semibold text-gray-800">Singapore</span>
                     </div>
-                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center hover:border-red-500 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center shadow-sm">
                         <img src="https://flagcdn.com/w320/th.png" class="flag-img" alt="Thailand Flag">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800 mt-2">Thailand</span>
+                        <span class="text-sm sm:text-base font-semibold text-gray-800">Thailand</span>
                     </div>
-                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center hover:border-red-500 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center shadow-sm">
                         <img src="https://flagcdn.com/w320/ae.png" class="flag-img" alt="UAE Flag">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800 mt-2">UAE</span>
+                        <span class="text-sm sm:text-base font-semibold text-gray-800">UAE</span>
                     </div>
-                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center hover:border-red-500 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center shadow-sm">
                         <img src="https://flagcdn.com/w320/qa.png" class="flag-img" alt="Qatar Flag">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800 mt-2">Qatar</span>
+                        <span class="text-sm sm:text-base font-semibold text-gray-800">Qatar</span>
                     </div>
-                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center hover:border-red-500 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center shadow-sm">
                         <img src="https://flagcdn.com/w320/sa.png" class="flag-img" alt="Saudi Arabia Flag">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800 mt-2">Saudi Arabia</span>
+                        <span class="text-sm sm:text-base font-semibold text-gray-800">Saudi Arabia</span>
                     </div>
-                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center hover:border-red-500 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center shadow-sm">
                         <img src="https://flagcdn.com/w320/om.png" class="flag-img" alt="Oman Flag">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800 mt-2">Oman</span>
+                        <span class="text-sm sm:text-base font-semibold text-gray-800">Oman</span>
                     </div>
-                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center hover:border-red-500 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center shadow-sm">
                         <img src="https://flagcdn.com/w320/au.png" class="flag-img" alt="Australia Flag">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800 mt-2">Australia</span>
+                        <span class="text-sm sm:text-base font-semibold text-gray-800">Australia</span>
                     </div>
-                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center hover:border-red-500 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center shadow-sm">
                         <img src="https://flagcdn.com/w320/ph.png" class="flag-img" alt="Philippines Flag">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800 mt-2">Philippines</span>
+                        <span class="text-sm sm:text-base font-semibold text-gray-800">Philippines</span>
                     </div>
-                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center hover:border-red-500 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center shadow-sm">
                         <img src="https://flagcdn.com/w320/mv.png" class="flag-img" alt="Maldives Flag">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800 mt-2">Maldives</span>
+                        <span class="text-sm sm:text-base font-semibold text-gray-800">Maldives</span>
                     </div>
-                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center hover:border-red-500 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center shadow-sm">
                         <img src="https://flagcdn.com/w320/id.png" class="flag-img" alt="Indonesia Flag">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800 mt-2">Indonesia</span>
+                        <span class="text-sm sm:text-base font-semibold text-gray-800">Indonesia</span>
                     </div>
-                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center hover:border-red-500 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center shadow-sm">
                         <img src="https://flagcdn.com/w320/az.png" class="flag-img" alt="Azerbaijan Flag">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800 mt-2">Azerbaijan</span>
+                        <span class="text-sm sm:text-base font-semibold text-gray-800">Azerbaijan</span>
                     </div>
-                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center hover:border-red-500 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center shadow-sm">
                         <img src="https://flagcdn.com/w320/tr.png" class="flag-img" alt="Turkey Flag">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800 mt-2">Turkey</span>
+                        <span class="text-sm sm:text-base font-semibold text-gray-800">Turkey</span>
                     </div>
-                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center hover:border-red-500 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center shadow-sm">
                         <img src="https://flagcdn.com/w320/lk.png" class="flag-img" alt="Sri Lanka Flag">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800 mt-2">Sri Lanka</span>
+                        <span class="text-sm sm:text-base font-semibold text-gray-800">Sri Lanka</span>
                     </div>
-                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center hover:border-red-500 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center shadow-sm">
                         <img src="https://flagcdn.com/w320/ir.png" class="flag-img" alt="Iran Flag">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800 mt-2">Iran</span>
+                        <span class="text-sm sm:text-base font-semibold text-gray-800">Iran</span>
                     </div>
-                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center hover:border-red-500 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center shadow-sm">
                         <img src="https://flagcdn.com/w320/cn.png" class="flag-img" alt="China Flag">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800 mt-2">China</span>
+                        <span class="text-sm sm:text-base font-semibold text-gray-800">China</span>
                     </div>
-                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center hover:border-red-500 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center shadow-sm">
                         <img src="https://flagcdn.com/w320/eu.png" class="flag-img" alt="Schengen Flag">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800 mt-2">Schengen</span>
+                        <span class="text-sm sm:text-base font-semibold text-gray-800">Schengen</span>
                     </div>
-                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center hover:border-red-500 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <div onclick="openFormLink('other')" class="flag-card border border-gray-200 p-4 sm:p-5 text-center shadow-sm">
                         <img src="https://flagcdn.com/w320/by.png" class="flag-img" alt="Belarus Flag">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800 mt-2">Belarus</span>
+                        <span class="text-sm sm:text-base font-semibold text-gray-800">Belarus</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- EU-SCHENGEN COUNTRIES SECTION - Transparent background -->
         <section class="py-12 sm:py-16 md:py-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-8 sm:mb-10">
@@ -464,57 +369,56 @@
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5 md:gap-6">
                     <div onclick="openFormLink('italy')" class="schengen-country border border-gray-200">
                         <img src="https://flagcdn.com/w320/it.png" class="schengen-flag mx-auto" alt="Italy">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800 block mt-2">Italy</span>
+                        <span class="text-sm sm:text-base font-semibold text-gray-800 block">Italy</span>
                     </div>
                     <div onclick="openFormLink('other')" class="schengen-country border border-gray-200">
                         <img src="https://flagcdn.com/w320/gr.png" class="schengen-flag mx-auto" alt="Greece">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800 block mt-2">Greece</span>
+                        <span class="text-sm sm:text-base font-semibold text-gray-800 block">Greece</span>
                     </div>
                     <div onclick="openFormLink('other')" class="schengen-country border border-gray-200">
                         <img src="https://flagcdn.com/w320/de.png" class="schengen-flag mx-auto" alt="Germany">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800 block mt-2">Germany</span>
+                        <span class="text-sm sm:text-base font-semibold text-gray-800 block">Germany</span>
                     </div>
                     <div onclick="openFormLink('other')" class="schengen-country border border-gray-200">
                         <img src="https://flagcdn.com/w320/nl.png" class="schengen-flag mx-auto" alt="Netherlands">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800 block mt-2">Netherlands</span>
+                        <span class="text-sm sm:text-base font-semibold text-gray-800 block">Netherlands</span>
                     </div>
                     <div onclick="openFormLink('other')" class="schengen-country border border-gray-200">
                         <img src="https://flagcdn.com/w320/mt.png" class="schengen-flag mx-auto" alt="Malta">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800 block mt-2">Malta</span>
+                        <span class="text-sm sm:text-base font-semibold text-gray-800 block">Malta</span>
                     </div>
                     <div onclick="openFormLink('other')" class="schengen-country border border-gray-200">
                         <img src="https://flagcdn.com/w320/fr.png" class="schengen-flag mx-auto" alt="France">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800 block mt-2">France</span>
+                        <span class="text-sm sm:text-base font-semibold text-gray-800 block">France</span>
                     </div>
                     <div onclick="openFormLink('other')" class="schengen-country border border-gray-200">
                         <img src="https://flagcdn.com/w320/es.png" class="schengen-flag mx-auto" alt="Spain">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800 block mt-2">Spain</span>
+                        <span class="text-sm sm:text-base font-semibold text-gray-800 block">Spain</span>
                     </div>
                     <div onclick="openFormLink('other')" class="schengen-country border border-gray-200">
                         <img src="https://flagcdn.com/w320/ch.png" class="schengen-flag mx-auto" alt="Switzerland">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800 block mt-2">Switzerland</span>
+                        <span class="text-sm sm:text-base font-semibold text-gray-800 block">Switzerland</span>
                     </div>
                     <div onclick="openFormLink('other')" class="schengen-country border border-gray-200">
                         <img src="https://flagcdn.com/w320/fi.png" class="schengen-flag mx-auto" alt="Finland">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800 block mt-2">Finland</span>
+                        <span class="text-sm sm:text-base font-semibold text-gray-800 block">Finland</span>
                     </div>
                     <div onclick="openFormLink('other')" class="schengen-country border border-gray-200">
                         <img src="https://flagcdn.com/w320/be.png" class="schengen-flag mx-auto" alt="Belgium">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800 block mt-2">Belgium</span>
+                        <span class="text-sm sm:text-base font-semibold text-gray-800 block">Belgium</span>
                     </div>
                     <div onclick="openFormLink('other')" class="schengen-country border border-gray-200">
                         <img src="https://flagcdn.com/w320/pt.png" class="schengen-flag mx-auto" alt="Portugal">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800 block mt-2">Portugal</span>
+                        <span class="text-sm sm:text-base font-semibold text-gray-800 block">Portugal</span>
                     </div>
                     <div onclick="openFormLink('other')" class="schengen-country border border-gray-200">
                         <img src="https://flagcdn.com/w320/no.png" class="schengen-flag mx-auto" alt="Norway">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800 block mt-2">Norway</span>
+                        <span class="text-sm sm:text-base font-semibold text-gray-800 block">Norway</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- FOOTER - Logo remains ROUND -->
         <footer class="bg-gradient-to-br from-gray-900 to-blue-950 text-white py-12">
             <div class="max-w-7xl mx-auto px-5 grid md:grid-cols-4 gap-10">
                 <div>
@@ -525,9 +429,15 @@
                     <p class="text-sm text-red-200 mt-1">Visa Service Center</p>
                     <p class="text-xs mt-4 opacity-70">Independent • Ethical • Transparent</p>
                 </div>
-                
-                <div><h4 class="font-bold mb-4">Quick Links</h4><ul class="space-y-2 text-sm"><li><a href="#about" class="hover:text-red-300">About</a></li><li><a href="#faq" class="hover:text-red-300">FAQ</a></li><li><a href="#apply" class="hover:text-red-300">Apply</a></li><li><a href="#terms" class="hover:text-red-300">Terms</a></li></ul></div>
-                
+                <div>
+    <h4 class="font-bold mb-4">Quick Links</h4>
+    <ul class="space-y-2 text-sm">
+        <li><a href="index.html#about" class="hover:text-red-300">About</a></li>
+        <li><a href="index.html#faq" class="hover:text-red-300">FAQ</a></li>
+        <li><a href="index.html#apply" class="hover:text-red-300">Apply</a></li>
+        <li><a href="index.html#terms" class="hover:text-red-300">Terms</a></li>
+    </ul>
+</div>
                 <div>
                     <h4 class="font-bold mb-4">Contact</h4>
                     <p class="text-sm group">
