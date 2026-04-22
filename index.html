@@ -233,14 +233,14 @@
                     </div>
 
                     <div class="hidden md:flex items-center gap-6 text-sm font-semibold text-gray-700">
-                        <a href="#home" class="nav-link hover:text-red-600">HOME</a>
-                        <a href="#services" class="nav-link hover:text-red-600">SERVICES</a>
+                        <a href="index.html" class="nav-link hover:text-red-600">HOME</a>
+                        <a href="index.html#services" class="nav-link hover:text-red-600">SERVICES</a>
                         <a href="countries.html" class="nav-link hover:text-red-600">COUNTRIES</a>
-                        <a href="#why" class="nav-link hover:text-red-600">WHY US</a>
-                        <a href="#apply" class="nav-link hover:text-red-600">APPLY</a>
-                        <a href="#faq" class="nav-link hover:text-red-600">FAQ</a>
-                        <a href="#about" class="nav-link hover:text-red-600">ABOUT</a>
-                        <a href="#terms" class="nav-link hover:text-red-600">TERMS</a>
+                        <a href="index.html#why" class="nav-link hover:text-red-600">WHY US</a>
+                        <a href="index.html#apply" class="nav-link hover:text-red-600">APPLY</a>
+                        <a href="index.html#faq" class="nav-link hover:text-red-600">FAQ</a>
+                        <a href="about.html" class="nav-link hover:text-red-600">ABOUT</a>
+                        <a href="index.html#terms" class="nav-link hover:text-red-600">TERMS</a>
                     </div>
 
                     <div class="flex items-center gap-3">
@@ -257,51 +257,71 @@
 
             <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 px-6 py-5 shadow-lg">
                 <div class="flex flex-col gap-3 text-base font-semibold">
-                    <a href="#home" onclick="closeMobileAndScroll('home')" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-house text-red-500 w-5"></i> HOME</a>
-                    <a href="#services" onclick="closeMobileAndScroll('services')" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-briefcase text-red-500 w-5"></i> SERVICES</a>
-                    <a href="countries.html" onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-globe text-red-500 w-5"></i> COUNTRIES</a>
-                    <a href="#why" onclick="closeMobileAndScroll('why')" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-star text-red-500 w-5"></i> WHY US</a>
-                    <a href="#apply" onclick="closeMobileAndScroll('apply')" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-file-pen text-red-500 w-5"></i> APPLY</a>
-                    <a href="#faq" onclick="closeMobileAndScroll('faq')" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-question-circle text-red-500 w-5"></i> FAQ</a>
-                    <a href="#about" onclick="closeMobileAndScroll('about')" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-building text-red-500 w-5"></i> ABOUT</a>
-                    <a href="#terms" onclick="closeMobileAndScroll('terms')" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-scale-balanced text-red-500 w-5"></i> TERMS</a>
+                    <a href="index.html" onclick="closeMobileMenu()" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-house text-red-500 w-5"></i> HOME</a>
+                    <a href="index.html#services" onclick="closeMobileMenu()" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-briefcase text-red-500 w-5"></i> SERVICES</a>
+                    <a href="countries.html" onclick="closeMobileMenu()" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-globe text-red-500 w-5"></i> COUNTRIES</a>
+                    <a href="index.html#why" onclick="closeMobileMenu()" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-star text-red-500 w-5"></i> WHY US</a>
+                    <a href="index.html#apply" onclick="closeMobileMenu()" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-file-pen text-red-500 w-5"></i> APPLY</a>
+                    <a href="index.html#faq" onclick="closeMobileMenu()" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-question-circle text-red-500 w-5"></i> FAQ</a>
+                    <a href="about.html" onclick="closeMobileMenu()" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-building text-red-500 w-5"></i> ABOUT US</a>
+                    <a href="index.html#terms" onclick="closeMobileMenu()" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-scale-balanced text-red-500 w-5"></i> TERMS</a>
                 </div>
             </div>
         </nav>
 
-        <!-- HERO SECTION -->
-        <section id="home" class="hero-bg text-white min-h-[90vh] flex items-center relative">
-            <div class="max-w-7xl mx-auto px-5 lg:px-8 grid md:grid-cols-2 gap-12 items-center py-16">
-                <div class="space-y-7">
-                    <div class="inline-flex items-center gap-3 bg-white/20 backdrop-blur-md text-white text-sm font-semibold px-6 py-3 rounded-full">
-                        <span class="relative flex h-3 w-3"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span><span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span></span>
-                        150+ SUCCESS STORIES • 2026 UPDATED
-                    </div>
-                    <h1 class="text-5xl md:text-6xl font-bold heading-font leading-tight">
-                        Navigate Your Visa Journey<br>with <span class="text-amber-300">Confidence</span><br>and Expert Guidance
-                    </h1>
-                    <p class="text-xl text-white/90 max-w-md">Your trusted partner for USA, Canada, Italy, Schengen & worldwide visas. transparent, ethical, result-driven.</p>
-                    <div class="flex flex-wrap gap-5">
-                        <a href="#apply" class="bg-white text-red-600 hover:bg-amber-300 font-extrabold px-8 py-4 rounded-2xl text-lg flex items-center gap-3 shadow-xl transition-all">APPLY NOW <i class="fa-solid fa-arrow-right"></i></a>
-                        <a href="https://wa.me/923452613587" target="_blank" rel="noopener noreferrer" class="border-2 border-white/90 hover:bg-white/10 text-white font-semibold px-7 py-4 rounded-2xl flex items-center gap-2 text-lg"><i class="fab fa-whatsapp text-xl"></i> CHAT NOW</a>
-                    </div>
-                    <div class="flex flex-wrap gap-6 text-sm font-medium">
-                        <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-2xl text-amber-300"></i> 150+ Approved</div>
-                        <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-2xl text-amber-300"></i> SECP & FBR</div>
-                        <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-2xl text-amber-300"></i> Expert Guidance</div>
-                    </div>
-                </div>
-                <div class="hidden md:block bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/30 text-center">
-                    <i class="fa-solid fa-passport text-7xl text-amber-200"></i>
-                    <p class="text-2xl font-bold mt-4">Visa Assistance</p>
-                    <p class="text-sm opacity-80">Start your journey with professional guidance</p>
-                    <div class="bg-gradient-to-r from-red-600 to-blue-700 rounded-full py-3 px-4 text-sm font-mono mt-6">✓ TRUSTED CONSULTANT</div>
-                </div>
+      <section id="home" class="hero-bg text-white min-h-[90vh] flex items-center relative">
+    <div class="max-w-7xl mx-auto px-5 lg:px-8 grid md:grid-cols-2 gap-12 items-center py-16">
+        <div class="space-y-7">
+            <div class="inline-flex items-center gap-3 bg-white/20 backdrop-blur-md text-white text-sm font-semibold px-6 py-3 rounded-full border border-white/10">
+                <span class="relative flex h-3 w-3">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                </span>
+                150+ SUCCESS STORIES • 2026 UPDATED
             </div>
-            <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-white/60 text-xs flex flex-col items-center gap-1">
-                <span>SCROLL</span> <i class="fa-solid fa-chevron-down animate-bounce"></i>
+
+            <h1 class="text-5xl md:text-6xl font-bold heading-font leading-tight" 
+                style="text-shadow: 3px 3px 6px rgba(0,0,0,0.8);">
+                Navigate Your Visa Journey<br>
+                with <span class="text-amber-300">Confidence</span><br>
+                and Expert Guidance
+            </h1>
+
+            <p class="text-xl text-white max-w-md font-medium" 
+               style="text-shadow: 2px 2px 4px rgba(0,0,0,0.9);">
+                Your trusted partner for USA, Canada, Italy, Schengen & worldwide visas. <span class="capitalize">Transparent, ethical, result-driven.</span>
+            </p>
+
+            <div class="flex flex-wrap gap-5">
+                <a href="index.html#apply" class="bg-white text-red-600 hover:bg-amber-300 font-extrabold px-8 py-4 rounded-2xl text-lg flex items-center gap-3 shadow-2xl transition-all hover:scale-105">
+                    APPLY NOW <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="https://wa.me/923452613587" target="_blank" rel="noopener noreferrer" class="border-2 border-white/90 bg-black/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold px-7 py-4 rounded-2xl flex items-center gap-2 text-lg transition-all">
+                    <i class="fab fa-whatsapp text-xl text-green-400"></i> CHAT NOW
+                </a>
             </div>
-        </section>
+
+            <div class="flex flex-wrap gap-6 text-sm font-bold" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.7);">
+                <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-2xl text-amber-300"></i> 150+ Approved</div>
+                <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-2xl text-amber-300"></i> SECP & FBR Registered</div>
+                <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-2xl text-amber-300"></i> Expert Guidance</div>
+            </div>
+        </div>
+
+        <div class="hidden md:block bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/30 text-center shadow-2xl transform hover:rotate-1 transition-transform">
+            <i class="fa-solid fa-passport text-7xl text-amber-200 drop-shadow-lg"></i>
+            <p class="text-2xl font-bold mt-4" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Visa Assistance</p>
+            <p class="text-sm opacity-90 font-medium">Start your journey with professional guidance</p>
+            <div class="bg-gradient-to-r from-red-600 to-blue-700 rounded-full py-3 px-4 text-sm font-mono mt-6 border border-white/20 shadow-lg">
+                ✓ TRUSTED CONSULTANT
+            </div>
+        </div>
+    </div>
+
+    <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-white/80 text-xs flex flex-col items-center gap-1 font-bold">
+        <span>SCROLL</span> <i class="fa-solid fa-chevron-down animate-bounce"></i>
+    </div>
+</section>
 
         <!-- STRUCTURED & RELIABLE PROCESS SECTION -->
         <section id="process" class="py-20 bg-white/95">
@@ -375,25 +395,6 @@
             </div>
         </section>
 
-        <!-- ABOUT US -->
-        <section id="about" class="py-20 bg-white/95">
-            <div class="max-w-6xl mx-auto px-5 lg:px-8">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h2 class="text-4xl font-bold heading-font mb-6 bg-gradient-to-r from-red-600 to-blue-700 bg-clip-text text-transparent">About NorthGate</h2>
-                        <p class="text-gray-700 leading-relaxed mb-5">NorthGate Visa Service Center is an independent visa assistance firm based in Pakistan, providing professional support for visa applications worldwide with specialized expertise in United States, Canada, Italy, Schengen Countries and beyond.</p>
-                        <p class="text-gray-700 leading-relaxed mb-5">We are legally registered with SECP & FBR, maintaining strict ethical policies. Our services include end-to-end application support, documentation review, interview preparation, and personalized case handling.</p>
-                        <div class="bg-gradient-to-r from-red-50 to-blue-50 p-5 rounded-2xl border-l-4 border-red-600"><p class="text-sm font-medium">✓ No false guarantees • Transparent fees • Confidential & secure</p></div>
-                    </div>
-                    <div class="bg-gradient-to-br from-red-700 to-blue-800 text-white rounded-3xl p-10 shadow-2xl">
-                        <i class="fa-solid fa-shield-heart text-5xl mb-5"></i>
-                        <p class="text-2xl font-light leading-relaxed">Our commitment is accuracy, transparency, and professionalism, helping applicants navigate complex visa processes with confidence.</p>
-                        <div class="mt-8 flex items-center gap-3 border-t border-white/30 pt-6"><i class="fa-regular fa-building"></i> SECP & FBR Registered | Since 2024</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- FAQ SECTION -->
         <section id="faq" class="py-20 bg-gradient-to-br from-red-50/95 to-blue-50/95">
             <div class="max-w-4xl mx-auto px-5">
@@ -412,7 +413,9 @@
                     <a href="https://itzsaadi123.github.io/Northgate/" target="_blank" rel="noopener noreferrer" class="apply-btn text-white font-bold px-8 py-4 rounded-2xl text-lg shadow-lg hover:shadow-xl transition-all flex items-center gap-2"><img src="https://flagcdn.com/w320/us.png" class="h-6 w-auto rounded"> USA Visa</a>
                     <a href="https://itzsaadi123.github.io/NorthgateCanadaForm/" target="_blank" rel="noopener noreferrer" class="apply-btn text-white font-bold px-8 py-4 rounded-2xl text-lg shadow-lg hover:shadow-xl transition-all flex items-center gap-2"><img src="https://flagcdn.com/w320/ca.png" class="h-6 w-auto rounded"> Canada Visa</a>
                     <a href="https://itzsaadi123.github.io/NorthgateItalyVisaForm/" target="_blank" rel="noopener noreferrer" class="apply-btn text-white font-bold px-8 py-4 rounded-2xl text-lg shadow-lg hover:shadow-xl transition-all flex items-center gap-2"><img src="https://flagcdn.com/w320/it.png" class="h-6 w-auto rounded"> Italy Visa</a>
-                    <a href="https://itzsaadi123.github.io/NorthgateVisaForm/" target="_blank" rel="noopener noreferrer" class="apply-btn text-white font-bold px-8 py-4 rounded-2xl text-lg shadow-lg hover:shadow-xl transition-all flex items-center gap-2"><i class="fa-solid fa-globe"></i> Other Countries</a>
+        <a href="countries.html" class="apply-btn text-white font-bold px-8 py-4 rounded-2xl text-lg shadow-lg hover:shadow-xl transition-all flex items-center gap-2">
+    <i class="fa-solid fa-globe"></i> Other Countries
+</a>
                 </div>
 
                 <div class="text-center mb-10">
@@ -540,7 +543,7 @@
                     <p class="text-xs mt-4 opacity-70">Independent • Ethical • Transparent</p>
                 </div>
                 
-                <div><h4 class="font-bold mb-4">Quick Links</h4><ul class="space-y-2 text-sm"><li><a href="#about" class="hover:text-red-300">About</a></li><li><a href="#faq" class="hover:text-red-300">FAQ</a></li><li><a href="#testimonials" class="hover:text-red-300">Testimonials</a></li><li><a href="#apply" class="hover:text-red-300">Apply</a></li><li><a href="#terms" class="hover:text-red-300">Terms</a></li></ul></div>
+                <div><h4 class="font-bold mb-4">Quick Links</h4><ul class="space-y-2 text-sm"><li><a href="about.html" class="hover:text-red-300">About</a></li><li><a href="index.html#faq" class="hover:text-red-300">FAQ</a></li><li><a href="index.html#testimonials" class="hover:text-red-300">Testimonials</a></li><li><a href="index.html#apply" class="hover:text-red-300">Apply</a></li><li><a href="index.html#terms" class="hover:text-red-300">Terms</a></li></ul></div>
                 
                 <div>
                     <h4 class="font-bold mb-4">Contact</h4>
@@ -707,9 +710,8 @@
                 document.getElementById('mobileMenu').classList.toggle('hidden'); 
             }
             
-            function closeMobileAndScroll(id) { 
+            function closeMobileMenu() { 
                 document.getElementById('mobileMenu').classList.add('hidden'); 
-                document.getElementById(id).scrollIntoView({behavior:'smooth'}); 
             }
             
             window.onload = () => { 
