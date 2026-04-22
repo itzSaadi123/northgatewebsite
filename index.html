@@ -165,7 +165,6 @@
             margin-right: 2px;
         }
         
-        /* Modal Styles */
         .modal {
             display: none;
             position: fixed;
@@ -193,6 +192,10 @@
         section {
             position: relative;
             background: transparent;
+        }
+        
+        .review-hidden {
+            display: none;
         }
     </style>
 </head>
@@ -457,12 +460,17 @@
                     <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Real experiences from travelers who achieved their visa goals with NorthGate guidance.</p>
                 </div>
                 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="reviewsContainer">
-                    <!-- Reviews will be loaded dynamically -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="reviewsContainer"></div>
+
+                <!-- Load More Button -->
+                <div class="text-center mt-8" id="loadMoreBtnContainer">
+                    <button onclick="loadMoreReviews()" id="loadMoreBtn" class="bg-white border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold px-8 py-3 rounded-full text-lg transition-all duration-300 flex items-center gap-2 mx-auto">
+                        <i class="fa-solid fa-chevron-down"></i> Load More Reviews
+                    </button>
                 </div>
 
                 <!-- Submit Review Button -->
-                <div class="text-center mt-12">
+                <div class="text-center mt-8">
                     <button onclick="openReviewModal()" class="bg-gradient-to-r from-red-600 to-blue-700 hover:from-red-700 hover:to-blue-800 text-white font-bold px-8 py-4 rounded-2xl text-lg shadow-lg transition-all flex items-center gap-3 mx-auto">
                         <i class="fa-solid fa-pen-to-square"></i> Share Your Experience
                     </button>
@@ -554,12 +562,13 @@
                 { name: "Taha A.", visaType: "Canada Visitor Visa", rating: 5, text: "Very cooperative staff and transparent process. They helped me organize my travel history and family ties. My Canadian visa was approved smoothly. Five stars!", date: "May 2026" }
             ];
 
-            // Get initials from name
+            let currentDisplayCount = 3; // Start with 3 reviews
+            let allReviewsLoaded = false;
+
             function getInitials(name) {
                 return name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
             }
 
-            // Get gradient color based on name
             function getGradient(name) {
                 const gradients = [
                     'from-red-400 to-blue-500', 'from-green-400 to-teal-500', 'from-amber-400 to-orange-500',
@@ -570,10 +579,11 @@
                 return gradients[hash % gradients.length];
             }
 
-            // Render reviews
             function renderReviews() {
                 const container = document.getElementById('reviewsContainer');
-                container.innerHTML = reviews.map(review => `
+                const visibleReviews = reviews.slice(0, currentDisplayCount);
+                
+                container.innerHTML = visibleReviews.map(review => `
                     <div class="testimonial-card border border-gray-200 rounded-2xl p-6 shadow-md bg-white">
                         <div class="flex items-center gap-4 mb-4">
                             <div class="w-14 h-14 rounded-full bg-gradient-to-br ${getGradient(review.name)} flex items-center justify-center text-white text-xl font-bold shadow-md">${getInitials(review.name)}</div>
@@ -591,6 +601,14 @@
                     </div>
                 `).join('');
                 
+                // Update load more button visibility
+                const loadMoreContainer = document.getElementById('loadMoreBtnContainer');
+                if (currentDisplayCount >= reviews.length) {
+                    loadMoreContainer.style.display = 'none';
+                } else {
+                    loadMoreContainer.style.display = 'block';
+                }
+                
                 // Update average rating and count
                 const totalRating = reviews.reduce((sum, r) => sum + r.rating, 0);
                 const avg = (totalRating / reviews.length).toFixed(1);
@@ -598,7 +616,11 @@
                 document.getElementById('reviewCount').innerText = reviews.length;
             }
 
-            // Star selector functionality
+            function loadMoreReviews() {
+                currentDisplayCount += 3;
+                renderReviews();
+            }
+
             let selectedRating = 0;
             document.querySelectorAll('#starSelector i').forEach(star => {
                 star.addEventListener('click', function() {
@@ -614,10 +636,8 @@
                 });
             });
 
-            // Modal functions
             function openReviewModal() {
                 document.getElementById('reviewModal').classList.add('active');
-                // Reset form
                 document.getElementById('reviewForm').reset();
                 selectedRating = 0;
                 document.getElementById('ratingValue').value = '';
@@ -630,7 +650,6 @@
                 document.getElementById('reviewModal').classList.remove('active');
             }
 
-            // Submit review
             function submitReview(event) {
                 event.preventDefault();
                 const name = document.getElementById('reviewerName').value;
@@ -647,12 +666,12 @@
                 const date = `${months[new Date().getMonth()]} ${new Date().getFullYear()}`;
                 
                 reviews.unshift({ name, visaType, rating, text, date });
+                currentDisplayCount = 3; // Reset to show first 3 after new review
                 renderReviews();
                 closeReviewModal();
                 alert('Thank you for your review! It has been added successfully.');
             }
 
-            // FAQ functions
             const faqs = [
                 { q: "Are you affiliated with the government?", a: "No. NorthGate is a private, independent visa assistance firm not affiliated with any embassy or government body." },
                 { q: "Do you guarantee visa approval?", a: "No. Visa approval is solely at the discretion of the respective embassy." },
