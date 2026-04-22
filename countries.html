@@ -86,8 +86,8 @@
             width: 100%;
             max-width: 100px;
             height: 70px;
-            object-fit: contain !important; /* Back to contain so flags aren't cut */
-            border-radius: 4px !important; /* Kept the slight rounding */
+            object-fit: contain !important;
+            border-radius: 4px !important;
             margin: 0 auto 8px auto !important;
             background: transparent;
             display: block;
@@ -99,8 +99,8 @@
             width: 100%;
             max-width: 95px;
             height: 65px;
-            object-fit: contain !important; /* Back to contain so flags aren't cut */
-            border-radius: 4px !important; /* Kept the slight rounding */
+            object-fit: contain !important;
+            border-radius: 4px !important;
             margin: 0 auto 6px auto !important;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -214,48 +214,53 @@
 
     <div class="content-wrapper">
 
+        <!-- NAVBAR - EXACT SAME AS MAIN PAGE: HOME, SERVICES, COUNTRIES, WHY US, APPLY, FAQ, ABOUT, TERMS -->
         <nav class="bg-white/95 backdrop-blur-md border-b border-red-200 sticky top-0 z-50 shadow-sm">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto px-5 lg:px-8">
                 <div class="flex justify-between items-center py-3 md:py-4">
-                    <div class="flex items-center gap-2 sm:gap-3">
-                        <img src="logo.png" alt="NorthGate Visa Service Center Logo" class="h-10 sm:h-12 w-auto object-contain" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e11d3f/white?text=NG'">
-                       <div>
+                    <div class="flex items-center gap-3">
+                        <img src="logo.png" alt="NorthGate Visa Service Center Logo" class="h-12 w-auto object-contain" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e11d3f/white?text=NG'">
+                        <div>
                             <h1 class="text-2xl md:text-3xl font-bold heading-font bg-gradient-to-r from-red-600 to-blue-700 bg-clip-text text-transparent">NorthGate</h1>
                             <p class="text-[9px] md:text-[10px] text-gray-500 -mt-0.5 font-semibold tracking-wide">Visa Service Center</p>
                         </div>
                     </div>
 
-                    <div class="hidden md:flex items-center gap-5 lg:gap-6 text-sm font-semibold text-gray-700">
+                    <!-- Desktop Navigation - EXACT SAME ORDER -->
+                    <div class="hidden md:flex items-center gap-6 text-sm font-semibold text-gray-700">
                         <a href="index.html" class="nav-link hover:text-red-600">HOME</a>
                         <a href="index.html#services" class="nav-link hover:text-red-600">SERVICES</a>
                         <a href="countries.html" class="nav-link hover:text-red-600 text-red-600">COUNTRIES</a>
-                        <a href="index.html#about" class="nav-link hover:text-red-600">ABOUT</a>
-                        <a href="index.html#faq" class="nav-link hover:text-red-600">FAQ</a>
+                        <a href="index.html#why" class="nav-link hover:text-red-600">WHY US</a>
                         <a href="index.html#apply" class="nav-link hover:text-red-600">APPLY</a>
+                        <a href="index.html#faq" class="nav-link hover:text-red-600">FAQ</a>
+                        <a href="index.html#about" class="nav-link hover:text-red-600">ABOUT</a>
                         <a href="index.html#terms" class="nav-link hover:text-red-600">TERMS</a>
                     </div>
 
-                    <div class="flex items-center gap-2 sm:gap-3">
-                        <a href="https://wa.me/923452613587" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1 sm:gap-2 bg-green-600 hover:bg-green-700 text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 sm:py-2.5 rounded-full shadow-md transition-all">
-                            <i class="fab fa-whatsapp text-base sm:text-lg"></i>
-                            <span class="hidden xs:inline">WhatsApp</span>
+                    <div class="flex items-center gap-3">
+                        <a href="https://wa.me/923452613587" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white text-sm font-bold px-4 py-2.5 rounded-full shadow-md transition-all">
+                            <i class="fab fa-whatsapp text-lg"></i>
+                            <span class="hidden sm:inline">WhatsApp</span>
                         </a>
-                        <button onclick="toggleMobileMenu()" class="md:hidden text-2xl sm:text-3xl text-red-600 focus:outline-none">
+                        <button onclick="toggleMobileMenu()" class="md:hidden text-3xl text-red-600 focus:outline-none">
                             <i class="fa-solid fa-bars"></i>
                         </button>
                     </div>
                 </div>
             </div>
 
-            <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 px-5 py-4 shadow-lg">
-                <div class="flex flex-col gap-2 text-base font-semibold">
-                    <a href="index.html" onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="py-2 px-2 hover:bg-red-50 flex items-center gap-3" style="border-radius: 0px;"><i class="fa-solid fa-house text-red-500 w-5"></i> HOME</a>
-                    <a href="index.html#services" onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="py-2 px-2 hover:bg-red-50 flex items-center gap-3" style="border-radius: 0px;"><i class="fa-solid fa-briefcase text-red-500 w-5"></i> SERVICES</a>
-                    <a href="countries.html" onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="py-2 px-2 hover:bg-red-50 flex items-center gap-3" style="border-radius: 0px;"><i class="fa-solid fa-globe text-red-500 w-5"></i> COUNTRIES</a>
-                    <a href="index.html#about" onclick="location.href='index.html#about'; document.getElementById('mobileMenu').classList.add('hidden')" class="py-2 px-2 hover:bg-red-50 flex items-center gap-3" style="border-radius: 0px;"><i class="fa-solid fa-building text-red-500 w-5"></i> ABOUT</a>
-                    <a href="index.html#faq" onclick="location.href='index.html#faq'; document.getElementById('mobileMenu').classList.add('hidden')" class="py-2 px-2 hover:bg-red-50 flex items-center gap-3" style="border-radius: 0px;"><i class="fa-solid fa-question-circle text-red-500 w-5"></i> FAQ</a>
-                    <a href="index.html#apply" onclick="location.href='index.html#apply'; document.getElementById('mobileMenu').classList.add('hidden')" class="py-2 px-2 hover:bg-red-50 flex items-center gap-3" style="border-radius: 0px;"><i class="fa-solid fa-file-pen text-red-500 w-5"></i> APPLY</a>
-                    <a href="index.html#terms" onclick="location.href='index.html#terms'; document.getElementById('mobileMenu').classList.add('hidden')" class="py-2 px-2 hover:bg-red-50 flex items-center gap-3" style="border-radius: 0px;"><i class="fa-solid fa-scale-balanced text-red-500 w-5"></i> TERMS</a>
+            <!-- Mobile Menu - EXACT SAME ORDER -->
+            <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 px-6 py-5 shadow-lg">
+                <div class="flex flex-col gap-3 text-base font-semibold">
+                    <a href="index.html" onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-house text-red-500 w-5"></i> HOME</a>
+                    <a href="index.html#services" onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-briefcase text-red-500 w-5"></i> SERVICES</a>
+                    <a href="countries.html" onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-globe text-red-500 w-5"></i> COUNTRIES</a>
+                    <a href="index.html#why" onclick="location.href='index.html#why'; document.getElementById('mobileMenu').classList.add('hidden')" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-star text-red-500 w-5"></i> WHY US</a>
+                    <a href="index.html#apply" onclick="location.href='index.html#apply'; document.getElementById('mobileMenu').classList.add('hidden')" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-file-pen text-red-500 w-5"></i> APPLY</a>
+                    <a href="index.html#faq" onclick="location.href='index.html#faq'; document.getElementById('mobileMenu').classList.add('hidden')" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-question-circle text-red-500 w-5"></i> FAQ</a>
+                    <a href="index.html#about" onclick="location.href='index.html#about'; document.getElementById('mobileMenu').classList.add('hidden')" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-building text-red-500 w-5"></i> ABOUT</a>
+                    <a href="index.html#terms" onclick="location.href='index.html#terms'; document.getElementById('mobileMenu').classList.add('hidden')" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-scale-balanced text-red-500 w-5"></i> TERMS</a>
                 </div>
             </div>
         </nav>
@@ -440,7 +445,7 @@
                     <h4 class="font-bold mb-4">Contact</h4>
                     <p class="text-sm group">
                         <a href="https://wa.me/923452613587" target="_blank" class="hover:text-green-400 transition-colors">
-                            <i class="fab fa-whatsapp mr-2"></i> 0345 2613587
+                            <i class="fab fa-whatsapp mr-2"></i> +92 345 2613587
                         </a>
                     </p>
                     <p class="text-sm mt-2 group">
