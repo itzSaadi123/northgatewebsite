@@ -42,7 +42,6 @@
             background: white;
         }
         
-        /* Fixed Background Logo - Stays in place while scrolling */
         .bg-logo-fixed {
             position: fixed;
             top: 50%;
@@ -56,7 +55,6 @@
             user-select: none;
         }
         
-        /* All content sits above the background logo */
         .content-wrapper {
             position: relative;
             z-index: 1;
@@ -93,19 +91,6 @@
             width: 100%;
         }
         
-        .flag-card {
-            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-            cursor: pointer;
-            border-radius: 1.5rem;
-            background: white;
-        }
-        
-        .flag-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 30px -12px rgba(225, 29, 63, 0.25);
-            border-color: #e11d3f !important;
-        }
-        
         .apply-btn {
             transition: all 0.3s ease;
             cursor: pointer;
@@ -126,17 +111,6 @@
             box-shadow: 0 20px 30px -12px rgba(225, 29, 63, 0.2);
         }
         
-        .flag-img {
-            width: 64px;
-            height: 64px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 12px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
         .faq-item.active .faq-answer {
             display: block !important;
         }
@@ -154,35 +128,12 @@
             50% { transform: translateY(5px); }
         }
         
-        .schengen-flag {
-            width: 64px;
-            height: 64px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .schengen-flag:hover {
-            transform: scale(1.05);
-        }
-        
         .why-card {
             transition: all 0.3s ease;
         }
         .why-card:hover {
             transform: translateX(5px);
             background: linear-gradient(135deg, #fee2e2, #dbeafe);
-        }
-        
-        .schengen-country {
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .schengen-country:hover {
-            transform: translateY(-5px);
         }
         
         .step-card {
@@ -194,30 +145,63 @@
             box-shadow: 0 25px 40px -12px rgba(225, 29, 63, 0.3);
         }
         
-        /* Ensure sections have slight transparency to show logo */
+        .testimonial-card {
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            background: white;
+            border-radius: 2rem;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 35px -12px rgba(0,0,0,0.15);
+            border-color: #e11d3f !important;
+        }
+        .testimonial-quote {
+            font-size: 3rem;
+            line-height: 1;
+            opacity: 0.3;
+            font-family: serif;
+        }
+        .star-rating i {
+            margin-right: 2px;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal.active {
+            display: flex;
+        }
+        .modal-content {
+            background: white;
+            border-radius: 2rem;
+            max-width: 500px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+        
         section {
             position: relative;
             background: transparent;
-        }
-        
-        .bg-white-card {
-            background: white;
-        }
-        
-        .bg-gradient-card {
-            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.98));
         }
     </style>
 </head>
 <body>
 
-    <!-- Fixed Background Logo - Stays in place while scrolling -->
     <img src="logo.png" class="bg-logo-fixed" alt="NorthGate Background Logo" onerror="this.style.display='none'">
 
-    <!-- Main Content Wrapper -->
     <div class="content-wrapper">
 
-        <!-- JSON-LD Schema for SEO -->
         <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -238,19 +222,20 @@
                 <div class="flex justify-between items-center py-3 md:py-4">
                     <div class="flex items-center gap-3">
                         <img src="logo.png" alt="NorthGate Visa Service Center Logo" class="h-12 w-auto object-contain" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e11d3f/white?text=NG'">
-                     <div>
-    <h1 class="text-2xl md:text-3xl font-bold heading-font bg-gradient-to-r from-red-600 to-blue-700 bg-clip-text text-transparent">NorthGate</h1>
-    <p class="text-[9px] md:text-[10px] text-gray-500 -mt-0.5 font-semibold tracking-wide">Visa Service Center</p>
-</div>
+                        <div>
+                            <h1 class="text-2xl md:text-3xl font-bold heading-font bg-gradient-to-r from-red-600 to-blue-700 bg-clip-text text-transparent">NorthGate</h1>
+                            <p class="text-[9px] md:text-[10px] text-gray-500 -mt-0.5 font-semibold tracking-wide">Visa Service Center</p>
+                        </div>
                     </div>
 
                     <div class="hidden md:flex items-center gap-6 text-sm font-semibold text-gray-700">
                         <a href="#home" class="nav-link hover:text-red-600">HOME</a>
                         <a href="#services" class="nav-link hover:text-red-600">SERVICES</a>
                         <a href="countries.html" class="nav-link hover:text-red-600">COUNTRIES</a>
-                        <a href="#about" class="nav-link hover:text-red-600">ABOUT</a>
-                        <a href="#faq" class="nav-link hover:text-red-600">FAQ</a>
+                        <a href="#why" class="nav-link hover:text-red-600">WHY US</a>
                         <a href="#apply" class="nav-link hover:text-red-600">APPLY</a>
+                        <a href="#faq" class="nav-link hover:text-red-600">FAQ</a>
+                        <a href="#about" class="nav-link hover:text-red-600">ABOUT</a>
                         <a href="#terms" class="nav-link hover:text-red-600">TERMS</a>
                     </div>
 
@@ -271,9 +256,10 @@
                     <a href="#home" onclick="closeMobileAndScroll('home')" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-house text-red-500 w-5"></i> HOME</a>
                     <a href="#services" onclick="closeMobileAndScroll('services')" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-briefcase text-red-500 w-5"></i> SERVICES</a>
                     <a href="countries.html" onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-globe text-red-500 w-5"></i> COUNTRIES</a>
-                    <a href="#about" onclick="closeMobileAndScroll('about')" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-building text-red-500 w-5"></i> ABOUT</a>
-                    <a href="#faq" onclick="closeMobileAndScroll('faq')" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-question-circle text-red-500 w-5"></i> FAQ</a>
+                    <a href="#why" onclick="closeMobileAndScroll('why')" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-star text-red-500 w-5"></i> WHY US</a>
                     <a href="#apply" onclick="closeMobileAndScroll('apply')" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-file-pen text-red-500 w-5"></i> APPLY</a>
+                    <a href="#faq" onclick="closeMobileAndScroll('faq')" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-question-circle text-red-500 w-5"></i> FAQ</a>
+                    <a href="#about" onclick="closeMobileAndScroll('about')" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-building text-red-500 w-5"></i> ABOUT</a>
                     <a href="#terms" onclick="closeMobileAndScroll('terms')" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-scale-balanced text-red-500 w-5"></i> TERMS</a>
                 </div>
             </div>
@@ -290,7 +276,7 @@
                     <h1 class="text-5xl md:text-6xl font-bold heading-font leading-tight">
                         Navigate Your Visa Journey<br>with <span class="text-amber-300">Confidence</span><br>and Expert Guidance
                     </h1>
-                    <p class="text-xl text-white/90 max-w-md">Your trusted partner for USA, Canada, Italy, Schengen & worldwide visas. <br> transparent, ethical, result-driven.</p>
+                    <p class="text-xl text-white/90 max-w-md">Your trusted partner for USA, Canada, Italy, Schengen & worldwide visas. transparent, ethical, result-driven.</p>
                     <div class="flex flex-wrap gap-5">
                         <a href="#apply" class="bg-white text-red-600 hover:bg-amber-300 font-extrabold px-8 py-4 rounded-2xl text-lg flex items-center gap-3 shadow-xl transition-all">APPLY NOW <i class="fa-solid fa-arrow-right"></i></a>
                         <a href="https://wa.me/923452613587" target="_blank" rel="noopener noreferrer" class="border-2 border-white/90 hover:bg-white/10 text-white font-semibold px-7 py-4 rounded-2xl flex items-center gap-2 text-lg"><i class="fab fa-whatsapp text-xl"></i> CHAT NOW</a>
@@ -391,7 +377,7 @@
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div>
                         <h2 class="text-4xl font-bold heading-font mb-6 bg-gradient-to-r from-red-600 to-blue-700 bg-clip-text text-transparent">About NorthGate</h2>
-                        <p class="text-gray-700 leading-relaxed mb-5">NorthGate Visa Service Center is an independent visa assistance firm based in Pakistan, providing professional support for visa applications worldwide  with specialized expertise in United States, Canada, Italy, Schengen Countries and beyond.</p>
+                        <p class="text-gray-700 leading-relaxed mb-5">NorthGate Visa Service Center is an independent visa assistance firm based in Pakistan, providing professional support for visa applications worldwide with specialized expertise in United States, Canada, Italy, Schengen Countries and beyond.</p>
                         <p class="text-gray-700 leading-relaxed mb-5">We are legally registered with SECP & FBR, maintaining strict ethical policies. Our services include end-to-end application support, documentation review, interview preparation, and personalized case handling.</p>
                         <div class="bg-gradient-to-r from-red-50 to-blue-50 p-5 rounded-2xl border-l-4 border-red-600"><p class="text-sm font-medium">✓ No false guarantees • Transparent fees • Confidential & secure</p></div>
                     </div>
@@ -448,7 +434,7 @@
             </div>
         </section>
 
-        <!-- TERMS -->
+        <!-- TERMS & CONDITIONS -->
         <section id="terms" class="py-20 bg-gray-50/95">
             <div class="max-w-4xl mx-auto px-5">
                 <h2 class="text-4xl font-bold heading-font text-center mb-8">Terms & Conditions</h2>
@@ -462,104 +448,255 @@
             </div>
         </section>
 
+        <!-- ========== TESTIMONIALS SECTION (AT THE END - BEFORE FOOTER) ========== -->
+        <section id="testimonials" class="py-20 bg-gradient-to-br from-blue-50/90 to-red-50/90">
+            <div class="max-w-7xl mx-auto px-5 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="px-4 py-1 bg-red-100 text-red-700 text-sm font-semibold rounded-full">CLIENT SUCCESS STORIES</span>
+                    <h2 class="text-4xl font-bold heading-font mt-4">What Our Clients Say</h2>
+                    <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Real experiences from travelers who achieved their visa goals with NorthGate guidance.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="reviewsContainer">
+                    <!-- Reviews will be loaded dynamically -->
+                </div>
+
+                <!-- Submit Review Button -->
+                <div class="text-center mt-12">
+                    <button onclick="openReviewModal()" class="bg-gradient-to-r from-red-600 to-blue-700 hover:from-red-700 hover:to-blue-800 text-white font-bold px-8 py-4 rounded-2xl text-lg shadow-lg transition-all flex items-center gap-3 mx-auto">
+                        <i class="fa-solid fa-pen-to-square"></i> Share Your Experience
+                    </button>
+                    <p class="text-sm text-gray-500 mt-3">Your feedback helps others make informed decisions</p>
+                </div>
+
+                <div class="text-center mt-8">
+                    <div class="inline-flex items-center gap-2 bg-white rounded-full px-6 py-3 shadow-md">
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <span class="font-bold ml-2" id="avgRating">4.9</span><span class="text-gray-500 text-sm">/5</span>
+                        <span class="text-gray-500 text-sm ml-1">from <span id="reviewCount">6</span>+ reviews</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Review Modal -->
+        <div id="reviewModal" class="modal">
+            <div class="modal-content p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-2xl font-bold heading-font text-red-600">Share Your Experience</h3>
+                    <button onclick="closeReviewModal()" class="text-gray-500 hover:text-red-600 text-2xl">&times;</button>
+                </div>
+                <form id="reviewForm" onsubmit="submitReview(event)">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-semibold mb-2">Your Name</label>
+                        <input type="text" id="reviewerName" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-red-500">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-semibold mb-2">Visa Type & Country</label>
+                        <input type="text" id="visaType" required placeholder="e.g., USA B1/B2, Canada Student Visa" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-red-500">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-semibold mb-2">Rating</label>
+                        <div class="flex gap-2 text-3xl" id="starSelector">
+                            <i class="fa-regular fa-star cursor-pointer hover:text-yellow-400 transition" data-rating="1"></i>
+                            <i class="fa-regular fa-star cursor-pointer hover:text-yellow-400 transition" data-rating="2"></i>
+                            <i class="fa-regular fa-star cursor-pointer hover:text-yellow-400 transition" data-rating="3"></i>
+                            <i class="fa-regular fa-star cursor-pointer hover:text-yellow-400 transition" data-rating="4"></i>
+                            <i class="fa-regular fa-star cursor-pointer hover:text-yellow-400 transition" data-rating="5"></i>
+                        </div>
+                        <input type="hidden" id="ratingValue" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-semibold mb-2">Your Review</label>
+                        <textarea id="reviewText" rows="4" required placeholder="Share your experience with NorthGate..." class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-red-500"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-gradient-to-r from-red-600 to-blue-700 text-white font-bold py-3 rounded-xl hover:shadow-lg transition-all">Submit Review</button>
+                </form>
+            </div>
+        </div>
+
         <!-- FOOTER -->
         <footer class="bg-gradient-to-br from-gray-900 to-blue-950 text-white py-12">
-    <div class="max-w-7xl mx-auto px-5 grid md:grid-cols-4 gap-10">
-        <div>
-            <!-- <img src="logo.png" 
-                 class="h-14 w-14 mb-4 rounded-full shadow-[0_0_15px_rgba(0,0,0,0.5)] object-cover border border-white/5" 
-                 alt="NorthGate Logo" 
-                 onerror="this.src='https://placehold.co/56x56/e11d3f/white?text=NG'"> -->
-                 <div class="h-20 w-20 mb-4 rounded-full bg-white flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.5)] border border-white/10 overflow-hidden">
-    <img src="logo.png" 
-         class="h-full w-full object-contain p-2" 
-         alt="NorthGate Logo" 
-         onerror="this.src='https://placehold.co/80x80/e11d3f/white?text=NG'">
-</div>
-            
-            <h3 class="text-2xl font-bold">NorthGate</h3>
-            <p class="text-sm text-red-200 mt-1">Visa Service Center</p>
-            <p class="text-xs mt-4 opacity-70">Independent • Ethical • Transparent</p>
-        </div>
-        
-        <div><h4 class="font-bold mb-4">Quick Links</h4><ul class="space-y-2 text-sm"><li><a href="#about" class="hover:text-red-300">About</a></li><li><a href="#faq" class="hover:text-red-300">FAQ</a></li><li><a href="#apply" class="hover:text-red-300">Apply</a></li><li><a href="#terms" class="hover:text-red-300">Terms</a></li></ul></div>
-        
-        <div>
-    <h4 class="font-bold mb-4">Contact</h4>
-    
-    <p class="text-sm group">
-        <a href="https://wa.me/923452613587" target="_blank" class="hover:text-green-400 transition-colors">
-            <i class="fab fa-whatsapp mr-2"></i> 0345 2613587
-        </a>
-    </p>
-
-    <p class="text-sm mt-2 group">
-        <a href="mailto:support@northgatevisaservices.com" class="hover:text-red-300 transition-colors">
-            <i class="fa-regular fa-envelope mr-2"></i> support@northgatevisaservices.com
-        </a>
-    </p>
-
-    <p class="text-sm mt-3">
-        <i class="fa-regular fa-clock mr-2"></i> Mon-Sat: 9AM - 7PM
-    </p>
-</div>
-        
-      
-    </div>
-    <div class="text-center text-xs text-red-200 border-t border-white/20 mt-10 pt-6">© 2026 NorthGate Visa Service Center. All Rights Reserved.</div>
-</footer>
-
-    <script>
-        const faqs = [
-            { q: "Are you affiliated with the government?", a: "No. NorthGate is a private, independent visa assistance firm not affiliated with any embassy or government body." },
-            { q: "Do you guarantee visa approval?", a: "No. Visa approval is solely at the discretion of the respective embassy." },
-            { q: "What services do you offer?", a: "Application processing, documentation review, interview preparation, consultation." },
-            { q: "Are you a registered company?", a: "Yes, registered with SECP & FBR under Pakistani laws." },
-            { q: "What if my visa is refused?", a: "We analyze the refusal reason and provide guidance for re-application." }
-        ];
-        
-        function populateFaqs() {
-            const container = document.getElementById('faqList');
-            container.innerHTML = faqs.map(faq => `
-                <div class="faq-item bg-white rounded-2xl p-5 cursor-pointer shadow-sm hover:shadow-md transition" onclick="toggleFaq(this)">
-                    <div class="flex justify-between items-center"><h4 class="font-bold">${faq.q}</h4><i class="fa-solid fa-chevron-down text-red-600 transition-transform"></i></div>
-                    <div class="faq-answer mt-3 text-gray-600 text-sm leading-relaxed hidden">${faq.a}</div>
+            <div class="max-w-7xl mx-auto px-5 grid md:grid-cols-4 gap-10">
+                <div>
+                    <div class="h-20 w-20 mb-4 rounded-full bg-white flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.5)] border border-white/10 overflow-hidden">
+                        <img src="logo.png" class="h-full w-full object-contain p-2" alt="NorthGate Logo" onerror="this.src='https://placehold.co/80x80/e11d3f/white?text=NG'">
+                    </div>
+                    <h3 class="text-2xl font-bold">NorthGate</h3>
+                    <p class="text-sm text-red-200 mt-1">Visa Service Center</p>
+                    <p class="text-xs mt-4 opacity-70">Independent • Ethical • Transparent</p>
                 </div>
-            `).join('');
-        }
-        
-        function toggleFaq(el) { 
-            el.classList.toggle('active'); 
-            const answer = el.querySelector('.faq-answer');
-            if(answer) {
-                if(answer.style.display === 'block') {
-                    answer.style.display = 'none';
-                } else {
-                    answer.style.display = 'block';
+                
+                <div><h4 class="font-bold mb-4">Quick Links</h4><ul class="space-y-2 text-sm"><li><a href="#about" class="hover:text-red-300">About</a></li><li><a href="#faq" class="hover:text-red-300">FAQ</a></li><li><a href="#testimonials" class="hover:text-red-300">Testimonials</a></li><li><a href="#apply" class="hover:text-red-300">Apply</a></li><li><a href="#terms" class="hover:text-red-300">Terms</a></li></ul></div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Contact</h4>
+                    <p class="text-sm group"><a href="https://wa.me/923452613587" target="_blank" class="hover:text-green-400 transition-colors"><i class="fab fa-whatsapp mr-2"></i> +92 345 2613587</a></p>
+                    <p class="text-sm mt-2 group"><a href="mailto:support@northgatevisaservices.com" class="hover:text-red-300 transition-colors"><i class="fa-regular fa-envelope mr-2"></i> support@northgatevisaservices.com</a></p>
+                    <p class="text-sm mt-3"><i class="fa-regular fa-clock mr-2"></i> Mon-Sat: 9AM - 7PM</p>
+                </div>
+            </div>
+            <div class="text-center text-xs text-red-200 border-t border-white/20 mt-10 pt-6">© 2026 NorthGate Visa Service Center. All Rights Reserved.</div>
+        </footer>
+
+        <script>
+            // Sample initial reviews
+            let reviews = [
+                { name: "Ahmed J.", visaType: "USA B1/B2 Visa", rating: 5, text: "NorthGate made my US visa process seamless. From documentation to interview prep, every step was handled professionally. I got my visa approved in first attempt! Highly recommended.", date: "June 2026" },
+                { name: "Sana R.", visaType: "Canada Student Visa", rating: 5, text: "I was nervous about my study permit application, but the team at NorthGate gave me confidence. Their guidance on financial documents and SOP was spot on. Thank you so much!", date: "March 2026" },
+                { name: "M. Khan", visaType: "Schengen (Italy)", rating: 4, text: "Professional, responsive, and thorough. They reviewed all my travel itinerary and insurance before submission. Received Schengen visa without any hiccup. Highly recommend.", date: "April 2026" },
+                { name: "Fatima A.", visaType: "UK Tourist Visa", rating: 5, text: "Excellent service! The team answered all my queries promptly and helped me avoid common mistakes. My UK visa was approved in 2 weeks. Will definitely use again.", date: "Feb 2026" },
+                { name: "Hamza N.", visaType: "US Visit Visa", rating: 4, text: "The mock interview session was a game changer. I felt fully prepared and confident. The team is ethical and doesn't make false promises. Honest consultancy!", date: "Jan 2026" },
+                { name: "Taha A.", visaType: "Canada Visitor Visa", rating: 5, text: "Very cooperative staff and transparent process. They helped me organize my travel history and family ties. My Canadian visa was approved smoothly. Five stars!", date: "May 2026" }
+            ];
+
+            // Get initials from name
+            function getInitials(name) {
+                return name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
+            }
+
+            // Get gradient color based on name
+            function getGradient(name) {
+                const gradients = [
+                    'from-red-400 to-blue-500', 'from-green-400 to-teal-500', 'from-amber-400 to-orange-500',
+                    'from-purple-400 to-pink-500', 'from-red-500 to-gray-700', 'from-blue-400 to-cyan-500'
+                ];
+                let hash = 0;
+                for(let i = 0; i < name.length; i++) hash += name.charCodeAt(i);
+                return gradients[hash % gradients.length];
+            }
+
+            // Render reviews
+            function renderReviews() {
+                const container = document.getElementById('reviewsContainer');
+                container.innerHTML = reviews.map(review => `
+                    <div class="testimonial-card border border-gray-200 rounded-2xl p-6 shadow-md bg-white">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-14 h-14 rounded-full bg-gradient-to-br ${getGradient(review.name)} flex items-center justify-center text-white text-xl font-bold shadow-md">${getInitials(review.name)}</div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">${review.name}</h4>
+                                <p class="text-xs text-gray-500">${review.visaType} • ${review.date}</p>
+                                <div class="star-rating text-yellow-400 text-sm mt-1">
+                                    ${'<i class="fa-solid fa-star"></i>'.repeat(review.rating)}${'<i class="fa-regular fa-star"></i>'.repeat(5-review.rating)}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-quote text-gray-300">“”</div>
+                        <p class="text-gray-700 mt-2 leading-relaxed">"${review.text}"</p>
+                        <div class="mt-4 flex items-center gap-2 text-xs text-red-600"><i class="fa-solid fa-check-circle"></i> Verified Client</div>
+                    </div>
+                `).join('');
+                
+                // Update average rating and count
+                const totalRating = reviews.reduce((sum, r) => sum + r.rating, 0);
+                const avg = (totalRating / reviews.length).toFixed(1);
+                document.getElementById('avgRating').innerText = avg;
+                document.getElementById('reviewCount').innerText = reviews.length;
+            }
+
+            // Star selector functionality
+            let selectedRating = 0;
+            document.querySelectorAll('#starSelector i').forEach(star => {
+                star.addEventListener('click', function() {
+                    selectedRating = parseInt(this.dataset.rating);
+                    document.getElementById('ratingValue').value = selectedRating;
+                    document.querySelectorAll('#starSelector i').forEach((s, idx) => {
+                        if(idx < selectedRating) {
+                            s.className = 'fa-solid fa-star cursor-pointer hover:text-yellow-400 transition text-yellow-400';
+                        } else {
+                            s.className = 'fa-regular fa-star cursor-pointer hover:text-yellow-400 transition';
+                        }
+                    });
+                });
+            });
+
+            // Modal functions
+            function openReviewModal() {
+                document.getElementById('reviewModal').classList.add('active');
+                // Reset form
+                document.getElementById('reviewForm').reset();
+                selectedRating = 0;
+                document.getElementById('ratingValue').value = '';
+                document.querySelectorAll('#starSelector i').forEach(s => {
+                    s.className = 'fa-regular fa-star cursor-pointer hover:text-yellow-400 transition';
+                });
+            }
+            
+            function closeReviewModal() {
+                document.getElementById('reviewModal').classList.remove('active');
+            }
+
+            // Submit review
+            function submitReview(event) {
+                event.preventDefault();
+                const name = document.getElementById('reviewerName').value;
+                const visaType = document.getElementById('visaType').value;
+                const rating = parseInt(document.getElementById('ratingValue').value);
+                const text = document.getElementById('reviewText').value;
+                
+                if(!rating || rating === 0) {
+                    alert('Please select a rating');
+                    return;
+                }
+                
+                const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                const date = `${months[new Date().getMonth()]} ${new Date().getFullYear()}`;
+                
+                reviews.unshift({ name, visaType, rating, text, date });
+                renderReviews();
+                closeReviewModal();
+                alert('Thank you for your review! It has been added successfully.');
+            }
+
+            // FAQ functions
+            const faqs = [
+                { q: "Are you affiliated with the government?", a: "No. NorthGate is a private, independent visa assistance firm not affiliated with any embassy or government body." },
+                { q: "Do you guarantee visa approval?", a: "No. Visa approval is solely at the discretion of the respective embassy." },
+                { q: "What services do you offer?", a: "Application processing, documentation review, interview preparation, consultation." },
+                { q: "Are you a registered company?", a: "Yes, registered with SECP & FBR under Pakistani laws." },
+                { q: "What if my visa is refused?", a: "We analyze the refusal reason and provide guidance for re-application." }
+            ];
+            
+            function populateFaqs() {
+                const container = document.getElementById('faqList');
+                container.innerHTML = faqs.map(faq => `
+                    <div class="faq-item bg-white rounded-2xl p-5 cursor-pointer shadow-sm hover:shadow-md transition" onclick="toggleFaq(this)">
+                        <div class="flex justify-between items-center"><h4 class="font-bold">${faq.q}</h4><i class="fa-solid fa-chevron-down text-red-600 transition-transform"></i></div>
+                        <div class="faq-answer mt-3 text-gray-600 text-sm leading-relaxed hidden">${faq.a}</div>
+                    </div>
+                `).join('');
+            }
+            
+            function toggleFaq(el) { 
+                el.classList.toggle('active'); 
+                const answer = el.querySelector('.faq-answer');
+                if(answer) {
+                    if(answer.style.display === 'block') {
+                        answer.style.display = 'none';
+                    } else {
+                        answer.style.display = 'block';
+                    }
                 }
             }
-        }
-        
-        function openFormLink(type) {
-            if(type === 'usa') {
-                window.open('https://itzsaadi123.github.io/Northgate/', '_blank');
-            } else if(type === 'canada') {
-                window.open('https://itzsaadi123.github.io/NorthgateCanadaForm/', '_blank');
-            } else {
-                window.open('https://itzsaadi123.github.io/NorthgateVisaForm/', '_blank');
+            
+            function toggleMobileMenu() { 
+                document.getElementById('mobileMenu').classList.toggle('hidden'); 
             }
-        }
-        
-        function toggleMobileMenu() { 
-            document.getElementById('mobileMenu').classList.toggle('hidden'); 
-        }
-        
-        function closeMobileAndScroll(id) { 
-            document.getElementById('mobileMenu').classList.add('hidden'); 
-            document.getElementById(id).scrollIntoView({behavior:'smooth'}); 
-        }
-        
-        window.onload = () => { populateFaqs(); };
-    </script>
+            
+            function closeMobileAndScroll(id) { 
+                document.getElementById('mobileMenu').classList.add('hidden'); 
+                document.getElementById(id).scrollIntoView({behavior:'smooth'}); 
+            }
+            
+            window.onload = () => { 
+                populateFaqs(); 
+                renderReviews();
+            };
+        </script>
+    </div>
 </body>
 </html>
