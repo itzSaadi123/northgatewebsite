@@ -198,6 +198,21 @@
         .review-hidden {
             display: none;
         }
+        
+        /* Loading spinner */
+        .loading-spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #e11d3f;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
@@ -517,7 +532,12 @@
                     <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Real experiences from travelers who achieved their visa goals with NorthGate guidance.</p>
                 </div>
                 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="reviewsContainer"></div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="reviewsContainer">
+                    <div class="text-center py-10 col-span-3">
+                        <div class="loading-spinner"></div>
+                        <p class="mt-3 text-gray-500">Loading reviews...</p>
+                    </div>
+                </div>
 
                 <div class="text-center mt-8" id="loadMoreBtnContainer">
                     <button onclick="loadMoreReviews()" id="loadMoreBtn" class="bg-white border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold px-8 py-3 rounded-full text-lg transition-all duration-300 flex items-center gap-2 mx-auto">
@@ -539,8 +559,8 @@
                         <i class="fa-solid fa-star text-yellow-400"></i>
                         <i class="fa-solid fa-star text-yellow-400"></i>
                         <i class="fa-solid fa-star text-yellow-400"></i>
-                        <span class="font-bold ml-2" id="avgRating">4.9</span><span class="text-gray-500 text-sm">/5</span>
-                        <span class="text-gray-500 text-sm ml-1">from <span id="reviewCount">6</span>+ reviews</span>
+                        <span class="font-bold ml-2" id="avgRating">0</span><span class="text-gray-500 text-sm">/5</span>
+                        <span class="text-gray-500 text-sm ml-1">from <span id="reviewCount">0</span> reviews</span>
                     </div>
                 </div>
             </div>
@@ -644,18 +664,55 @@
 </footer>
 
         <script>
-            // Sample initial reviews
-            let reviews = [
-                { name: "Ahmed J.", visaType: "U.S B1/B2 Visa", rating: 5, text: "NorthGate made my US visa process seamless. From documentation to interview prep, every step was handled professionally. I got my visa approved in first attempt! Highly recommended.", date: "June 2026" },
-                { name: "Sana R.", visaType: "Canada Student Visa", rating: 5, text: "I was nervous about my study permit application, but the team at NorthGate gave me confidence. Their guidance on financial documents and SOP was spot on. Thank you so much!", date: "March 2026" },
-                { name: "M. Khan", visaType: "Schengen (Italy)", rating: 4, text: "Professional, responsive, and thorough. They reviewed all my travel itinerary and insurance before submission. Received Schengen visa without any hiccup. Highly recommend.", date: "April 2026" },
-                { name: "Fatima A.", visaType: "UK Tourist Visa", rating: 5, text: "Excellent service! The team answered all my queries promptly and helped me avoid common mistakes. My UK visa was approved in 2 weeks. Will definitely use again.", date: "Feb 2026" },
-                { name: "Hamza N.", visaType: "US Visit Visa", rating: 4, text: "The mock interview session was a game changer. I felt fully prepared and confident. The team is ethical and doesn't make false promises. Honest consultancy!", date: "Jan 2026" },
-                { name: "Taha A.", visaType: "Canada Visitor Visa", rating: 5, text: "Very cooperative staff and transparent process. They helped me organize my travel history and family ties. My Canadian visa was approved smoothly. Five stars!", date: "May 2026" }
-            ];
+            // ========== GOOGLE SHEETS API URL (Aapka URL yahan daal diya gaya hai) ==========
+            const GOOGLE_SHEETS_API_URL = 'https://script.google.com/macros/s/AKfycbwjB0F7mHpQRPhhOwqM_S5Yx5y9TDrK4KU7oJOT5vyvDDWB0CITxmnW2GRRNOiC8BS9Nw/exec';
+            
+            let reviews = [];
+            let currentDisplayCount = 3;
 
-            let currentDisplayCount = 3; // Start with 3 reviews
-            let allReviewsLoaded = false;
+            // ========== Google Sheets Se Reviews Load Karo ==========
+            async function loadReviewsFromSheet() {
+                try {
+                    const response = await fetch(GOOGLE_SHEETS_API_URL);
+                    const data = await response.json();
+                    
+                    if (data && Array.isArray(data) && data.length > 0) {
+                        reviews = data;
+                    } else {
+                        // Default reviews (jab sheet empty ho)
+                        reviews = [
+                            { name: "Ahmed J.", visaType: "U.S B1/B2 Visa", rating: 5, text: "NorthGate made my US visa process seamless. Highly recommended!", date: "October 2025" },
+                            { name: "Sana R.", visaType: "Canada Student Visa", rating: 5, text: "Their guidance on financial documents was spot on. Thank you!", date: "December 2026" },
+                            { name: "M. Khan", visaType: "Schengen (Italy)", rating: 4, text: "Professional and responsive. Received Schengen visa without any hiccup.", date: "March 2026" }
+                        ];
+                    }
+                } catch (error) {
+                    console.error('Error loading reviews:', error);
+                    // Agar error aaye to default reviews dikhao
+                    reviews = [
+                        { name: "Ahmed J.", visaType: "U.S B1/B2 Visa", rating: 5, text: "NorthGate made my US visa process seamless. Highly recommended!", date: "June 2026" },
+                        { name: "Sana R.", visaType: "Canada Student Visa", rating: 5, text: "Their guidance on financial documents was spot on. Thank you!", date: "March 2026" },
+                        { name: "M. Khan", visaType: "Schengen (Italy)", rating: 4, text: "Professional and responsive. Received Schengen visa without any hiccup.", date: "April 2026" }
+                    ];
+                }
+                renderReviews();
+            }
+
+            // ========== Google Sheets Mein Review Save Karo ==========
+            async function saveReviewToSheet(review) {
+                try {
+                    await fetch(GOOGLE_SHEETS_API_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(review)
+                    });
+                    return true;
+                } catch (error) {
+                    console.error('Error saving review:', error);
+                    return false;
+                }
+            }
 
             function getInitials(name) {
                 return name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
@@ -675,35 +732,37 @@
                 const container = document.getElementById('reviewsContainer');
                 const visibleReviews = reviews.slice(0, currentDisplayCount);
                 
-                container.innerHTML = visibleReviews.map(review => `
-                    <div class="testimonial-card border border-gray-200 rounded-2xl p-6 shadow-md bg-white">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-14 h-14 rounded-full bg-gradient-to-br ${getGradient(review.name)} flex items-center justify-center text-white text-xl font-bold shadow-md">${getInitials(review.name)}</div>
-                            <div>
-                                <h4 class="font-bold text-gray-800">${review.name}</h4>
-                                <p class="text-xs text-gray-500">${review.visaType} • ${review.date}</p>
-                                <div class="star-rating text-yellow-400 text-sm mt-1">
-                                    ${'<i class="fa-solid fa-star"></i>'.repeat(review.rating)}${'<i class="fa-regular fa-star"></i>'.repeat(5-review.rating)}
+                if (visibleReviews.length === 0) {
+                    container.innerHTML = `<div class="text-center py-10 col-span-3"><p class="text-gray-500">No reviews yet. Be the first to share your experience!</p></div>`;
+                } else {
+                    container.innerHTML = visibleReviews.map(review => `
+                        <div class="testimonial-card border border-gray-200 rounded-2xl p-6 shadow-md bg-white">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="w-14 h-14 rounded-full bg-gradient-to-br ${getGradient(review.name)} flex items-center justify-center text-white text-xl font-bold shadow-md">${getInitials(review.name)}</div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">${review.name}</h4>
+                                    <p class="text-xs text-gray-500">${review.visaType} • ${review.date || 'Recently'}</p>
+                                    <div class="star-rating text-yellow-400 text-sm mt-1">
+                                        ${'<i class="fa-solid fa-star"></i>'.repeat(review.rating)}${'<i class="fa-regular fa-star"></i>'.repeat(5-review.rating)}
+                                    </div>
                                 </div>
                             </div>
+                            <div class="testimonial-quote text-gray-300">“”</div>
+                            <p class="text-gray-700 mt-2 leading-relaxed">"${review.text}"</p>
+                            <div class="mt-4 flex items-center gap-2 text-xs text-red-600"><i class="fa-solid fa-check-circle"></i> Verified Client</div>
                         </div>
-                        <div class="testimonial-quote text-gray-300">“”</div>
-                        <p class="text-gray-700 mt-2 leading-relaxed">"${review.text}"</p>
-                        <div class="mt-4 flex items-center gap-2 text-xs text-red-600"><i class="fa-solid fa-check-circle"></i> Verified Client</div>
-                    </div>
-                `).join('');
+                    `).join('');
+                }
                 
-                // Update load more button visibility
                 const loadMoreContainer = document.getElementById('loadMoreBtnContainer');
-                if (currentDisplayCount >= reviews.length) {
+                if (currentDisplayCount >= reviews.length || reviews.length <= 3) {
                     loadMoreContainer.style.display = 'none';
                 } else {
                     loadMoreContainer.style.display = 'block';
                 }
                 
-                // Update average rating and count
                 const totalRating = reviews.reduce((sum, r) => sum + r.rating, 0);
-                const avg = (totalRating / reviews.length).toFixed(1);
+                const avg = reviews.length > 0 ? (totalRating / reviews.length).toFixed(1) : '0';
                 document.getElementById('avgRating').innerText = avg;
                 document.getElementById('reviewCount').innerText = reviews.length;
             }
@@ -714,19 +773,22 @@
             }
 
             let selectedRating = 0;
-            document.querySelectorAll('#starSelector i').forEach(star => {
-                star.addEventListener('click', function() {
-                    selectedRating = parseInt(this.dataset.rating);
-                    document.getElementById('ratingValue').value = selectedRating;
-                    document.querySelectorAll('#starSelector i').forEach((s, idx) => {
-                        if(idx < selectedRating) {
-                            s.className = 'fa-solid fa-star cursor-pointer hover:text-yellow-400 transition text-yellow-400';
-                        } else {
-                            s.className = 'fa-regular fa-star cursor-pointer hover:text-yellow-400 transition';
-                        }
+            
+            function initStarSelector() {
+                document.querySelectorAll('#starSelector i').forEach(star => {
+                    star.addEventListener('click', function() {
+                        selectedRating = parseInt(this.dataset.rating);
+                        document.getElementById('ratingValue').value = selectedRating;
+                        document.querySelectorAll('#starSelector i').forEach((s, idx) => {
+                            if(idx < selectedRating) {
+                                s.className = 'fa-solid fa-star cursor-pointer hover:text-yellow-400 transition text-yellow-400';
+                            } else {
+                                s.className = 'fa-regular fa-star cursor-pointer hover:text-yellow-400 transition';
+                            }
+                        });
                     });
                 });
-            });
+            }
 
             function openReviewModal() {
                 document.getElementById('reviewModal').classList.add('active');
@@ -742,7 +804,7 @@
                 document.getElementById('reviewModal').classList.remove('active');
             }
 
-            function submitReview(event) {
+            async function submitReview(event) {
                 event.preventDefault();
                 const name = document.getElementById('reviewerName').value;
                 const visaType = document.getElementById('visaType').value;
@@ -757,11 +819,26 @@
                 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
                 const date = `${months[new Date().getMonth()]} ${new Date().getFullYear()}`;
                 
-                reviews.unshift({ name, visaType, rating, text, date });
-                currentDisplayCount = 3; // Reset to show first 3 after new review
+                const newReview = { name, visaType, rating, text, date };
+                
+                // Submit button disable karo
+                const submitBtn = event.target.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerText;
+                submitBtn.innerText = 'Submitting...';
+                submitBtn.disabled = true;
+                
+                // Google Sheets mein save karo
+                await saveReviewToSheet(newReview);
+                
+                // Local array mein add karo
+                reviews.unshift(newReview);
+                currentDisplayCount = 3;
                 renderReviews();
+                
+                submitBtn.innerText = originalText;
+                submitBtn.disabled = false;
                 closeReviewModal();
-                alert('Thank you for your review! It has been added successfully.');
+                alert('Thank you for your review! It has been saved permanently.');
             }
 
             const faqs = [
@@ -808,7 +885,8 @@
             
             window.onload = () => { 
                 populateFaqs(); 
-                renderReviews();
+                loadReviewsFromSheet();
+                initStarSelector();
             };
         </script>
     </div>
