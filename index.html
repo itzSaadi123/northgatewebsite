@@ -269,16 +269,17 @@
                 </div>
             </div>
 
-            <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 px-6 py-5 shadow-lg">
-                <div class="flex flex-col gap-3 text-base font-semibold">
-                    <a href="index.html" onclick="closeMobileMenu()" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-house text-red-500 w-5"></i> HOME</a>
-                    <a href="#services" onclick="closeMobileMenu()" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-briefcase text-red-500 w-5"></i> SERVICES</a>
-                    <a href="countries.html" onclick="closeMobileMenu()" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-globe text-red-500 w-5"></i> COUNTRIES</a>
-                    <a href="#why" onclick="closeMobileMenu()" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-star text-red-500 w-5"></i> WHY US</a>
-                    <a href="#apply" onclick="closeMobileMenu()" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-file-pen text-red-500 w-5"></i> APPLY</a>
-                    <a href="#faq" onclick="closeMobileMenu()" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-question-circle text-red-500 w-5"></i> FAQ</a>
-                    <a href="about.html" onclick="closeMobileMenu()" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-building text-red-500 w-5"></i> ABOUT US</a>
-                    <a href="terms.html" onclick="closeMobileMenu()" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-scale-balanced text-red-500 w-5"></i> TERMS</a>
+            <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 px-6 py-5 shadow-lg max-h-[80vh] overflow-y-auto">
+                <div class="flex flex-col gap-2 text-base font-semibold">
+                    <a href="index.html" onclick="closeMobileMenu()" class="py-3 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-house text-red-500 w-5"></i> HOME</a>
+                    <a href="#services" onclick="closeMobileMenu()" class="py-3 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-briefcase text-red-500 w-5"></i> SERVICES</a>
+                    <a href="countries.html" onclick="closeMobileMenu()" class="py-3 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-globe text-red-500 w-5"></i> COUNTRIES</a>
+                    <a href="#why" onclick="closeMobileMenu()" class="py-3 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-star text-red-500 w-5"></i> WHY US</a>
+                    <a href="#apply" onclick="closeMobileMenu()" class="py-3 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-file-pen text-red-500 w-5"></i> APPLY</a>
+                    <a href="#faq" onclick="closeMobileMenu()" class="py-3 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-question-circle text-red-500 w-5"></i> FAQ</a>
+                    <a href="about.html" onclick="closeMobileMenu()" class="py-3 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-building text-red-500 w-5"></i> ABOUT US</a>
+                    <a href="terms.html" onclick="closeMobileMenu()" class="py-3 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-scale-balanced text-red-500 w-5"></i> TERMS</a>
+                     <a href="#testimonials" onclick="closeMobileMenu()" class="py-3 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-comment-dots text-red-500 w-5"></i> REVIEWS</a>
                 </div>
             </div>
         </nav>
@@ -664,7 +665,7 @@
 </footer>
 
         <script>
-            // ========== GOOGLE SHEETS API URL (Aapka URL yahan daal diya gaya hai) ==========
+            // ========== GOOGLE SHEETS API URL ==========
             const GOOGLE_SHEETS_API_URL = 'https://script.google.com/macros/s/AKfycbwjB0F7mHpQRPhhOwqM_S5Yx5y9TDrK4KU7oJOT5vyvDDWB0CITxmnW2GRRNOiC8BS9Nw/exec';
             
             let reviews = [];
@@ -703,7 +704,8 @@
                 try {
                     await fetch(GOOGLE_SHEETS_API_URL, {
                         method: 'POST',
-                        mode: 'no-cors',
+                        // Note: mode 'no-cors' will work for simple append but won't return success json
+                        mode: 'no-cors', 
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(review)
                     });
@@ -821,16 +823,13 @@
                 
                 const newReview = { name, visaType, rating, text, date };
                 
-                // Submit button disable karo
                 const submitBtn = event.target.querySelector('button[type="submit"]');
                 const originalText = submitBtn.innerText;
                 submitBtn.innerText = 'Submitting...';
                 submitBtn.disabled = true;
                 
-                // Google Sheets mein save karo
                 await saveReviewToSheet(newReview);
                 
-                // Local array mein add karo
                 reviews.unshift(newReview);
                 currentDisplayCount = 3;
                 renderReviews();
@@ -838,19 +837,19 @@
                 submitBtn.innerText = originalText;
                 submitBtn.disabled = false;
                 closeReviewModal();
-                alert('Thank you for your review! It has been saved permanently.');
+                alert('Thank you for your review! It has been saved.');
             }
 
             const faqs = [
-                { q: "Are you affiliated with the government?", a: "No. Northgate Visa Service Center is a private and independent firm. We are not affiliated with or endorsed by the U.S. Department of State or Immigration, Refugees and Citizenship Canada." },
-                { q: "Do you guarantee visa approval?", a: "No. Visa approval or refusal is solely at the discretion of the respective government authority. we do not provide guarantees or make false promises." },
-                { q: "What services do you provide?", a: "We provide: Visa application form assistance, Documentation review and organization, Interview preparation guidance, and General process consultation." },
+                { q: "Are you affiliated with the government?", a: "No. Northgate Visa Service Center is a private and independent firm. We are not affiliated with or endorsed by the U.S. Department of State or IRCC." },
+                { q: "Do you guarantee visa approval?", a: "No. Visa approval is solely at the discretion of the respective government authority. We do not provide guarantees." },
+                { q: "What services do you provide?", a: "We provide: Visa application form assistance, Documentation review, Interview preparation guidance, and General process consultation." },
                 { q: "Can you speed up visa processing?", a: "No. Processing times are determined entirely by the relevant embassy or immigration authority." },
-                { q: "Do you provide sponsorships, or invitation letters?", a: "No. We do not provide fake documents, or sponsorship arrangements. We only assist with genuine applications based on truthful client information." },
-                { q: "Are you a registered company?", a: "Yes. Northgate Visa Service Center is registered with the Securities and Exchange Commission of Pakistan (SECP) and the Federal Board of Revenue (FBR)." },
-                { q: "What are your service fees?", a: "Our service fees vary depending on the visa category and level of assistance required. Government visa fees are separate and paid directly to the respective authorities." },
-                { q: "What happens if my visa is refused?", a: "Visa decisions are made solely by government authorities. In case of refusal, we can review the case and provide guidance for possible reapplication where appropriate." },
-                { q: "Is my personal information secure?", a: "Yes. We maintain strict confidentiality and use client information only for visa assistance purposes." }
+                { q: "Do you provide sponsorships, or invitation letters?", a: "No. We do not provide fake documents or sponsorship arrangements." },
+                { q: "Are you a registered company?", a: "Yes. Northgate Visa Service Center is registered with SECP and FBR." },
+                { q: "What are your service fees?", a: "Our service fees vary depending on the visa category. Government visa fees are paid separately." },
+                { q: "What happens if my visa is refused?", a: "Decisions are made by government authorities. We can review the case and provide guidance for reapplication." },
+                { q: "Is my personal information secure?", a: "Yes. We maintain strict confidentiality." }
             ];
             
             function populateFaqs() {
@@ -866,11 +865,14 @@
             function toggleFaq(el) { 
                 el.classList.toggle('active'); 
                 const answer = el.querySelector('.faq-answer');
+                const icon = el.querySelector('i');
                 if(answer) {
                     if(answer.style.display === 'block') {
                         answer.style.display = 'none';
+                        icon.style.transform = 'rotate(0deg)';
                     } else {
                         answer.style.display = 'block';
+                        icon.style.transform = 'rotate(180deg)';
                     }
                 }
             }
