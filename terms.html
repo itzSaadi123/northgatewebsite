@@ -90,12 +90,33 @@
             width: 100%;
         }
         
+        /* Updated: All term cards now have consistent outline & background same as last two boxes */
         .terms-card {
             transition: all 0.3s ease;
+            background: linear-gradient(135deg, #fff5f5 0%, #fefaf5 100%);
+            border: 1px solid rgba(225, 29, 63, 0.3);
+            border-left: 4px solid #e11d3f;
+            box-shadow: 0 10px 15px -6px rgba(0, 0, 0, 0.05);
         }
         .terms-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 30px -12px rgba(225, 29, 63, 0.2);
+            background: linear-gradient(135deg, #fff0f0 0%, #fef5ea 100%);
+            border-left-width: 5px;
+            border-left-color: #b91c1c;
+        }
+        
+        /* For the extended clauses (Limitation, Amendments) also matching style */
+        .clause-card {
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #fff5f5 0%, #fefaf5 100%);
+            border: 1px solid rgba(225, 29, 63, 0.25);
+            border-left: 6px solid #e11d3f;
+        }
+        .clause-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px -10px rgba(225, 29, 63, 0.15);
+            background: linear-gradient(135deg, #fff2f2 0%, #fef8ee 100%);
         }
         
         .animate-bounce {
@@ -110,6 +131,13 @@
         section {
             position: relative;
             background: transparent;
+        }
+
+        /* Governing law card background unified */
+        .governance-card {
+            background: linear-gradient(135deg, #fff9f0 0%, #fff5e6 100%);
+            border: 1px solid #fde68a;
+            border-left: 6px solid #f59e0b;
         }
     </style>
 </head>
@@ -138,7 +166,7 @@
         }
         </script>
 
-        <!-- NAVBAR - SAME AS ABOUT PAGE -->
+        <!-- NAVBAR -->
         <nav class="bg-white/95 backdrop-blur-md border-b border-red-200 sticky top-0 z-50 shadow-sm">
             <div class="max-w-7xl mx-auto px-5 lg:px-8">
                 <div class="flex justify-between items-center py-3 md:py-4">
@@ -183,11 +211,12 @@
                     <a href="index.html#faq" onclick="closeMobileMenu()" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-question-circle text-red-500 w-5"></i> FAQ</a>
                     <a href="about.html" onclick="closeMobileMenu()" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-building text-red-500 w-5"></i> ABOUT US</a>
                     <a href="terms.html" onclick="closeMobileMenu()" class="py-3 px-2 rounded-xl bg-red-50 text-red-600 flex items-center gap-3"><i class="fa-solid fa-scale-balanced text-red-500 w-5"></i> TERMS</a>
+                     <a href="#testimonials" onclick="closeMobileMenu()" class="py-3 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-comment-dots text-red-500 w-5"></i> REVIEWS</a>
                 </div>
             </div>
         </nav>
 
-        <!-- TERMS HERO SECTION - MATCHES ABOUT PAGE STYLE -->
+        <!-- TERMS HERO SECTION -->
         <section class="terms-hero text-white min-h-[50vh] flex items-center relative">
             <div class="max-w-7xl mx-auto px-5 lg:px-8 text-center py-16">
                 <div class="inline-flex items-center gap-3 bg-white/20 backdrop-blur-md text-white text-sm font-semibold px-6 py-3 rounded-full mb-6">
@@ -209,8 +238,8 @@
         <section id="terms-content" class="py-20 bg-white/95">
             <div class="max-w-7xl mx-auto px-5 lg:px-8">
                 
-                <!-- Introduction Card - Matching About Page Style -->
-                <div class="bg-gradient-to-r from-red-50 via-white to-blue-50 rounded-3xl p-8 mb-12 border border-red-100 shadow-md">
+                <!-- Introduction Card - Styled with outline and background to match overall theme -->
+                <div class="bg-gradient-to-r from-red-50 via-white to-blue-50 rounded-3xl p-8 mb-12 border border-red-200 shadow-md" style="border-left: 6px solid #e11d3f;">
                     <div class="flex items-start gap-5 flex-wrap md:flex-nowrap">
                         <div class="bg-gradient-to-br from-red-600 to-red-700 text-white rounded-2xl w-16 h-16 flex items-center justify-center text-2xl shadow-lg flex-shrink-0">
                             <i class="fa-solid fa-gavel"></i>
@@ -227,127 +256,115 @@
                     </div>
                 </div>
 
-                <!-- Terms Grid - 2 Columns Like About Page Values -->
+                <!-- Terms Grid - 2 Columns: ALL boxes now have outline + background exactly like last two previous boxes -->
                 <div class="grid md:grid-cols-2 gap-8">
                     
-                    <!-- Card 1 -->
-                    <div class="terms-card bg-white rounded-2xl p-7 shadow-md border border-gray-100 hover:shadow-xl transition-all">
+                    <!-- Card 1 - Legal Status -->
+                    <div class="terms-card rounded-2xl p-7 shadow-sm">
                         <div class="flex items-center gap-3 mb-5">
                             <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center text-red-600 text-xl"><i class="fa-solid fa-building-columns"></i></div>
                             <h2 class="text-xl font-bold text-gray-800">1. Legal Status & Registration</h2>
                         </div>
-                        <p class="text-gray-600 leading-relaxed"><strong class="text-red-600">NorthGate Visa Service Center</strong> is a private consultancy firm registered with the <strong>Securities and Exchange Commission of Pakistan (SECP)</strong> and the <strong>Federal Board of Revenue (FBR)</strong>. We operate as an independent entity and are not affiliated with any government embassy, consulate, or immigration authority worldwide.</p>
+                        <p class="text-gray-700 leading-relaxed"><strong class="text-red-600">NorthGate Visa Service Center</strong> is a private consultancy firm registered with the <strong>Securities and Exchange Commission of Pakistan (SECP)</strong> and the <strong>Federal Board of Revenue (FBR)</strong>. We operate as an independent entity and are not affiliated with any government embassy, consulate, or immigration authority worldwide.</p>
                     </div>
 
-                    <!-- Card 2 -->
-                    <div class="terms-card bg-white rounded-2xl p-7 shadow-md border border-gray-100 hover:shadow-xl transition-all">
+                    <!-- Card 2 - Scope of Services -->
+                    <div class="terms-card rounded-2xl p-7 shadow-sm">
                         <div class="flex items-center gap-3 mb-5">
                             <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center text-red-600 text-xl"><i class="fa-solid fa-briefcase"></i></div>
                             <h2 class="text-xl font-bold text-gray-800">2. Scope of Services</h2>
                         </div>
-                        <p class="text-gray-600 leading-relaxed mb-3">We provide professional visa consultancy including:</p>
-                        <ul class="space-y-2 text-gray-600">
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check-circle text-green-500 mt-1 text-sm"></i> Visa application form completion assistance</li>
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check-circle text-green-500 mt-1 text-sm"></i> Document review and organization guidance</li>
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check-circle text-green-500 mt-1 text-sm"></i> Interview preparation and coaching sessions</li>
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check-circle text-green-500 mt-1 text-sm"></i> General process consultation and timeline advice</li>
+                        <p class="text-gray-700 leading-relaxed mb-3">We provide professional visa consultancy including:</p>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check-circle text-green-600 mt-1 text-sm"></i> Visa application form completion assistance</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check-circle text-green-600 mt-1 text-sm"></i> Document review and organization guidance</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check-circle text-green-600 mt-1 text-sm"></i> Interview preparation and coaching sessions</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check-circle text-green-600 mt-1 text-sm"></i> General process consultation and timeline advice</li>
                         </ul>
-                        <p class="text-gray-500 text-sm italic mt-3 border-l-3 border-red-300 pl-3">⚠️ We do NOT provide legal advice, guaranteed approvals, or fake/sponsorship documents.</p>
+                        <p class="text-gray-600 text-sm italic mt-3 border-l-3 border-red-300 pl-3">⚠️ We do NOT provide legal advice, guaranteed approvals, or fake/sponsorship documents.</p>
                     </div>
 
-                    <!-- Card 3 -->
-                    <div class="terms-card bg-white rounded-2xl p-7 shadow-md border border-gray-100 hover:shadow-xl transition-all">
+                    <!-- Card 3 - Fees & Payment Terms -->
+                    <div class="terms-card rounded-2xl p-7 shadow-sm">
                         <div class="flex items-center gap-3 mb-5">
                             <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center text-red-600 text-xl"><i class="fa-solid fa-hand-holding-dollar"></i></div>
                             <h2 class="text-xl font-bold text-gray-800">3. Fees & Payment Terms</h2>
                         </div>
-                        <p class="text-gray-600 leading-relaxed">All service fees are communicated transparently before engagement. <strong>Government visa fees (MRV, processing, biometrics) are separate</strong> and must be paid directly by the applicant. Service fees are <strong class="text-red-600">non-refundable</strong> once the process has been initiated or any work has commenced.</p>
+                        <p class="text-gray-700 leading-relaxed">All service fees are communicated transparently before engagement. <strong>Government visa fees (MRV, processing, biometrics) are separate</strong> and must be paid directly by the applicant. Service fees are <strong class="text-red-600">non-refundable</strong> once the process has been initiated or any work has commenced.</p>
                     </div>
 
-                    <!-- Card 4 -->
-                    <div class="terms-card bg-white rounded-2xl p-7 shadow-md border border-gray-100 hover:shadow-xl transition-all">
+                    <!-- Card 4 - Client Responsibility -->
+                    <div class="terms-card rounded-2xl p-7 shadow-sm">
                         <div class="flex items-center gap-3 mb-5">
                             <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center text-red-600 text-xl"><i class="fa-solid fa-user-check"></i></div>
                             <h2 class="text-xl font-bold text-gray-800">4. Client Responsibility</h2>
                         </div>
-                        <p class="text-gray-600 leading-relaxed">Clients must provide <strong>accurate, truthful, and complete information</strong>. Submission of false documents, misrepresentation, or withholding material facts is strictly prohibited. NorthGate shall not be held liable for visa refusals resulting from incorrect or fraudulent client information.</p>
+                        <p class="text-gray-700 leading-relaxed">Clients must provide <strong>accurate, truthful, and complete information</strong>. Submission of false documents, misrepresentation, or withholding material facts is strictly prohibited. NorthGate shall not be held liable for visa refusals resulting from incorrect or fraudulent client information.</p>
                     </div>
 
-                    <!-- Card 5 -->
-                    <div class="terms-card bg-white rounded-2xl p-7 shadow-md border border-gray-100 hover:shadow-xl transition-all">
+                    <!-- Card 5 - Processing Times -->
+                    <div class="terms-card rounded-2xl p-7 shadow-sm">
                         <div class="flex items-center gap-3 mb-5">
                             <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center text-red-600 text-xl"><i class="fa-solid fa-clock"></i></div>
                             <h2 class="text-xl font-bold text-gray-800">5. Processing Times</h2>
                         </div>
-                        <p class="text-gray-600 leading-relaxed">Visa processing times are determined <strong>solely by embassies, consulates, or immigration authorities</strong>. NorthGate does not guarantee or expedite processing. Delays, additional document requests, or administrative processing are beyond our control.</p>
+                        <p class="text-gray-700 leading-relaxed">Visa processing times are determined <strong>solely by embassies, consulates, or immigration authorities</strong>. NorthGate does not guarantee or expedite processing. Delays, additional document requests, or administrative processing are beyond our control.</p>
+                        <div class="mt-4 pt-3 border-t border-red-200 text-xs text-red-600/80 font-medium"><i class="fa-regular fa-hourglass-half mr-1"></i> Embassies reserve right to take extended time</div>
                     </div>
 
-                    <!-- Card 6 - Important No Guarantee -->
-                    <div class="terms-card bg-gradient-to-br from-red-50 to-white rounded-2xl p-7 shadow-md border border-red-200 hover:shadow-xl transition-all">
+                    <!-- Card 6 - No Guarantee Policy (Enhanced) -->
+                    <div class="terms-card rounded-2xl p-7 shadow-sm">
                         <div class="flex items-center gap-3 mb-5">
-                            <div class="w-12 h-12 bg-red-200 rounded-xl flex items-center justify-center text-red-700 text-xl"><i class="fa-solid fa-ban"></i></div>
+                            <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center text-red-600 text-xl"><i class="fa-solid fa-ban"></i></div>
                             <h2 class="text-xl font-bold text-gray-800">6. No Guarantee Policy</h2>
                         </div>
                         <p class="text-gray-700 leading-relaxed"><strong class="text-red-600 text-lg">⚠️ Visa approval is never guaranteed.</strong> The final decision rests exclusively with the respective embassy or immigration authority. NorthGate does not promise or assure visa approval under any circumstances. Our role is to maximize your chances through professional guidance.</p>
+                       
                     </div>
 
-                    <!-- Card 7 -->
-                    <div class="terms-card bg-white rounded-2xl p-7 shadow-md border border-gray-100 hover:shadow-xl transition-all">
+                    <!-- Card 7 - Refund & Cancellation Policy -->
+                    <div class="terms-card rounded-2xl p-7 shadow-sm">
                         <div class="flex items-center gap-3 mb-5">
                             <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center text-red-600 text-xl"><i class="fa-solid fa-rotate-left"></i></div>
                             <h2 class="text-xl font-bold text-gray-800">7. Refund & Cancellation Policy</h2>
                         </div>
-                        <p class="text-gray-600 leading-relaxed">Service fees are <strong class="text-red-600">non-refundable</strong> once any service (including initial consultation, document review, or form preparation) has been provided. No refunds will be issued in case of visa refusal, client withdrawal, or change of travel plans. Government fees paid to embassies follow their respective refund policies.</p>
+                        <p class="text-gray-700 leading-relaxed">Service fees are <strong class="text-red-600">non-refundable</strong> once any service (including initial consultation, document review, or form preparation) has been provided. No refunds will be issued in case of visa refusal, client withdrawal, or change of travel plans. Government fees paid to embassies follow their respective refund policies.</p>
                     </div>
 
-                    <!-- Card 8 -->
-                    <div class="terms-card bg-white rounded-2xl p-7 shadow-md border border-gray-100 hover:shadow-xl transition-all">
+                    <!-- Card 8 - Privacy & Confidentiality -->
+                    <div class="terms-card rounded-2xl p-7 shadow-sm">
                         <div class="flex items-center gap-3 mb-5">
                             <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center text-red-600 text-xl"><i class="fa-solid fa-lock"></i></div>
                             <h2 class="text-xl font-bold text-gray-800">8. Privacy & Confidentiality</h2>
                         </div>
-                        <p class="text-gray-600 leading-relaxed">All personal information, documents, and data shared with NorthGate are kept <strong>strictly confidential</strong> and used solely for visa assistance purposes. We do not share client data with third parties except as required for visa processing or by law.</p>
+                        <p class="text-gray-700 leading-relaxed">All personal information, documents, and data shared with NorthGate are kept <strong>strictly confidential</strong> and used solely for visa assistance purposes. We do not share client data with third parties except as required for visa processing or by law.</p>
                     </div>
                 </div>
 
-                <!-- Extended Clauses Section - Like Mission/Vision Section -->
+                <!-- Extended Clauses Section - Limitation & Amendments: now also have matching outline and consistent background -->
                 <div class="mt-12 grid md:grid-cols-2 gap-8">
-                    <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 border-l-8 border-red-600">
+                    <div class="clause-card rounded-2xl p-8 shadow-sm">
                         <div class="flex items-center gap-3 mb-4">
-                            <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center"><i class="fa-solid fa-gavel text-red-600"></i></div>
-                            <h3 class="font-bold text-xl">9. Limitation of Liability</h3>
+                            <div class="w-10 h-10 bg-red-200 rounded-lg flex items-center justify-center"><i class="fa-solid fa-gavel text-red-700"></i></div>
+                            <h3 class="font-bold text-xl text-gray-800">9. Limitation of Liability</h3>
                         </div>
                         <p class="text-gray-700 leading-relaxed">To the fullest extent permitted by law, NorthGate Visa Service Center shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including loss of profits, data, or opportunities, arising from the use of our services. Our total liability shall not exceed the service fees paid by the client.</p>
+                        <div class="mt-4 text-xs text-red-600/70 border-t border-red-200 pt-3"><i class="fa-regular fa-building mr-1"></i> Independent consultancy</div>
                     </div>
 
-                    <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 border-l-8 border-blue-600">
+                    <div class="clause-card rounded-2xl p-8 shadow-sm">
                         <div class="flex items-center gap-3 mb-4">
-                            <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center"><i class="fa-solid fa-file-signature text-blue-600"></i></div>
-                            <h3 class="font-bold text-xl">10. Amendments to Terms</h3>
+                            <div class="w-10 h-10 bg-red-200 rounded-lg flex items-center justify-center"><i class="fa-solid fa-file-signature text-red-700"></i></div>
+                            <h3 class="font-bold text-xl text-gray-800">10. Amendments to Terms</h3>
                         </div>
                         <p class="text-gray-700 leading-relaxed">NorthGate reserves the right to modify these Terms & Conditions at any time without prior notice. Changes become effective immediately upon posting on this page. Continued use of our services constitutes acceptance of the updated terms. Please review this page periodically.</p>
                     </div>
                 </div>
 
-                <!-- Governing Law Section - Like CTA Style -->
-                <!-- <div class="mt-8 bg-gradient-to-r from-amber-50 to-yellow-50 rounded-2xl p-8 border border-amber-200">
-                    <div class="flex items-start gap-4 flex-wrap md:flex-nowrap">
-                        <div class="bg-amber-100 text-amber-700 rounded-xl w-14 h-14 flex items-center justify-center text-2xl flex-shrink-0">
-                            <i class="fa-solid fa-gavel"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-xl mb-2">11. Governing Law & Dispute Resolution</h3>
-                            <p class="text-gray-700 leading-relaxed">These terms shall be governed by and construed in accordance with the laws of <strong>Pakistan</strong>. Any disputes arising from these terms or our services shall be subject to the exclusive jurisdiction of the courts in Pakistan.</p>
-                            <div class="mt-4 pt-3 border-t border-amber-200 flex flex-wrap gap-4">
-                                <div><i class="fa-regular fa-envelope text-amber-700 mr-2"></i> support@northgatevisaservices.com</div>
-                                <div><i class="fab fa-whatsapp text-green-600 mr-2"></i> +92 345 2613587</div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+            
 
-                <!-- Acceptance Section - Like Stats/CTA -->
-                <div class="mt-12 text-center bg-gradient-to-r from-red-50 to-blue-50 rounded-3xl p-10 border border-red-200">
+                <!-- Acceptance Section - Consistent with the new styling -->
+                <div class="mt-12 text-center bg-gradient-to-r from-red-50 to-orange-50 rounded-3xl p-10 border border-red-200 shadow-sm" style="border-left: 8px solid #e11d3f;">
                     <i class="fa-solid fa-check-circle text-5xl text-red-600 mb-4"></i>
                     <h3 class="font-bold text-2xl text-gray-800 mb-3">By using our services, you agree to these terms</h3>
                     <p class="text-gray-600 mb-6">Last Updated: January 2026 | Version 2.0</p>
@@ -363,7 +380,7 @@
             </div>
         </section>
 
-        <!-- FOOTER - SAME AS ABOUT PAGE -->
+        <!-- FOOTER -->
         <footer class="relative overflow-hidden bg-gradient-to-br from-gray-900 via-blue-950 to-gray-900 text-white py-12">
             <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-red-500/50 to-transparent"></div>
             <div class="absolute -top-24 -right-24 w-64 h-64 bg-red-600/10 rounded-full blur-3xl"></div>
