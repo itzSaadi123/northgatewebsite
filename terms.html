@@ -18,7 +18,6 @@
     <link rel="canonical" href="https://northgatevisa.com/terms.html">
     <link rel="icon" type="image/webp" href="favicon.webp">
     
-    <!-- ===== PERFORMANCE OPTIMIZATIONS ===== -->
     <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
@@ -74,15 +73,10 @@
             font-family: 'Playfair Display', serif;
         }
         
-       .terms-hero {
-    background:
-        linear-gradient(
-            135deg,
-            rgba(225, 29, 63, 0.55),
-            rgba(30, 58, 138, 0.60)
-        ),
-        url('terms.webp') center/cover no-repeat;
-}
+        .terms-hero {
+            background: linear-gradient(135deg, rgba(225, 29, 63, 0.55), rgba(30, 58, 138, 0.60)),
+                        url('terms.webp') center/cover no-repeat;
+        }
         
         .nav-link {
             position: relative;
@@ -106,7 +100,6 @@
             width: 100%;
         }
         
-        /* Updated: All term cards now have consistent outline & background same as last two boxes */
         .terms-card {
             transition: all 0.3s ease;
             background: linear-gradient(135deg, #fff5f5 0%, #fefaf5 100%);
@@ -122,7 +115,6 @@
             border-left-color: #b91c1c;
         }
         
-        /* For the extended clauses (Limitation, Amendments) also matching style */
         .clause-card {
             transition: all 0.3s ease;
             background: linear-gradient(135deg, #fff5f5 0%, #fefaf5 100%);
@@ -148,12 +140,105 @@
             position: relative;
             background: transparent;
         }
-
-        /* Governing law card background unified */
-        .governance-card {
-            background: linear-gradient(135deg, #fff9f0 0%, #fff5e6 100%);
-            border: 1px solid #fde68a;
-            border-left: 6px solid #f59e0b;
+        
+        /* ===== MOBILE SIZE OPTIMIZATION ===== */
+        @media (max-width: 640px) {
+            .terms-hero {
+                min-height: 40vh !important;
+            }
+            .terms-hero h1 {
+                font-size: 32px !important;
+            }
+            .terms-hero p.text-xl {
+                font-size: 14px !important;
+            }
+            .terms-hero .inline-flex {
+                padding: 6px 12px !important;
+                font-size: 10px !important;
+            }
+            .terms-hero .flex-wrap.gap-4 a {
+                padding: 10px 18px !important;
+                font-size: 14px !important;
+            }
+            
+            section.py-20 {
+                padding-top: 2rem !important;
+                padding-bottom: 2rem !important;
+            }
+            
+            .grid.md\:grid-cols-2 {
+                gap: 1rem !important;
+            }
+            
+            .terms-card, .clause-card {
+                padding: 1rem !important;
+            }
+            
+            .terms-card h2, .clause-card h3 {
+                font-size: 16px !important;
+            }
+            
+            .terms-card p, .clause-card p {
+                font-size: 12px !important;
+            }
+            
+            .terms-card ul li {
+                font-size: 12px !important;
+            }
+            
+            .bg-gradient-to-r.from-red-50.rounded-3xl.p-8 {
+                padding: 1rem !important;
+            }
+            
+            .bg-gradient-to-r.from-red-50.rounded-3xl.p-8 h3 {
+                font-size: 16px !important;
+            }
+            
+            .bg-gradient-to-r.from-red-50.rounded-3xl.p-8 p {
+                font-size: 12px !important;
+            }
+            
+            .mt-12.text-center.bg-gradient-to-r {
+                padding: 1.5rem !important;
+            }
+            
+            .mt-12.text-center.bg-gradient-to-r h3 {
+                font-size: 16px !important;
+            }
+            
+            .mt-12.text-center.bg-gradient-to-r p {
+                font-size: 11px !important;
+            }
+            
+            /* Quick Links: 2 per row on mobile */
+            .quick-links-grid {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 0.5rem 1rem !important;
+            }
+            .quick-links-grid li {
+                list-style: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .quick-links-grid a {
+                padding: 0.25rem 0 !important;
+                background: transparent !important;
+                border: none !important;
+                display: flex !important;
+                align-items: center !important;
+                gap: 0.5rem !important;
+            }
+            
+            footer .grid {
+                gap: 1.5rem !important;
+            }
+        }
+        
+        @media (min-width: 641px) and (max-width: 768px) {
+            .terms-card, .clause-card {
+                padding: 1.25rem !important;
+            }
         }
     </style>
 </head>
@@ -227,7 +312,7 @@
                     <a href="index.html#faq" onclick="closeMobileMenu()" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-question-circle text-red-500 w-5"></i> FAQ</a>
                     <a href="about.html" onclick="closeMobileMenu()" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-building text-red-500 w-5"></i> ABOUT US</a>
                     <a href="terms.html" onclick="closeMobileMenu()" class="py-3 px-2 rounded-xl bg-red-50 text-red-600 flex items-center gap-3"><i class="fa-solid fa-scale-balanced text-red-500 w-5"></i> TERMS</a>
-                     <a href="index.html#testimonials" onclick="closeMobileMenu()" class="py-3 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-comment-dots text-red-500 w-5"></i> REVIEWS</a>
+                    <a href="index.html#testimonials" onclick="closeMobileMenu()" class="py-3 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-comment-dots text-red-500 w-5"></i> REVIEWS</a>
                 </div>
             </div>
         </nav>
@@ -254,7 +339,7 @@
         <section id="terms-content" class="py-20 bg-white/95">
             <div class="max-w-7xl mx-auto px-5 lg:px-8">
                 
-                <!-- Introduction Card - Styled with outline and background to match overall theme -->
+                <!-- Introduction Card -->
                 <div class="bg-gradient-to-r from-red-50 via-white to-blue-50 rounded-3xl p-8 mb-12 border border-red-200 shadow-md" style="border-left: 6px solid #e11d3f;">
                     <div class="flex items-start gap-5 flex-wrap md:flex-nowrap">
                         <div class="bg-gradient-to-br from-red-600 to-red-700 text-white rounded-2xl w-16 h-16 flex items-center justify-center text-2xl shadow-lg flex-shrink-0">
@@ -272,10 +357,9 @@
                     </div>
                 </div>
 
-                <!-- Terms Grid - 2 Columns: ALL boxes now have outline + background exactly like last two previous boxes -->
+                <!-- Terms Grid - 2 Columns -->
                 <div class="grid md:grid-cols-2 gap-8">
                     
-                    <!-- Card 1 - Legal Status -->
                     <div class="terms-card rounded-2xl p-7 shadow-sm">
                         <div class="flex items-center gap-3 mb-5">
                             <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center text-red-600 text-xl"><i class="fa-solid fa-building-columns"></i></div>
@@ -284,7 +368,6 @@
                         <p class="text-gray-700 leading-relaxed"><strong class="text-red-600">NorthGate Visa Service Center</strong> is a private consultancy firm registered with the <strong>Securities and Exchange Commission of Pakistan (SECP)</strong> and the <strong>Federal Board of Revenue (FBR)</strong>. We operate as an independent entity and are not affiliated with any government embassy, consulate, or immigration authority worldwide.</p>
                     </div>
 
-                    <!-- Card 2 - Scope of Services -->
                     <div class="terms-card rounded-2xl p-7 shadow-sm">
                         <div class="flex items-center gap-3 mb-5">
                             <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center text-red-600 text-xl"><i class="fa-solid fa-briefcase"></i></div>
@@ -300,7 +383,6 @@
                         <p class="text-gray-600 text-sm italic mt-3 border-l-3 border-red-300 pl-3">⚠️ We do NOT provide legal advice, guaranteed approvals, or fake/sponsorship documents.</p>
                     </div>
 
-                    <!-- Card 3 - Fees & Payment Terms -->
                     <div class="terms-card rounded-2xl p-7 shadow-sm">
                         <div class="flex items-center gap-3 mb-5">
                             <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center text-red-600 text-xl"><i class="fa-solid fa-hand-holding-dollar"></i></div>
@@ -309,7 +391,6 @@
                         <p class="text-gray-700 leading-relaxed">All service fees are communicated transparently before engagement. <strong>Government visa fees (MRV, processing, biometrics) are separate</strong> and must be paid directly by the applicant. Service fees are <strong class="text-red-600">non-refundable</strong> once the process has been initiated or any work has commenced.</p>
                     </div>
 
-                    <!-- Card 4 - Client Responsibility -->
                     <div class="terms-card rounded-2xl p-7 shadow-sm">
                         <div class="flex items-center gap-3 mb-5">
                             <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center text-red-600 text-xl"><i class="fa-solid fa-user-check"></i></div>
@@ -318,7 +399,6 @@
                         <p class="text-gray-700 leading-relaxed">Clients must provide <strong>accurate, truthful, and complete information</strong>. Submission of false documents, misrepresentation, or withholding material facts is strictly prohibited. NorthGate shall not be held liable for visa refusals resulting from incorrect or fraudulent client information.</p>
                     </div>
 
-                    <!-- Card 5 - Processing Times -->
                     <div class="terms-card rounded-2xl p-7 shadow-sm">
                         <div class="flex items-center gap-3 mb-5">
                             <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center text-red-600 text-xl"><i class="fa-solid fa-clock"></i></div>
@@ -328,17 +408,14 @@
                         <div class="mt-4 pt-3 border-t border-red-200 text-xs text-red-600/80 font-medium"><i class="fa-regular fa-hourglass-half mr-1"></i> Embassies reserve right to take extended time</div>
                     </div>
 
-                    <!-- Card 6 - No Guarantee Policy (Enhanced) -->
                     <div class="terms-card rounded-2xl p-7 shadow-sm">
                         <div class="flex items-center gap-3 mb-5">
                             <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center text-red-600 text-xl"><i class="fa-solid fa-ban"></i></div>
                             <h2 class="text-xl font-bold text-gray-800">6. No Guarantee Policy</h2>
                         </div>
                         <p class="text-gray-700 leading-relaxed"><strong class="text-red-600 text-lg">⚠️ Visa approval is never guaranteed.</strong> The final decision rests exclusively with the respective embassy or immigration authority. NorthGate does not promise or assure visa approval under any circumstances. Our role is to maximize your chances through professional guidance.</p>
-                       
                     </div>
 
-                    <!-- Card 7 - Refund & Cancellation Policy -->
                     <div class="terms-card rounded-2xl p-7 shadow-sm">
                         <div class="flex items-center gap-3 mb-5">
                             <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center text-red-600 text-xl"><i class="fa-solid fa-rotate-left"></i></div>
@@ -347,7 +424,6 @@
                         <p class="text-gray-700 leading-relaxed">Service fees are <strong class="text-red-600">non-refundable</strong> once any service (including initial consultation, document review, or form preparation) has been provided. No refunds will be issued in case of visa refusal, client withdrawal, or change of travel plans. Government fees paid to embassies follow their respective refund policies.</p>
                     </div>
 
-                    <!-- Card 8 - Privacy & Confidentiality -->
                     <div class="terms-card rounded-2xl p-7 shadow-sm">
                         <div class="flex items-center gap-3 mb-5">
                             <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center text-red-600 text-xl"><i class="fa-solid fa-lock"></i></div>
@@ -357,7 +433,7 @@
                     </div>
                 </div>
 
-                <!-- Extended Clauses Section - Limitation & Amendments: now also have matching outline and consistent background -->
+                <!-- Extended Clauses Section -->
                 <div class="mt-12 grid md:grid-cols-2 gap-8">
                     <div class="clause-card rounded-2xl p-8 shadow-sm">
                         <div class="flex items-center gap-3 mb-4">
@@ -377,9 +453,7 @@
                     </div>
                 </div>
 
-            
-
-                <!-- Acceptance Section - Consistent with the new styling -->
+                <!-- Acceptance Section -->
                 <div class="mt-12 text-center bg-gradient-to-r from-red-50 to-orange-50 rounded-3xl p-10 border border-red-200 shadow-sm" style="border-left: 8px solid #e11d3f;">
                     <i class="fa-solid fa-check-circle text-5xl text-red-600 mb-4"></i>
                     <h3 class="font-bold text-2xl text-gray-800 mb-3">By using our services, you agree to these terms</h3>
@@ -396,14 +470,13 @@
             </div>
         </section>
 
-        <!-- FOOTER -->
+        <!-- FOOTER - Updated: Mobile par Quick Links 2 columns, same as index page -->
         <footer class="relative overflow-hidden bg-gradient-to-br from-gray-900 via-blue-950 to-gray-900 text-white py-12">
             <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-red-500/50 to-transparent"></div>
             <div class="absolute -top-24 -right-24 w-64 h-64 bg-red-600/10 rounded-full blur-3xl"></div>
             <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl"></div>
 
             <div class="max-w-7xl mx-auto px-5 relative z-10 grid md:grid-cols-4 gap-10">
-                
                 <div class="space-y-4">
                     <div class="group relative h-20 w-20">
                         <div class="absolute inset-0 bg-white/20 rounded-full blur-md group-hover:blur-lg transition-all"></div>
@@ -416,9 +489,10 @@
                     <p class="text-xs opacity-70 border-l-2 border-red-500 pl-3 py-1">Independent • Ethical • Transparent</p>
                 </div>
 
+                <!-- Quick Links - Mobile par 2 columns exactly like index page -->
                 <div>
                     <h4 class="font-bold mb-6 text-lg inline-block border-b border-red-500/30 pb-1">Quick Links</h4>
-                    <ul class="space-y-3 text-sm">
+                    <ul class="quick-links-grid space-y-3 text-sm md:space-y-3 md:block">
                         <li><a href="about.html" class="flex items-center group hover:text-red-300 transition-all"><span class="w-0 group-hover:w-4 transition-all duration-300 overflow-hidden text-red-400">→</span> About</a></li>
                         <li><a href="index.html#faq" class="flex items-center group hover:text-red-300 transition-all"><span class="w-0 group-hover:w-4 transition-all duration-300 overflow-hidden text-red-400">→</span> FAQ</a></li>
                         <li><a href="index.html#apply" class="flex items-center group hover:text-red-300 transition-all"><span class="w-0 group-hover:w-4 transition-all duration-300 overflow-hidden text-red-400">→</span> Apply</a></li>
@@ -443,8 +517,6 @@
                         </div>
                     </div>
                 </div>
-
-               
             </div>
 
             <div class="text-center text-[10px] uppercase tracking-[2px] text-red-200/60 border-t border-white/10 mt-12 pt-8">
