@@ -218,7 +218,7 @@
             100% { transform: rotate(360deg); }
         }
         
-        /* ===== MOBILE SIZE OPTIMIZATION - ONLY SIZE CHOTA KIYA, KUCH NAHI BADLA ===== */
+        /* ===== MOBILE SIZE OPTIMIZATION ===== */
         @media (max-width: 640px) {
             .hero-bg {
                 min-height: 70vh !important;
@@ -260,15 +260,15 @@
                 gap: 1rem !important;
             }
             
-            .service-card, .why-card, .step-card, .testimonial-card {
+            .service-card, .why-card, .testimonial-card {
                 padding: 1rem !important;
             }
             
-            .service-card h4, .why-card span, .step-card h4 {
+            .service-card h4, .why-card span {
                 font-size: 14px !important;
             }
             
-            .service-card p, .why-card span, .step-card p {
+            .service-card p, .why-card span {
                 font-size: 12px !important;
             }
             
@@ -289,12 +289,54 @@
                 font-size: 12px !important;
             }
             
+            /* Steps Grid: 2 per row */
+            .steps-grid {
+                display: grid !important;
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+                gap: 0.75rem !important;
+            }
             .step-card .text-6xl {
-                font-size: 32px !important;
+                font-size: 28px !important;
+            }
+            .step-card h4 {
+                font-size: 13px !important;
+                margin-bottom: 0.5rem !important;
+            }
+            .step-card p {
+                font-size: 10px !important;
+            }
+            .step-card {
+                padding: 0.75rem !important;
             }
             
-            .footer .grid {
-                gap: 1.5rem !important;
+            /* Quick Links: 2 per row - perfectly aligned */
+            .quick-links-grid {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 0.5rem 1rem !important;
+            }
+            .quick-links-grid li {
+                list-style: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .quick-links-grid a {
+                padding: 0.25rem 0 !important;
+                background: transparent !important;
+                border: none !important;
+                display: flex !important;
+                align-items: center !important;
+                gap: 0.5rem !important;
+                white-space: nowrap !important;
+            }
+            
+            /* Important Note text chota mobile par */
+            .important-note {
+                font-size: 11px !important;
+                padding: 0.75rem !important;
+            }
+            .important-note i {
+                font-size: 12px !important;
             }
             
             .testimonial-card .w-14.h-14 {
@@ -317,6 +359,26 @@
             
             #reviewsContainer {
                 gap: 1rem !important;
+            }
+            
+            footer .grid {
+                gap: 1.5rem !important;
+            }
+        }
+        
+        @media (min-width: 641px) and (max-width: 768px) {
+            .steps-grid {
+                display: grid !important;
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+                gap: 1rem !important;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .steps-grid {
+                display: grid !important;
+                grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+                gap: 1.5rem !important;
             }
         }
     </style>
@@ -547,64 +609,64 @@
                             <div class="h-1.5 w-24 bg-red-600 mx-auto mt-4 rounded-full"></div>
                         </div>
 
-                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-10">
-                            <div class="group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
+                        <div class="steps-grid">
+                            <div class="step-card group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
                                 <div class="text-red-600 text-6xl font-black italic tracking-tighter mb-4 transition-transform group-hover:scale-110">01</div>
                                 <h4 class="font-extrabold text-xl text-slate-900 mb-3">Application Submission</h4>
                                 <p class="text-slate-700 text-sm leading-relaxed font-semibold">Complete and submit your online visa applicant form with accuracy.</p>
                                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-red-600 group-hover:w-1/2 transition-all duration-500 rounded-t-full"></div>
                             </div>
 
-                            <div class="group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
+                            <div class="step-card group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
                                 <div class="text-red-600 text-6xl font-black italic tracking-tighter mb-4 transition-transform group-hover:scale-110">02</div>
                                 <h4 class="font-extrabold text-xl text-slate-900 mb-3">Initial Case Review</h4>
                                 <p class="text-slate-700 text-sm leading-relaxed font-semibold">Expert consultation within 24 hours to discuss your case details.</p>
                                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-red-600 group-hover:w-1/2 transition-all duration-500 rounded-t-full"></div>
                             </div>
 
-                            <div class="group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
+                            <div class="step-card group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
                                 <div class="text-red-600 text-6xl font-black italic tracking-tighter mb-4 transition-transform group-hover:scale-110">03</div>
                                 <h4 class="font-extrabold text-xl text-slate-900 mb-3">Fee Challan Issuance</h4>
                                 <p class="text-slate-700 text-sm leading-relaxed font-semibold">Official bank challan delivered to your registered email.</p>
                                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-red-600 group-hover:w-1/2 transition-all duration-500 rounded-t-full"></div>
                             </div>
 
-                            <div class="group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
+                            <div class="step-card group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
                                 <div class="text-red-600 text-6xl font-black italic tracking-tighter mb-4 transition-transform group-hover:scale-110">04</div>
                                 <h4 class="font-extrabold text-xl text-slate-900 mb-3">Fee Payment</h4>
-                                <p class="text-slate-700 text-sm leading-relaxed font-semibold">Pay the required fee at any MCB bank branch or via online IBFT. After payment, please share your receipt on our WhatsApp or Email for verification.</p>
+                                <p class="text-slate-700 text-sm leading-relaxed font-semibold">Pay the required fee at any MCB bank branch or via online IBFT.</p>
                                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-red-600 group-hover:w-1/2 transition-all duration-500 rounded-t-full"></div>
                             </div>
 
-                            <div class="group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
+                            <div class="step-card group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
                                 <div class="text-red-600 text-6xl font-black italic tracking-tighter mb-4 transition-transform group-hover:scale-110">05</div>
                                 <h4 class="font-extrabold text-xl text-slate-900 mb-3">Payment Confirmation</h4>
                                 <p class="text-slate-700 text-sm leading-relaxed font-semibold">Your payment activation confirmed within 24 hours.</p>
                                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-red-600 group-hover:w-1/2 transition-all duration-500 rounded-t-full"></div>
                             </div>
 
-                            <div class="group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
+                            <div class="step-card group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
                                 <div class="text-red-600 text-6xl font-black italic tracking-tighter mb-4 transition-transform group-hover:scale-110">06</div>
                                 <h4 class="font-extrabold text-xl text-slate-900 mb-3">Document Preparation</h4>
                                 <p class="text-slate-700 text-sm leading-relaxed font-semibold">Professional checklist and guidance for all your documents.</p>
                                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-red-600 group-hover:w-1/2 transition-all duration-500 rounded-t-full"></div>
                             </div>
 
-                            <div class="group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
+                            <div class="step-card group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
                                 <div class="text-red-600 text-6xl font-black italic tracking-tighter mb-4 transition-transform group-hover:scale-110">07</div>
                                 <h4 class="font-extrabold text-xl text-slate-900 mb-3">Interview Preparation</h4>
                                 <p class="text-slate-700 text-sm leading-relaxed font-semibold">Confidently face your interview with our expert guides.</p>
                                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-red-600 group-hover:w-1/2 transition-all duration-500 rounded-t-full"></div>
                             </div>
 
-                            <div class="group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
+                            <div class="step-card group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
                                 <div class="text-red-600 text-6xl font-black italic tracking-tighter mb-4 transition-transform group-hover:scale-110">08</div>
                                 <h4 class="font-extrabold text-xl text-slate-900 mb-3">Appointment Scheduling</h4>
                                 <p class="text-slate-700 text-sm leading-relaxed font-semibold">Seamless scheduling and confirmation of your visa appointment.</p>
                                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-red-600 group-hover:w-1/2 transition-all duration-500 rounded-t-full"></div>
                             </div>
 
-                            <div class="group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
+                            <div class="step-card group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
                                 <div class="text-red-600 text-6xl font-black italic tracking-tighter mb-4 transition-transform group-hover:scale-110">09</div>
                                 <h4 class="font-extrabold text-xl text-slate-900 mb-3">Status & Tracking</h4>
                                 <p class="text-slate-700 text-sm leading-relaxed font-semibold">Real-time CEAC status updates and passport tracking.</p>
@@ -614,7 +676,7 @@
                     </div>
                 </div>
 
-                <div class="mt-12 bg-amber-50 border-l-4 border-amber-500 rounded-2xl p-6 text-center">
+                <div class="mt-12 bg-amber-50 border-l-4 border-amber-500 rounded-2xl p-6 text-center important-note">
                     <p class="text-amber-800 font-medium"><i class="fa-solid fa-circle-info text-amber-600 mr-2"></i> <strong>Important Note:</strong> Service fees mentioned are exclusive of MRV (Machine Readable Visa) fee and any other applicable charges, which must be paid separately by the applicant.</p>
                 </div>
             </div>
@@ -715,9 +777,10 @@
                     <p class="text-xs opacity-70 border-l-2 border-red-500 pl-3 py-1">Independent • Ethical • Transparent</p>
                 </div>
 
+                <!-- Quick Links - Mobile par 2 columns perfectly aligned, laptop par normal vertical -->
                 <div>
                     <h4 class="font-bold mb-6 text-lg inline-block border-b border-red-500/30 pb-1">Quick Links</h4>
-                    <ul class="space-y-3 text-sm">
+                    <ul class="quick-links-grid md:block md:space-y-3">
                         <li><a href="about.html" class="flex items-center group hover:text-red-300 transition-all"><span class="w-0 group-hover:w-4 transition-all duration-300 overflow-hidden text-red-400">→</span> About</a></li>
                         <li><a href="#faq" class="flex items-center group hover:text-red-300 transition-all"><span class="w-0 group-hover:w-4 transition-all duration-300 overflow-hidden text-red-400">→</span> FAQ</a></li>
                         <li><a href="#apply" class="flex items-center group hover:text-red-300 transition-all"><span class="w-0 group-hover:w-4 transition-all duration-300 overflow-hidden text-red-400">→</span> Apply</a></li>
