@@ -108,6 +108,79 @@
             box-shadow: 0 15px 30px -8px rgba(225,29,63,0.4);
         }
         
+        /* ===== UMRAH BUTTON WITH LIMITED TIME EFFECT ===== */
+        .umrah-btn {
+            background: linear-gradient(135deg, #059669, #047857);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: subtlePulse 2s infinite;
+        }
+        
+        .umrah-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px -8px rgba(5, 150, 105, 0.6);
+            animation: none;
+        }
+        
+        .umrah-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .umrah-btn:hover::before {
+            left: 100%;
+        }
+        
+        @keyframes subtlePulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 0 8px rgba(5, 150, 105, 0);
+            }
+        }
+        
+        /* Rotating Hourglass Animation */
+        .rotating-hourglass {
+            display: inline-block;
+            animation: rotateHourglass 2s ease-in-out infinite;
+            font-size: 1.2rem;
+        }
+        
+        @keyframes rotateHourglass {
+            0% { transform: rotate(0deg); }
+            50% { transform: rotate(180deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Badge style for limited offer */
+        .limited-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: linear-gradient(135deg, #f59e0b, #dc2626);
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 20px;
+            white-space: nowrap;
+            animation: badgeBounce 0.5s ease infinite;
+            z-index: 10;
+        }
+        
+        @keyframes badgeBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+        
         .service-card {
             transition: all 0.3s ease;
         }
@@ -126,10 +199,10 @@
         }
         
         .animate-bounce {
-            animation: bounce 1s infinite;
+            animation: bounceAnim 1s infinite;
         }
         
-        @keyframes bounce {
+        @keyframes bounceAnim {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(5px); }
         }
@@ -480,6 +553,19 @@
                         <a href="https://wa.me/923452613587" target="_blank" rel="noopener noreferrer" class="border-2 border-white/90 bg-black/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold px-7 py-4 rounded-2xl flex items-center gap-2 text-lg transition-all">
                             <i class="fab fa-whatsapp text-xl text-green-400"></i> CHAT NOW
                         </a>
+                        <!-- UPDATED UMRAH BUTTON with Limited Time Badge, Pulse Effect, and Rotating Hourglass -->
+                        <div class="relative inline-block">
+                            <div class="absolute -top-3 -right-3 z-10">
+                                <div class="limited-badge">
+                                    🔥 LIMITED TIME 🔥
+                                </div>
+                            </div>
+                            <a href="umrah-package.html" class="umrah-btn text-white font-extrabold px-8 py-4 rounded-2xl text-lg flex items-center gap-3 shadow-2xl transition-all">
+                                <i class="fa-solid fa-kaaba text-xl"></i>
+                                🌙 UMRAH 2026 →
+                                <span class="rotating-hourglass">⌛</span>
+                            </a>
+                        </div>
                     </div>
 
                     <div class="flex flex-wrap gap-6 text-sm font-bold" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.7);">
@@ -604,72 +690,58 @@
                 <div class="py-16 px-4 bg-white">
                     <div class="max-w-6xl mx-auto">
                         <div class="text-center mb-12">
-                            <span class="px-5 py-1.5 bg-red-600 text-white text-xs font-bold rounded-full uppercase tracking-widest shadow-md">9 Simple Steps</span>
-                            <h3 class="text-3xl md:text-5xl font-black heading-font mt-6 text-slate-900">Your Visa Journey in 9 Steps</h3>
+                            <span class="px-5 py-1.5 bg-red-600 text-white text-xs font-bold rounded-full uppercase tracking-widest shadow-md">7 Simple Steps</span>
+                            <h3 class="text-3xl md:text-5xl font-black heading-font mt-6 text-slate-900">Your Visa Journey in 7 Steps</h3>
                             <div class="h-1.5 w-24 bg-red-600 mx-auto mt-4 rounded-full"></div>
                         </div>
 
                         <div class="steps-grid">
                             <div class="step-card group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
                                 <div class="text-red-600 text-6xl font-black italic tracking-tighter mb-4 transition-transform group-hover:scale-110">01</div>
-                                <h4 class="font-extrabold text-xl text-slate-900 mb-3">Application Submission</h4>
-                                <p class="text-slate-700 text-sm leading-relaxed font-semibold">Complete and submit your online visa applicant form with accuracy.</p>
+                                <h4 class="font-extrabold text-xl text-slate-900 mb-3">Applicant Form Submission</h4>
+                                <p class="text-slate-700 text-sm leading-relaxed font-semibold">Complete and submit online application by selecting the designated country.</p>
                                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-red-600 group-hover:w-1/2 transition-all duration-500 rounded-t-full"></div>
                             </div>
 
                             <div class="step-card group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
                                 <div class="text-red-600 text-6xl font-black italic tracking-tighter mb-4 transition-transform group-hover:scale-110">02</div>
                                 <h4 class="font-extrabold text-xl text-slate-900 mb-3">Initial Case Review</h4>
-                                <p class="text-slate-700 text-sm leading-relaxed font-semibold">Expert consultation within 24 hours to discuss your case details.</p>
+                                <p class="text-slate-700 text-sm leading-relaxed font-semibold">Visa Assistant officer will contact you within 24 hours to discuss your case.</p>
                                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-red-600 group-hover:w-1/2 transition-all duration-500 rounded-t-full"></div>
                             </div>
 
                             <div class="step-card group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
                                 <div class="text-red-600 text-6xl font-black italic tracking-tighter mb-4 transition-transform group-hover:scale-110">03</div>
-                                <h4 class="font-extrabold text-xl text-slate-900 mb-3">Fee Challan Issuance</h4>
-                                <p class="text-slate-700 text-sm leading-relaxed font-semibold">Official bank challan delivered to your registered email.</p>
+                                <h4 class="font-extrabold text-xl text-slate-900 mb-3">Fee Challan & Payment</h4>
+                                <p class="text-slate-700 text-sm leading-relaxed font-semibold">Obtain bank challan via email, pay at MCB branch. Confirmation within 24 hours.</p>
                                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-red-600 group-hover:w-1/2 transition-all duration-500 rounded-t-full"></div>
                             </div>
 
                             <div class="step-card group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
                                 <div class="text-red-600 text-6xl font-black italic tracking-tighter mb-4 transition-transform group-hover:scale-110">04</div>
-                                <h4 class="font-extrabold text-xl text-slate-900 mb-3">Fee Payment</h4>
-                                <p class="text-slate-700 text-sm leading-relaxed font-semibold">Pay the required fee at any MCB bank branch or via online IBFT.</p>
+                                <h4 class="font-extrabold text-xl text-slate-900 mb-3">Document Preparation</h4>
+                                <p class="text-slate-700 text-sm leading-relaxed font-semibold">Prepare and organize all necessary documents as per checklist.</p>
                                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-red-600 group-hover:w-1/2 transition-all duration-500 rounded-t-full"></div>
                             </div>
 
                             <div class="step-card group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
                                 <div class="text-red-600 text-6xl font-black italic tracking-tighter mb-4 transition-transform group-hover:scale-110">05</div>
-                                <h4 class="font-extrabold text-xl text-slate-900 mb-3">Payment Confirmation</h4>
-                                <p class="text-slate-700 text-sm leading-relaxed font-semibold">Your payment activation confirmed within 24 hours.</p>
+                                <h4 class="font-extrabold text-xl text-slate-900 mb-3">Interview Preparation</h4>
+                                <p class="text-slate-700 text-sm leading-relaxed font-semibold">Expert guidance to confidently prepare for your interview (where applicable).</p>
                                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-red-600 group-hover:w-1/2 transition-all duration-500 rounded-t-full"></div>
                             </div>
 
                             <div class="step-card group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
                                 <div class="text-red-600 text-6xl font-black italic tracking-tighter mb-4 transition-transform group-hover:scale-110">06</div>
-                                <h4 class="font-extrabold text-xl text-slate-900 mb-3">Document Preparation</h4>
-                                <p class="text-slate-700 text-sm leading-relaxed font-semibold">Professional checklist and guidance for all your documents.</p>
+                                <h4 class="font-extrabold text-xl text-slate-900 mb-3">Appointment Scheduling</h4>
+                                <p class="text-slate-700 text-sm leading-relaxed font-semibold">Schedule appointment and receive confirmation letter seamlessly.</p>
                                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-red-600 group-hover:w-1/2 transition-all duration-500 rounded-t-full"></div>
                             </div>
 
                             <div class="step-card group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
                                 <div class="text-red-600 text-6xl font-black italic tracking-tighter mb-4 transition-transform group-hover:scale-110">07</div>
-                                <h4 class="font-extrabold text-xl text-slate-900 mb-3">Interview Preparation</h4>
-                                <p class="text-slate-700 text-sm leading-relaxed font-semibold">Confidently face your interview with our expert guides.</p>
-                                <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-red-600 group-hover:w-1/2 transition-all duration-500 rounded-t-full"></div>
-                            </div>
-
-                            <div class="step-card group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
-                                <div class="text-red-600 text-6xl font-black italic tracking-tighter mb-4 transition-transform group-hover:scale-110">08</div>
-                                <h4 class="font-extrabold text-xl text-slate-900 mb-3">Appointment Scheduling</h4>
-                                <p class="text-slate-700 text-sm leading-relaxed font-semibold">Seamless scheduling and confirmation of your visa appointment.</p>
-                                <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-red-600 group-hover:w-1/2 transition-all duration-500 rounded-t-full"></div>
-                            </div>
-
-                            <div class="step-card group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
-                                <div class="text-red-600 text-6xl font-black italic tracking-tighter mb-4 transition-transform group-hover:scale-110">09</div>
-                                <h4 class="font-extrabold text-xl text-slate-900 mb-3">Status & Tracking</h4>
-                                <p class="text-slate-700 text-sm leading-relaxed font-semibold">Real-time CEAC status updates and passport tracking.</p>
+                                <h4 class="font-extrabold text-xl text-slate-900 mb-3">Status & Passport Tracking</h4>
+                                <p class="text-slate-700 text-sm leading-relaxed font-semibold">Real-time CEAC application status and passport tracking updates.</p>
                                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-red-600 group-hover:w-1/2 transition-all duration-500 rounded-t-full"></div>
                             </div>
                         </div>
@@ -777,7 +849,6 @@
                     <p class="text-xs opacity-70 border-l-2 border-red-500 pl-3 py-1">Independent • Ethical • Transparent</p>
                 </div>
 
-                <!-- Quick Links - Mobile par 2 columns perfectly aligned, laptop par normal vertical -->
                 <div>
                     <h4 class="font-bold mb-6 text-lg inline-block border-b border-red-500/30 pb-1">Quick Links</h4>
                     <ul class="quick-links-grid md:block md:space-y-3">
