@@ -108,7 +108,7 @@
             box-shadow: 0 15px 30px -8px rgba(225,29,63,0.4);
         }
         
-        /* ===== UMRAH BUTTON - MATCHING WEBSITE COLOR THEME (RED/BLUE) WITH WHITE SURROUND ===== */
+            /* ===== UMRAH BUTTON - MATCHING WEBSITE COLOR THEME (RED/BLUE) WITH WHITE SURROUND ===== */
         .umrah-btn {
             background: linear-gradient(135deg, #e11d3f, #1e3a8a);
             transition: all 0.3s ease;
@@ -196,7 +196,7 @@
         
         @keyframes badgeBounce {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-4px); }
+            50% { transform: translateY(-3px); }
         }
         
         .service-card {
@@ -309,13 +309,6 @@
             100% { transform: rotate(360deg); }
         }
         
-        /* Steps Grid - Desktop 3 columns, mobile 2 columns */
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.8rem;
-        }
-        
         /* ===== MOBILE SIZE OPTIMIZATION ===== */
         @media (max-width: 640px) {
             .hero-bg {
@@ -387,7 +380,7 @@
                 font-size: 12px !important;
             }
             
-            /* Steps Grid: 2 per row on mobile */
+            /* Steps Grid: 2 per row */
             .steps-grid {
                 display: grid !important;
                 grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -407,7 +400,7 @@
                 padding: 0.75rem !important;
             }
             
-            /* Quick Links: 2 per row */
+            /* Quick Links: 2 per row - perfectly aligned */
             .quick-links-grid {
                 display: grid !important;
                 grid-template-columns: 1fr 1fr !important;
@@ -428,6 +421,7 @@
                 white-space: nowrap !important;
             }
             
+            /* Important Note text chota mobile par */
             .important-note {
                 font-size: 11px !important;
                 padding: 0.75rem !important;
@@ -577,20 +571,18 @@
                         <a href="https://wa.me/923452613587" target="_blank" rel="noopener noreferrer" class="border-2 border-white/90 bg-black/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold px-7 py-4 rounded-2xl flex items-center gap-2 text-lg transition-all">
                             <i class="fab fa-whatsapp text-xl text-green-400"></i> CHAT NOW
                         </a>
-                        <!-- UPDATED UMRAH BUTTON - With white/light wrapper to make it stand out, NO GREEN, website theme colors -->
+                        <!-- UPDATED UMRAH BUTTON with Limited Time Badge, Pulse Effect, and Rotating Hourglass -->
                         <div class="relative inline-block">
                             <div class="absolute -top-3 -right-3 z-10">
                                 <div class="limited-badge">
-                                    🔥 LIMITED 🔥
+                                    🔥 LIMITED TIME 🔥
                                 </div>
                             </div>
-                            <div class="umrah-wrapper">
-                                <a href="umrah-package.html" class="umrah-btn text-white font-extrabold px-8 py-4 rounded-2xl text-lg flex items-center gap-3 shadow-2xl transition-all">
-                                    <i class="fa-solid fa-kaaba text-xl"></i>
-                                    🌙 UMRAH 2026 →
-                                    <span class="rotating-hourglass">⌛</span>
-                                </a>
-                            </div>
+                            <a href="umrah-package.html" class="umrah-btn text-white font-extrabold px-8 py-4 rounded-2xl text-lg flex items-center gap-3 shadow-2xl transition-all">
+                                <i class="fa-solid fa-kaaba text-xl"></i>
+                                🌙 UMRAH 2026 →
+                                <span class="rotating-hourglass">⌛</span>
+                            </a>
                         </div>
                     </div>
 
@@ -725,43 +717,49 @@
                             <div class="step-card group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
                                 <div class="text-red-600 text-6xl font-black italic tracking-tighter mb-4 transition-transform group-hover:scale-110">01</div>
                                 <h4 class="font-extrabold text-xl text-slate-900 mb-3">Applicant Form Submission</h4>
-                                <p class="text-slate-700 text-sm leading-relaxed font-semibold">Complete and submit your online application form by selecting your designated country.</p>
+                                <p class="text-slate-700 text-sm leading-relaxed font-semibold">Complete and submit online application by selecting the designated country.</p>
                                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-red-600 group-hover:w-1/2 transition-all duration-500 rounded-t-full"></div>
                             </div>
+
                             <div class="step-card group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
                                 <div class="text-red-600 text-6xl font-black italic tracking-tighter mb-4 transition-transform group-hover:scale-110">02</div>
                                 <h4 class="font-extrabold text-xl text-slate-900 mb-3">Initial Case Review</h4>
-                                <p class="text-slate-700 text-sm leading-relaxed font-semibold">Our Visa Assistant officer will contact you within 24 hours of form submission to discuss your visa case.</p>
+                                <p class="text-slate-700 text-sm leading-relaxed font-semibold">Visa Assistant officer will contact you within 24 hours to discuss your case.</p>
                                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-red-600 group-hover:w-1/2 transition-all duration-500 rounded-t-full"></div>
                             </div>
+
                             <div class="step-card group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
                                 <div class="text-red-600 text-6xl font-black italic tracking-tighter mb-4 transition-transform group-hover:scale-110">03</div>
-                                <h4 class="font-extrabold text-xl text-slate-900 mb-3">Fee Challan & Payment Confirmation</h4>
-                                <p class="text-slate-700 text-sm leading-relaxed font-semibold">Get your Bank challan on your registered email address,Visit to any nearest MCB Bank branch in order to pay the processing fee.Once the payment is made you'll receive a confirmation email on your registered email address within 24 hours.</p>
+                                <h4 class="font-extrabold text-xl text-slate-900 mb-3">Fee Challan & Payment</h4>
+                                <p class="text-slate-700 text-sm leading-relaxed font-semibold">Obtain bank challan via email, pay at MCB branch. Confirmation within 24 hours.</p>
                                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-red-600 group-hover:w-1/2 transition-all duration-500 rounded-t-full"></div>
                             </div>
+
                             <div class="step-card group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
                                 <div class="text-red-600 text-6xl font-black italic tracking-tighter mb-4 transition-transform group-hover:scale-110">04</div>
                                 <h4 class="font-extrabold text-xl text-slate-900 mb-3">Document Preparation</h4>
-                                <p class="text-slate-700 text-sm leading-relaxed font-semibold">Prepare and organize all required documents.</p>
+                                <p class="text-slate-700 text-sm leading-relaxed font-semibold">Prepare and organize all necessary documents as per checklist.</p>
                                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-red-600 group-hover:w-1/2 transition-all duration-500 rounded-t-full"></div>
                             </div>
+
                             <div class="step-card group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
                                 <div class="text-red-600 text-6xl font-black italic tracking-tighter mb-4 transition-transform group-hover:scale-110">05</div>
                                 <h4 class="font-extrabold text-xl text-slate-900 mb-3">Interview Preparation</h4>
-                                <p class="text-slate-700 text-sm leading-relaxed font-semibold">Get expert guidance to confidently prepare for your interview (where applicable).</p>
+                                <p class="text-slate-700 text-sm leading-relaxed font-semibold">Expert guidance to confidently prepare for your interview (where applicable).</p>
                                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-red-600 group-hover:w-1/2 transition-all duration-500 rounded-t-full"></div>
                             </div>
+
                             <div class="step-card group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
                                 <div class="text-red-600 text-6xl font-black italic tracking-tighter mb-4 transition-transform group-hover:scale-110">06</div>
-                                <h4 class="font-extrabold text-xl text-slate-900 mb-3">Appointment Scheduling & Confirmation</h4>
-                                <p class="text-slate-700 text-sm leading-relaxed font-semibold">Get your appointment scheduled and receive confirmation letter seamlessly.</p>
+                                <h4 class="font-extrabold text-xl text-slate-900 mb-3">Appointment Scheduling</h4>
+                                <p class="text-slate-700 text-sm leading-relaxed font-semibold">Schedule appointment and receive confirmation letter seamlessly.</p>
                                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-red-600 group-hover:w-1/2 transition-all duration-500 rounded-t-full"></div>
                             </div>
+
                             <div class="step-card group relative bg-gradient-to-br from-red-100/60 to-blue-100/60 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
                                 <div class="text-red-600 text-6xl font-black italic tracking-tighter mb-4 transition-transform group-hover:scale-110">07</div>
                                 <h4 class="font-extrabold text-xl text-slate-900 mb-3">Status & Passport Tracking</h4>
-                                <p class="text-slate-700 text-sm leading-relaxed font-semibold">Stay updated with real-time CEAC application status and passport tracking.</p>
+                                <p class="text-slate-700 text-sm leading-relaxed font-semibold">Real-time CEAC application status and passport tracking updates.</p>
                                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-red-600 group-hover:w-1/2 transition-all duration-500 rounded-t-full"></div>
                             </div>
                         </div>
@@ -913,27 +911,216 @@
                 try {
                     const response = await fetch(GOOGLE_SHEETS_API_URL);
                     const data = await response.json();
-                    if (data && Array.isArray(data) && data.length > 0) reviews = data;
-                    else reviews = [ { name: "Ahmed J.", visaType: "U.S B1/B2 Visa", rating: 5, text: "NorthGate made my US visa process seamless. Highly recommended!", date: "October 2025" }, { name: "Sana R.", visaType: "Canada Student Visa", rating: 5, text: "Their guidance on financial documents was spot on. Thank you!", date: "December 2026" }, { name: "M. Khan", visaType: "Schengen (Italy)", rating: 4, text: "Professional and responsive. Received Schengen visa without any hiccup.", date: "March 2026" } ];
-                } catch (error) { console.error(error); reviews = [ { name: "Ahmed J.", visaType: "U.S B1/B2 Visa", rating: 5, text: "NorthGate made my US visa process seamless. Highly recommended!", date: "June 2026" }, { name: "Sana R.", visaType: "Canada Student Visa", rating: 5, text: "Their guidance on financial documents was spot on. Thank you!", date: "March 2026" }, { name: "M. Khan", visaType: "Schengen (Italy)", rating: 4, text: "Professional and responsive. Received Schengen visa without any hiccup.", date: "April 2026" } ]; }
+                    
+                    if (data && Array.isArray(data) && data.length > 0) {
+                        reviews = data;
+                    } else {
+                        reviews = [
+                            { name: "Ahmed J.", visaType: "U.S B1/B2 Visa", rating: 5, text: "NorthGate made my US visa process seamless. Highly recommended!", date: "October 2025" },
+                            { name: "Sana R.", visaType: "Canada Student Visa", rating: 5, text: "Their guidance on financial documents was spot on. Thank you!", date: "December 2026" },
+                            { name: "M. Khan", visaType: "Schengen (Italy)", rating: 4, text: "Professional and responsive. Received Schengen visa without any hiccup.", date: "March 2026" }
+                        ];
+                    }
+                } catch (error) {
+                    console.error('Error loading reviews:', error);
+                    reviews = [
+                        { name: "Ahmed J.", visaType: "U.S B1/B2 Visa", rating: 5, text: "NorthGate made my US visa process seamless. Highly recommended!", date: "June 2026" },
+                        { name: "Sana R.", visaType: "Canada Student Visa", rating: 5, text: "Their guidance on financial documents was spot on. Thank you!", date: "March 2026" },
+                        { name: "M. Khan", visaType: "Schengen (Italy)", rating: 4, text: "Professional and responsive. Received Schengen visa without any hiccup.", date: "April 2026" }
+                    ];
+                }
                 renderReviews();
             }
-            async function saveReviewToSheet(review) { try { await fetch(GOOGLE_SHEETS_API_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(review) }); return true; } catch(e) { return false; } }
-            function getInitials(name) { return name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0,2); }
-            function getGradient(name) { const gradients = ['from-red-400 to-blue-500','from-green-400 to-teal-500','from-amber-400 to-orange-500','from-purple-400 to-pink-500','from-red-500 to-gray-700','from-blue-400 to-cyan-500']; let hash=0; for(let i=0;i<name.length;i++) hash+=name.charCodeAt(i); return gradients[hash%gradients.length]; }
-            function renderReviews() { const container = document.getElementById('reviewsContainer'); const visible = reviews.slice(0,currentDisplayCount); if(visible.length===0) container.innerHTML='<div class="text-center py-10 col-span-3"><p class="text-gray-500">No reviews yet. Be the first!</p></div>'; else container.innerHTML = visible.map(r => `<div class="testimonial-card border border-gray-200 rounded-2xl p-6 shadow-md bg-white"><div class="flex items-center gap-4 mb-4"><div class="w-14 h-14 rounded-full bg-gradient-to-br ${getGradient(r.name)} flex items-center justify-center text-white text-xl font-bold shadow-md">${getInitials(r.name)}</div><div><h4 class="font-bold text-gray-800">${r.name}</h4><p class="text-xs text-gray-500">${r.visaType} • ${r.date||'Recently'}</p><div class="star-rating text-yellow-400 text-sm mt-1">${'<i class="fa-solid fa-star"></i>'.repeat(r.rating)}${'<i class="fa-regular fa-star"></i>'.repeat(5-r.rating)}</div></div></div><div class="testimonial-quote text-gray-300">“”</div><p class="text-gray-700 mt-2 leading-relaxed">"${r.text}"</p><div class="mt-4 flex items-center gap-2 text-xs text-red-600"><i class="fa-solid fa-check-circle"></i> Verified Client</div></div>`).join(''); const loadMoreContainer = document.getElementById('loadMoreBtnContainer'); if(currentDisplayCount>=reviews.length || reviews.length<=3) loadMoreContainer.style.display='none'; else loadMoreContainer.style.display='block'; const total=reviews.reduce((s,r)=>s+r.rating,0); const avg=reviews.length?(total/reviews.length).toFixed(1):'0'; document.getElementById('avgRating').innerText=avg; document.getElementById('reviewCount').innerText=reviews.length; }
-            function loadMoreReviews() { currentDisplayCount+=3; renderReviews(); }
-            let selectedRating=0;
-            function initStarSelector() { document.querySelectorAll('#starSelector i').forEach(s=>{ s.addEventListener('click',function(){ selectedRating=parseInt(this.dataset.rating); document.getElementById('ratingValue').value=selectedRating; document.querySelectorAll('#starSelector i').forEach((el,idx)=>{ if(idx<selectedRating) el.className='fa-solid fa-star cursor-pointer hover:text-yellow-400 transition text-yellow-400'; else el.className='fa-regular fa-star cursor-pointer hover:text-yellow-400 transition'; }); }); }); }
-            function openReviewModal() { document.getElementById('reviewModal').classList.add('active'); document.getElementById('reviewForm').reset(); selectedRating=0; document.getElementById('ratingValue').value=''; document.querySelectorAll('#starSelector i').forEach(s=>{ s.className='fa-regular fa-star cursor-pointer hover:text-yellow-400 transition'; }); }
-            function closeReviewModal() { document.getElementById('reviewModal').classList.remove('active'); }
-            async function submitReview(event) { event.preventDefault(); const name=document.getElementById('reviewerName').value; const visaType=document.getElementById('visaType').value; const rating=parseInt(document.getElementById('ratingValue').value); const text=document.getElementById('reviewText').value; if(!rating){ alert('Please select a rating'); return; } const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; const date=`${months[new Date().getMonth()]} ${new Date().getFullYear()}`; const newReview={name,visaType,rating,text,date}; const btn=event.target.querySelector('button[type="submit"]'); const original=btn.innerText; btn.innerText='Submitting...'; btn.disabled=true; await saveReviewToSheet(newReview); reviews.unshift(newReview); currentDisplayCount=3; renderReviews(); btn.innerText=original; btn.disabled=false; closeReviewModal(); alert('Thank you for your review!'); }
-            const faqs=[{q:"Are you affiliated with the government?",a:"No. Northgate Visa Service Center is a private and independent firm. We are not affiliated with or endorsed by the U.S. Department of State or IRCC."},{q:"Do you guarantee visa approval?",a:"No. Visa approval is solely at the discretion of the respective government authority. We do not provide guarantees."},{q:"What services do you provide?",a:"We provide: Visa application form assistance, Documentation review, Interview preparation guidance, and General process consultation."},{q:"Can you speed up visa processing?",a:"No. Processing times are determined entirely by the relevant embassy or immigration authority."},{q:"Do you provide sponsorships, or invitation letters?",a:"No. We do not provide fake documents or sponsorship arrangements."},{q:"Are you a registered company?",a:"Yes. Northgate Visa Service Center is registered with SECP and FBR."},{q:"What are your service fees?",a:"Our service fees vary depending on the visa category. Government visa fees are paid separately."},{q:"What happens if my visa is refused?",a:"Decisions are made by government authorities. We can review the case and provide guidance for reapplication."},{q:"Is my personal information secure?",a:"Yes. We maintain strict confidentiality."}];
-            function populateFaqs(){ const container=document.getElementById('faqList'); container.innerHTML=faqs.map(f=>`<div class="faq-item bg-white rounded-2xl p-5 cursor-pointer shadow-sm hover:shadow-md transition" onclick="toggleFaq(this)"><div class="flex justify-between items-center"><h4 class="font-bold">${f.q}</h4><i class="fa-solid fa-chevron-down text-red-600 transition-transform"></i></div><div class="faq-answer mt-3 text-gray-600 text-sm leading-relaxed hidden">${f.a}</div></div>`).join(''); }
-            function toggleFaq(el){ el.classList.toggle('active'); const ans=el.querySelector('.faq-answer'); const icon=el.querySelector('i'); if(ans){ if(ans.style.display==='block'){ ans.style.display='none'; icon.style.transform='rotate(0deg)'; } else { ans.style.display='block'; icon.style.transform='rotate(180deg)'; } } }
-            function toggleMobileMenu(){ document.getElementById('mobileMenu').classList.toggle('hidden'); }
-            function closeMobileMenu(){ document.getElementById('mobileMenu').classList.add('hidden'); }
-            window.onload=()=>{ populateFaqs(); loadReviewsFromSheet(); initStarSelector(); };
+
+            async function saveReviewToSheet(review) {
+                try {
+                    await fetch(GOOGLE_SHEETS_API_URL, {
+                        method: 'POST',
+                        mode: 'no-cors', 
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(review)
+                    });
+                    return true;
+                } catch (error) {
+                    console.error('Error saving review:', error);
+                    return false;
+                }
+            }
+
+            function getInitials(name) {
+                return name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
+            }
+
+            function getGradient(name) {
+                const gradients = [
+                    'from-red-400 to-blue-500', 'from-green-400 to-teal-500', 'from-amber-400 to-orange-500',
+                    'from-purple-400 to-pink-500', 'from-red-500 to-gray-700', 'from-blue-400 to-cyan-500'
+                ];
+                let hash = 0;
+                for(let i = 0; i < name.length; i++) hash += name.charCodeAt(i);
+                return gradients[hash % gradients.length];
+            }
+
+            function renderReviews() {
+                const container = document.getElementById('reviewsContainer');
+                const visibleReviews = reviews.slice(0, currentDisplayCount);
+                
+                if (visibleReviews.length === 0) {
+                    container.innerHTML = `<div class="text-center py-10 col-span-3"><p class="text-gray-500">No reviews yet. Be the first to share your experience!</p></div>`;
+                } else {
+                    container.innerHTML = visibleReviews.map(review => `
+                        <div class="testimonial-card border border-gray-200 rounded-2xl p-6 shadow-md bg-white">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="w-14 h-14 rounded-full bg-gradient-to-br ${getGradient(review.name)} flex items-center justify-center text-white text-xl font-bold shadow-md">${getInitials(review.name)}</div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">${review.name}</h4>
+                                    <p class="text-xs text-gray-500">${review.visaType} • ${review.date || 'Recently'}</p>
+                                    <div class="star-rating text-yellow-400 text-sm mt-1">
+                                        ${'<i class="fa-solid fa-star"></i>'.repeat(review.rating)}${'<i class="fa-regular fa-star"></i>'.repeat(5-review.rating)}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-quote text-gray-300">“”</div>
+                            <p class="text-gray-700 mt-2 leading-relaxed">"${review.text}"</p>
+                            <div class="mt-4 flex items-center gap-2 text-xs text-red-600"><i class="fa-solid fa-check-circle"></i> Verified Client</div>
+                        </div>
+                    `).join('');
+                }
+                
+                const loadMoreContainer = document.getElementById('loadMoreBtnContainer');
+                if (currentDisplayCount >= reviews.length || reviews.length <= 3) {
+                    loadMoreContainer.style.display = 'none';
+                } else {
+                    loadMoreContainer.style.display = 'block';
+                }
+                
+                const totalRating = reviews.reduce((sum, r) => sum + r.rating, 0);
+                const avg = reviews.length > 0 ? (totalRating / reviews.length).toFixed(1) : '0';
+                document.getElementById('avgRating').innerText = avg;
+                document.getElementById('reviewCount').innerText = reviews.length;
+            }
+
+            function loadMoreReviews() {
+                currentDisplayCount += 3;
+                renderReviews();
+            }
+
+            let selectedRating = 0;
+            
+            function initStarSelector() {
+                document.querySelectorAll('#starSelector i').forEach(star => {
+                    star.addEventListener('click', function() {
+                        selectedRating = parseInt(this.dataset.rating);
+                        document.getElementById('ratingValue').value = selectedRating;
+                        document.querySelectorAll('#starSelector i').forEach((s, idx) => {
+                            if(idx < selectedRating) {
+                                s.className = 'fa-solid fa-star cursor-pointer hover:text-yellow-400 transition text-yellow-400';
+                            } else {
+                                s.className = 'fa-regular fa-star cursor-pointer hover:text-yellow-400 transition';
+                            }
+                        });
+                    });
+                });
+            }
+
+            function openReviewModal() {
+                document.getElementById('reviewModal').classList.add('active');
+                document.getElementById('reviewForm').reset();
+                selectedRating = 0;
+                document.getElementById('ratingValue').value = '';
+                document.querySelectorAll('#starSelector i').forEach(s => {
+                    s.className = 'fa-regular fa-star cursor-pointer hover:text-yellow-400 transition';
+                });
+            }
+            
+            function closeReviewModal() {
+                document.getElementById('reviewModal').classList.remove('active');
+            }
+
+            async function submitReview(event) {
+                event.preventDefault();
+                const name = document.getElementById('reviewerName').value;
+                const visaType = document.getElementById('visaType').value;
+                const rating = parseInt(document.getElementById('ratingValue').value);
+                const text = document.getElementById('reviewText').value;
+                
+                if(!rating || rating === 0) {
+                    alert('Please select a rating');
+                    return;
+                }
+                
+                const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                const date = `${months[new Date().getMonth()]} ${new Date().getFullYear()}`;
+                
+                const newReview = { name, visaType, rating, text, date };
+                
+                const submitBtn = event.target.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerText;
+                submitBtn.innerText = 'Submitting...';
+                submitBtn.disabled = true;
+                
+                await saveReviewToSheet(newReview);
+                
+                reviews.unshift(newReview);
+                currentDisplayCount = 3;
+                renderReviews();
+                
+                submitBtn.innerText = originalText;
+                submitBtn.disabled = false;
+                closeReviewModal();
+                alert('Thank you for your review! It has been saved.');
+            }
+
+            const faqs = [
+                { q: "Are you affiliated with the government?", a: "No. Northgate Visa Service Center is a private and independent firm. We are not affiliated with or endorsed by the U.S. Department of State or IRCC." },
+                { q: "Do you guarantee visa approval?", a: "No. Visa approval is solely at the discretion of the respective government authority. We do not provide guarantees." },
+                { q: "What services do you provide?", a: "We provide: Visa application form assistance, Documentation review, Interview preparation guidance, and General process consultation." },
+                { q: "Can you speed up visa processing?", a: "No. Processing times are determined entirely by the relevant embassy or immigration authority." },
+                { q: "Do you provide sponsorships, or invitation letters?", a: "No. We do not provide fake documents or sponsorship arrangements." },
+                { q: "Are you a registered company?", a: "Yes. Northgate Visa Service Center is registered with SECP and FBR." },
+                { q: "What are your service fees?", a: "Our service fees vary depending on the visa category. Government visa fees are paid separately." },
+                { q: "What happens if my visa is refused?", a: "Decisions are made by government authorities. We can review the case and provide guidance for reapplication." },
+                { q: "Is my personal information secure?", a: "Yes. We maintain strict confidentiality." }
+            ];
+            
+            function populateFaqs() {
+                const container = document.getElementById('faqList');
+                container.innerHTML = faqs.map(faq => `
+                    <div class="faq-item bg-white rounded-2xl p-5 cursor-pointer shadow-sm hover:shadow-md transition" onclick="toggleFaq(this)">
+                        <div class="flex justify-between items-center"><h4 class="font-bold">${faq.q}</h4><i class="fa-solid fa-chevron-down text-red-600 transition-transform"></i></div>
+                        <div class="faq-answer mt-3 text-gray-600 text-sm leading-relaxed hidden">${faq.a}</div>
+                    </div>
+                `).join('');
+            }
+            
+            function toggleFaq(el) { 
+                el.classList.toggle('active'); 
+                const answer = el.querySelector('.faq-answer');
+                const icon = el.querySelector('i');
+                if(answer) {
+                    if(answer.style.display === 'block') {
+                        answer.style.display = 'none';
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        answer.style.display = 'block';
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                }
+            }
+            
+            function toggleMobileMenu() { 
+                document.getElementById('mobileMenu').classList.toggle('hidden'); 
+            }
+            
+            function closeMobileMenu() { 
+                document.getElementById('mobileMenu').classList.add('hidden'); 
+            }
+            
+            window.onload = () => { 
+                populateFaqs(); 
+                loadReviewsFromSheet();
+                initStarSelector();
+            };
         </script>
     </div>
 </body>
