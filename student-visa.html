@@ -44,19 +44,21 @@
             background: white;
         }
         
-        /* Fixed Background Image Full Screen Layout with Optimized Visibility */
+        /* Fixed Background Image Balanced Layout */
         .bg-logo-fixed {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover;
-            opacity: 0.3; 
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 450px;
+            height: auto;
+            object-fit: contain;
+            opacity: 0.12; 
             z-index: 0;
             pointer-events: none;
             user-select: none;
-            filter: grayscale(20%) brightness(95%); /* Image ko thoda smooth karne k liye */
+            filter: grayscale(20%) brightness(95%);
         }
         
         .content-wrapper {
@@ -69,9 +71,16 @@
             font-family: 'Playfair Display', serif;
         }
         
+        /* Fixed Zoom Issue for Hero Image */
         .hero-bg {
-            background: linear-gradient(135deg, rgba(225, 29, 63, 0.70), rgba(30, 58, 138, 0.75)), 
-                        url('img2.webp') center/cover no-repeat;
+            background: linear-gradient(135deg, rgba(225, 29, 63, 0.80), rgba(30, 58, 138, 0.85)), 
+                        url('studentvisabg.webp') center/contain no-repeat;
+        }
+        @media (min-width: 1024px) {
+            .hero-bg {
+                background: linear-gradient(135deg, rgba(225, 29, 63, 0.80), rgba(30, 58, 138, 0.85)), 
+                            url('studentvisabg.webp') center/cover no-repeat;
+            }
         }
         
         .nav-link {
@@ -98,7 +107,7 @@
         
         .step-card {
             transition: all 0.4s ease;
-            background: rgba(255, 255, 255, 0.95); /* Thoda opaque kiya taake bg image card k piche se text kharab na kare */
+            background: rgba(255, 255, 255, 0.95);
         }
         .step-card:hover {
             transform: translateY(-8px);
@@ -218,7 +227,7 @@
 </head>
 <body>
 
-    <img src="studentvisabg.webp" class="bg-logo-fixed" alt="NorthGate Background Image" onerror="this.style.display='none'">
+    <img src="logo.webp" class="bg-logo-fixed" alt="NorthGate Background Image" onerror="this.style.display='none'">
 
     <div class="content-wrapper">
 
@@ -287,12 +296,6 @@
                     <p class="text-lg md:text-xl text-white max-w-2xl mx-auto font-medium" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.9);">
                         From university shortlisting to final enrollment and visa confirmation. Clear pathways for ambitious minds.
                     </p>
-
-                    <div class="flex flex-wrap justify-center gap-5 pt-4">
-                        <a href="https://wa.me/923452613587" target="_blank" rel="noopener noreferrer" class="bg-white text-red-600 hover:bg-amber-300 font-extrabold px-8 py-4 rounded-2xl text-lg flex items-center gap-3 shadow-2xl transition-all hover:scale-105">
-                            FREE CONSULTATION <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
                 </div>
             </div>
 
@@ -351,7 +354,7 @@
                     <div class="step-card group relative bg-gradient-to-br from-red-100/90 to-blue-100/90 border-2 border-slate-200 rounded-[2rem] p-8 shadow-md hover:border-red-600 hover:shadow-2xl transition-all duration-500">
                         <div class="text-red-600 text-6xl font-black italic tracking-tighter mb-4 transition-transform duration-500 group-hover:scale-110">06</div>
                         <h4 class="font-extrabold text-xl text-slate-900 mb-3">Offer Letter & Admission Confirmation</h4>
-                        <p class="text-slate-700 text-sm leading-relaxed font-semibold">Receive your Offer Letter / Admission Confirmation from the university and proceed with tuition fee guidance (where applicable).</p>
+                        <p class="text-slate-700 text-sm leading-relaxed font-semibold">Receive your Offer Letter / Admission Confirmation from the university college/ academy.</p>
                         <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-red-600 group-hover:w-1/2 transition-all duration-500 rounded-t-full"></div>
                     </div>
 
@@ -381,7 +384,7 @@
                     </p>
                     <a href="https://itzsaadi123.github.io/STUDENT-ADMISSION-VISA-ASSESSMENT-FORM/" target="_blank" rel="noopener noreferrer" 
                        class="inline-flex items-center justify-center gap-2 sm:gap-3 bg-gradient-to-r from-red-600 to-blue-800 hover:from-red-700 hover:to-blue-900 text-white font-extrabold px-6 sm:px-10 py-3.5 sm:py-5 rounded-xl sm:rounded-2xl text-sm sm:text-lg md:text-xl shadow-xl transition-all transform hover:-translate-y-1 hover:shadow-2xl tracking-wide w-full sm:w-auto">
-                        <i class="fa-solid fa-file-signature text-base sm:text-2xl text-amber-300"></i> CLICK HERE TO FILL THE FORM <i class="fa-solid fa-arrow-right text-xs sm:text-base"></i>
+                        <i class="fa-solid fa-file-signature text-base sm:text-2xl text-amber-300"></i> CLICK HERE TO FILL THE STUDENT APPLICANT FORM <i class="fa-solid fa-arrow-right text-xs sm:text-base"></i>
                     </a>
                     <p class="text-[9px] sm:text-xs text-slate-400 mt-4 font-semibold uppercase tracking-wider"><i class="fa-solid fa-shield-halved"></i> Secure & Official NorthGate Portal</p>
                 </div>
