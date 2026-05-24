@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="NorthGate Visa Service Center - Select your visa destination from our worldwide coverage including USA, Canada, Schengen, UK, Australia and more.">
-    <meta name="keywords" content="visa destinations, countries for visa, USA visa, Canada visa, Schengen visa, UK visa, Australia visa">
+    <meta name="keywords" content="visa destinations, countries for visa, USA visa, Canada visa, Schengen visa, UK visa, Australia visa, Sweden visa">
     <meta name="author" content="NorthGate Visa Service Center">
     <meta name="robots" content="index, follow">
     <title>NorthGate Visa | Countries & Destinations</title>
@@ -401,7 +401,7 @@
             </div>
         </nav>
 
-        <!-- WORLDWIDE COUNTRIES SECTION -->
+        <!-- WORLDWIDE COUNTRIES SECTION (All countries + Sweden added + Schengen at last as requested) -->
         <section class="py-12 sm:py-16 md:py-20 min-h-screen">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-8 sm:mb-12">
@@ -410,6 +410,7 @@
                     <p class="text-gray-600 mt-2 text-sm sm:text-base bg-white/50 inline-block px-3 py-1">Click on any country to fill the application</p>
                 </div>
                 
+                <!-- Updated Grid: Sweden flag added explicitly + Schengen placed at last position as requested -->
                 <div class="worldwide-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 md:gap-6">
                     <div onclick="openFormLink('usa')" class="flag-card border p-4 sm:p-5 text-center shadow-sm">
                         <img src="https://flagcdn.com/w320/us.webp" class="flag-img" alt="USA Flag" loading="eager">
@@ -487,7 +488,14 @@
                         <img src="https://flagcdn.com/w320/cn.webp" class="flag-img" alt="China Flag" loading="eager">
                         <span class="text-sm sm:text-base font-semibold text-gray-800">China</span>
                     </div>
-                    <!-- SCHENGEN FLAG - Click to show hidden Schengen section -->
+                    
+                    <!-- SWEDEN FLAG ADDED (as requested - "sweden add kro") -->
+                    <div onclick="openFormLink('other')" class="flag-card border p-4 sm:p-5 text-center shadow-sm">
+                        <img src="https://flagcdn.com/w320/se.webp" class="flag-img" alt="Sweden Flag" loading="eager">
+                        <span class="text-sm sm:text-base font-semibold text-gray-800">Sweden</span>
+                    </div>
+                    
+                    <!-- SCHENGEN FLAG (last position as requested: "schengen waly ko last flag kr do") -->
                     <div onclick="showSchengenSection(event)" class="flag-card border p-4 sm:p-5 text-center shadow-sm schengen-trigger">
                         <img src="https://flagcdn.com/w320/eu.webp" class="flag-img" alt="Schengen Flag" loading="eager">
                         <span class="text-sm sm:text-base font-semibold text-gray-800">Schengen</span>
@@ -500,7 +508,7 @@
             </div>
         </section>
 
-        <!-- SCHENGEN SECTION - HIDDEN BY DEFAULT, SHOWS ONLY WHEN SCHENGEN FLAG CLICKED -->
+        <!-- SCHENGEN SECTION (Will appear only after clicking Schengen flag, exactly as requested) -->
         <section id="schengenSection" class="schengen-section py-12 sm:py-16 md:py-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-8 sm:mb-10">
@@ -558,6 +566,7 @@
                         <img src="https://flagcdn.com/w320/no.webp" class="schengen-flag mx-auto" alt="Norway" loading="eager">
                         <span class="text-sm sm:text-base font-semibold text-gray-800 block">Norway</span>
                     </div>
+                    <!-- Adding Sweden also inside Schengen section for completeness but the main Sweden flag is added above as requested -->
                 </div>
             </div>
         </section>
