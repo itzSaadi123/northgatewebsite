@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="NorthGate Visa Service Center - Select your visa destination from our worldwide coverage including USA, Canada, Schengen, UK, Australia and more.">
-    <meta name="keywords" content="visa destinations, countries for visa, USA visa, Canada visa, Schengen visa, UK visa, Australia visa, Sweden visa">
+    <meta name="keywords" content="visa destinations, countries for visa, USA visa, Canada visa, Schengen visa, UK visa, Australia visa">
     <meta name="author" content="NorthGate Visa Service Center">
     <meta name="robots" content="index, follow">
     <title>NorthGate Visa | Countries & Destinations</title>
@@ -47,7 +47,12 @@
             min-height: 100vh;
         }
         
-        /* Animated Background - exactly as you liked */
+        /* Prevent body scroll when mobile menu is open */
+        body.menu-open {
+            overflow: hidden;
+        }
+        
+        /* Animated Background */
         .animated-bg {
             position: fixed;
             top: 0;
@@ -117,7 +122,6 @@
             transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
             cursor: pointer;
             border-radius: 0px !important;
-            /* Bilkul halka sa elegant purple-pink - soft and light */
             background: rgba(250, 240, 255, 0.85);
             display: flex;
             flex-direction: column;
@@ -173,7 +177,6 @@
             text-align: center;
             padding: 18px 12px;
             border-radius: 0px !important;
-            /* Same bilkul halka color for Schengen boxes */
             background: rgba(250, 240, 255, 0.85);
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             display: flex;
@@ -222,7 +225,6 @@
             width: 100%;
         }
         
-        /* Schengen Section Hidden by Default */
         .schengen-section {
             display: none;
         }
@@ -231,7 +233,6 @@
             display: block;
         }
         
-        /* Mobile Styles */
         @media (max-width: 640px) {
             .flag-img { 
                 max-width: 65px !important; 
@@ -350,7 +351,7 @@
 
     <div class="content-wrapper">
 
-        <!-- NAVBAR -->
+        <!-- NAVBAR - Same as index.html -->
         <nav class="bg-white/95 backdrop-blur-md border-b border-red-200 sticky top-0 z-50 shadow-sm">
             <div class="max-w-7xl mx-auto px-5 lg:px-8">
                 <div class="flex justify-between items-center py-3 md:py-4">
@@ -385,23 +386,25 @@
                 </div>
             </div>
 
-            <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 px-6 py-5 shadow-lg">
-                <div class="flex flex-col gap-3 text-base font-semibold">
-                    <a href="index.html" onclick="closeMobileMenu()" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-house text-red-500 w-5"></i> HOME</a>
-                    <a href="index.html#services" onclick="closeMobileMenu()" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-briefcase text-red-500 w-5"></i> SERVICES</a>
-                    <a href="countries.html" onclick="closeMobileMenu()" class="py-3 px-2 rounded-xl bg-red-50 text-red-600 flex items-center gap-3"><i class="fa-solid fa-globe text-red-500 w-5"></i> COUNTRIES</a>
-                    <a href="index.html#why" onclick="closeMobileMenu()" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-star text-red-500 w-5"></i> WHY US</a>
-                    <a href="index.html#apply" onclick="closeMobileMenu()" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-file-pen text-red-500 w-5"></i> APPLY</a>
-                    <a href="index.html#faq" onclick="closeMobileMenu()" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-question-circle text-red-500 w-5"></i> FAQ</a>
-                    <a href="about.html" onclick="closeMobileMenu()" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-building text-red-500 w-5"></i> ABOUT US</a>
-                    <a href="terms.html" onclick="closeMobileMenu()" class="py-3 px-2 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-scale-balanced text-red-500 w-5"></i> TERMS</a>
-                    <a href="index.html#testimonials" onclick="closeMobileMenu()" class="py-3 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-comment-dots text-red-500 w-5"></i> REVIEWS</a>
-                    <a href="student-visa.html" onclick="closeMobileMenu()" class="py-3 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-user-graduate text-red-500 w-5"></i> STUDENT VISA</a>
+            <!-- Mobile Menu - Same style as index.html -->
+            <div id="mobileMenu" class="hidden md:hidden absolute left-0 right-0 top-full z-50 bg-white border-b border-gray-200 px-4 py-3 shadow-xl max-h-[70vh] overflow-y-auto">
+                <div class="flex flex-col gap-1 text-base font-semibold">
+                    <a href="index.html" onclick="closeMobileMenu()" class="py-2 px-3 rounded-xl bg-red-50 text-red-600 flex items-center gap-2 text-sm"><i class="fa-solid fa-house text-red-500 w-4"></i> HOME</a>
+                    <a href="index.html#services" onclick="closeMobileMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-2 text-sm"><i class="fa-solid fa-briefcase text-red-500 w-4"></i> SERVICES</a>
+                    <a href="countries.html" onclick="closeMobileMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-2 text-sm"><i class="fa-solid fa-globe text-red-500 w-4"></i> COUNTRIES</a>
+                    <a href="index.html#why" onclick="closeMobileMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-2 text-sm"><i class="fa-solid fa-star text-red-500 w-4"></i> WHY US</a>
+                    <a href="index.html#apply" onclick="closeMobileMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-2 text-sm"><i class="fa-solid fa-file-pen text-red-500 w-4"></i> APPLY</a>
+                    <a href="index.html#faq" onclick="closeMobileMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-2 text-sm"><i class="fa-solid fa-question-circle text-red-500 w-4"></i> FAQ</a>
+                    <a href="about.html" onclick="closeMobileMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-2 text-sm"><i class="fa-solid fa-building text-red-500 w-4"></i> ABOUT US</a>
+                    <a href="terms.html" onclick="closeMobileMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-2 text-sm"><i class="fa-solid fa-scale-balanced text-red-500 w-4"></i> TERMS</a>
+                    <a href="index.html#testimonials" onclick="closeMobileMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-2 text-sm"><i class="fa-solid fa-comment-dots text-red-500 w-4"></i> REVIEWS</a>
+                    <a href="student-visa.html" onclick="closeMobileMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-2 text-sm"><i class="fa-solid fa-user-graduate text-red-500 w-4"></i> STUDENT VISA</a>
+                    <a href="Tracker.html" onclick="closeMobileMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-2 text-sm"> <i class="fa-solid fa-list-check text-red-500 text-base flex-shrink-0"></i>TRACK YOUR APPLICATION</a>
                 </div>
             </div>
         </nav>
 
-        <!-- WORLDWIDE COUNTRIES SECTION (All countries + Sweden added + Schengen at last as requested) -->
+        <!-- WORLDWIDE COUNTRIES SECTION -->
         <section class="py-12 sm:py-16 md:py-20 min-h-screen">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-8 sm:mb-12">
@@ -410,7 +413,6 @@
                     <p class="text-gray-600 mt-2 text-sm sm:text-base bg-white/50 inline-block px-3 py-1">Click on any country to fill the application</p>
                 </div>
                 
-                <!-- Updated Grid: Sweden flag added explicitly + Schengen placed at last position as requested -->
                 <div class="worldwide-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 md:gap-6">
                     <div onclick="openFormLink('usa')" class="flag-card border p-4 sm:p-5 text-center shadow-sm">
                         <img src="https://flagcdn.com/w320/us.webp" class="flag-img" alt="USA Flag" loading="eager">
@@ -488,14 +490,6 @@
                         <img src="https://flagcdn.com/w320/cn.webp" class="flag-img" alt="China Flag" loading="eager">
                         <span class="text-sm sm:text-base font-semibold text-gray-800">China</span>
                     </div>
-                    
-                    <!-- SWEDEN FLAG ADDED (as requested - "sweden add kro") -->
-                    <div onclick="openFormLink('other')" class="flag-card border p-4 sm:p-5 text-center shadow-sm">
-                        <img src="https://flagcdn.com/w320/se.webp" class="flag-img" alt="Sweden Flag" loading="eager">
-                        <span class="text-sm sm:text-base font-semibold text-gray-800">Sweden</span>
-                    </div>
-                    
-                    <!-- SCHENGEN FLAG (last position as requested: "schengen waly ko last flag kr do") -->
                     <div onclick="showSchengenSection(event)" class="flag-card border p-4 sm:p-5 text-center shadow-sm schengen-trigger">
                         <img src="https://flagcdn.com/w320/eu.webp" class="flag-img" alt="Schengen Flag" loading="eager">
                         <span class="text-sm sm:text-base font-semibold text-gray-800">Schengen</span>
@@ -508,7 +502,7 @@
             </div>
         </section>
 
-        <!-- SCHENGEN SECTION (Will appear only after clicking Schengen flag, exactly as requested) -->
+        <!-- SCHENGEN SECTION -->
         <section id="schengenSection" class="schengen-section py-12 sm:py-16 md:py-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-8 sm:mb-10">
@@ -566,12 +560,11 @@
                         <img src="https://flagcdn.com/w320/no.webp" class="schengen-flag mx-auto" alt="Norway" loading="eager">
                         <span class="text-sm sm:text-base font-semibold text-gray-800 block">Norway</span>
                     </div>
-                    <!-- Adding Sweden also inside Schengen section for completeness but the main Sweden flag is added above as requested -->
                 </div>
             </div>
         </section>
 
-        <!-- FOOTER - Exactly as your original -->
+        <!-- FOOTER -->
         <footer class="relative overflow-hidden bg-gradient-to-br from-gray-900 via-blue-950 to-gray-900 text-white py-12">
             <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-red-500/50 to-transparent"></div>
             <div class="absolute -top-24 -right-24 w-64 h-64 bg-red-600/10 rounded-full blur-3xl"></div>
@@ -655,12 +648,18 @@
         
         function toggleMobileMenu() { 
             const menu = document.getElementById('mobileMenu');
-            if(menu) menu.classList.toggle('hidden'); 
+            menu.classList.toggle('hidden');
+            if (!menu.classList.contains('hidden')) {
+                document.body.classList.add('menu-open');
+            } else {
+                document.body.classList.remove('menu-open');
+            }
         }
         
         function closeMobileMenu() {
             const menu = document.getElementById('mobileMenu');
-            if(menu) menu.classList.add('hidden');
+            menu.classList.add('hidden');
+            document.body.classList.remove('menu-open');
         }
         
         window.addEventListener('resize', function() {
@@ -668,6 +667,7 @@
                 const menu = document.getElementById('mobileMenu');
                 if(menu && !menu.classList.contains('hidden')) {
                     menu.classList.add('hidden');
+                    document.body.classList.remove('menu-open');
                 }
             }
         });
