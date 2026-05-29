@@ -16,9 +16,51 @@
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
+        /* Light & Dark Mode Root Variables */
+        :root {
+            --bg-gradient-start: #fef9f5;
+            --bg-gradient-end: #f0f2f5;
+            --card-bg: #ffffff;
+            --text-primary: #1f2937;
+            --text-secondary: #4b5563;
+            --navbar-bg: rgba(255, 255, 255, 0.95);
+            --navbar-border: #fee2e2;
+            --footer-bg: linear-gradient(135deg, #111827, #1e3a8a, #111827);
+            --footer-text: #ffffff;
+            --shadow-sm: 0 5px 20px rgba(0,0,0,0.05);
+            --shadow-hover: 0 25px 40px rgba(225,29,63,0.2);
+            --badge-bg: #fee2e2;
+            --badge-text: #b91c1c;
+            --info-card-bg: #ffffff;
+        }
+        
+        body.dark {
+            --bg-gradient-start: #0f172a;
+            --bg-gradient-end: #1e293b;
+            --card-bg: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --navbar-bg: rgba(15, 23, 42, 0.95);
+            --navbar-border: #334155;
+            --footer-bg: linear-gradient(135deg, #020617, #0f172a, #020617);
+            --footer-text: #cbd5e1;
+            --shadow-sm: 0 5px 20px rgba(0,0,0,0.3);
+            --shadow-hover: 0 25px 40px rgba(225,29,63,0.4);
+            --badge-bg: #450a0a;
+            --badge-text: #fca5a5;
+            --info-card-bg: #0f172a;
+        }
+        
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #fef9f5 0%, #f0f2f5 100%);
+            background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+            color: var(--text-primary);
+            transition: background 0.3s ease, color 0.2s ease;
+        }
+        
+        /* Prevent body scroll when mobile menu is open */
+        body.menu-open {
+            overflow: hidden;
         }
         
         .heading-font { font-family: 'Playfair Display', serif; }
@@ -64,21 +106,24 @@
         .nav-link:hover:after { width: 100%; }
         
         .package-card {
-            background: white;
+            background: var(--card-bg);
             border-radius: 28px;
             transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            box-shadow: var(--shadow-sm);
         }
         .package-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 25px 40px rgba(225,29,63,0.2);
+            box-shadow: var(--shadow-hover);
         }
         
         .info-card {
-            background: white;
+            background: var(--info-card-bg);
             border-radius: 20px;
             transition: all 0.3s;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        body.dark .info-card {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
         .info-card:hover {
             transform: translateY(-5px);
@@ -131,6 +176,59 @@
             pointer-events: none;
         }
         
+        /* Dark mode overrides for specific components */
+        body.dark .bg-white\/95 {
+            background-color: var(--navbar-bg) !important;
+            border-bottom-color: #334155 !important;
+        }
+        body.dark .bg-white {
+            background-color: var(--card-bg) !important;
+        }
+        body.dark .text-gray-700,
+        body.dark .text-gray-800,
+        body.dark .text-gray-500 {
+            color: var(--text-secondary) !important;
+        }
+        body.dark .bg-gray-50,
+        body.dark .bg-gradient-to-br.from-gray-50 {
+            background: #0f172a !important;
+        }
+        body.dark .bg-white\/90 {
+            background-color: #0f172a !important;
+        }
+        body.dark .bg-gradient-to-r.from-red-50,
+        body.dark .bg-gradient-to-br.from-red-50 {
+            background: #2d1a1a !important;
+        }
+        body.dark .border-red-200 {
+            border-color: #7f1d1d !important;
+        }
+        body.dark .bg-gradient-to-r.from-amber-50,
+        body.dark .bg-gradient-to-r.from-blue-50,
+        body.dark .bg-gradient-to-r.from-purple-50,
+        body.dark .bg-gradient-to-r.from-amber-50.to-yellow-50 {
+            background: #2d2a1a !important;
+        }
+        body.dark .bg-white\/80 {
+            background-color: rgba(30, 41, 59, 0.8) !important;
+        }
+        body.dark footer {
+            background: var(--footer-bg) !important;
+        }
+        body.dark footer .text-white {
+            color: var(--footer-text) !important;
+        }
+        body.dark .umrah-hero {
+            background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(60,20,20,0.85)), url('https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=1600');
+        }
+        body.dark #mobileMenu {
+            background-color: #0f172a !important;
+            border-color: #334155 !important;
+        }
+        body.dark .nav-link {
+            color: #e2e8f0;
+        }
+        
         @media (max-width: 640px) {
             .umrah-hero { min-height: 60vh; background-position: center 20%; }
             .umrah-hero h1 { font-size: 32px !important; }
@@ -147,6 +245,20 @@
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f1f1; }
         ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #e11d3f, #1e3a8a); border-radius: 10px; }
+        body.dark ::-webkit-scrollbar-track { background: #1e293b; }
+        
+        /* Theme Toggle Button Styling */
+        .theme-toggle {
+            background: rgba(0,0,0,0.05);
+            border-radius: 40px;
+            transition: all 0.2s;
+        }
+        body.dark .theme-toggle {
+            background: rgba(255,255,255,0.1);
+        }
+        .theme-toggle:hover {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
@@ -155,8 +267,8 @@
 
     <div class="content-wrapper">
 
-        <!-- NAVBAR -->
-        <nav class="bg-white/95 backdrop-blur-md border-b border-red-200 sticky top-0 z-50 shadow-sm">
+        <!-- NAVBAR with Light/Dark Toggle Button + WhatsApp Icon + Bulb Icon -->
+        <nav class="bg-white/95 backdrop-blur-md border-b border-red-200 sticky top-0 z-50 shadow-sm" style="background-color: var(--navbar-bg); border-bottom-color: var(--navbar-border);">
             <div class="max-w-7xl mx-auto px-5 lg:px-8">
                 <div class="flex justify-between items-center py-3 md:py-4">
                     <div class="flex items-center gap-3">
@@ -181,22 +293,28 @@
                             <i class="fab fa-whatsapp text-lg"></i>
                             <span class="hidden sm:inline">WhatsApp</span>
                         </a>
+                        <button id="darkModeToggle" class="theme-toggle w-10 h-10 rounded-full flex items-center justify-center text-xl transition-all shadow-md focus:outline-none" aria-label="Light/Dark Mode">
+                            <i id="themeIcon" class="fa-regular fa-lightbulb text-yellow-600 dark:text-yellow-400"></i>
+                        </button>
                         <button onclick="toggleMenu()" class="md:hidden text-3xl text-red-600 focus:outline-none">☰</button>
                     </div>
                 </div>
             </div>
-            <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 px-6 py-5 shadow-lg">
-                <div class="flex flex-col gap-3 text-base font-semibold">
-                    <a href="index.html" onclick="closeMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-house text-red-500 w-5"></i> HOME</a>
-                    <a href="index.html#services" onclick="closeMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-briefcase text-red-500 w-5"></i> SERVICES</a>
-                    <a href="countries.html" onclick="closeMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-globe text-red-500 w-5"></i> COUNTRIES</a>
-                    <a href="index.html#why" onclick="closeMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-star text-red-500 w-5"></i> WHY US</a>
-                    <a href="index.html#apply" onclick="closeMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-file-pen text-red-500 w-5"></i> APPLY</a>
-                    <a href="index.html#faq" onclick="closeMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-question-circle text-red-500 w-5"></i> FAQ</a>
-                    <a href="about.html" onclick="closeMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-building text-red-500 w-5"></i> ABOUT</a>
-                    <a href="terms.html" onclick="closeMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-scale-balanced text-red-500 w-5"></i> TERMS</a>
-                     <a href="index.html#testimonials" onclick="closeMobileMenu()" class="py-3 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-comment-dots text-red-500 w-5"></i> REVIEWS</a>
-                    <a href="student-visa.html" onclick="closeMobileMenu()" class="py-3 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-user-graduate text-red-500 w-5"></i> STUDENT VISA</a>
+            
+            <!-- Mobile Menu - Same as index.html (absolute position, smaller options) -->
+            <div id="mobileMenu" class="hidden md:hidden absolute left-0 right-0 top-full z-50 bg-white border-b border-gray-200 px-4 py-3 shadow-xl max-h-[70vh] overflow-y-auto">
+                <div class="flex flex-col gap-1 text-base font-semibold">
+                    <a href="index.html" onclick="closeMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-2 text-sm"><i class="fa-solid fa-house text-red-500 w-4"></i> HOME</a>
+                    <a href="index.html#services" onclick="closeMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-2 text-sm"><i class="fa-solid fa-briefcase text-red-500 w-4"></i> SERVICES</a>
+                    <a href="countries.html" onclick="closeMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-2 text-sm"><i class="fa-solid fa-globe text-red-500 w-4"></i> COUNTRIES</a>
+                    <a href="index.html#why" onclick="closeMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-2 text-sm"><i class="fa-solid fa-star text-red-500 w-4"></i> WHY US</a>
+                    <a href="index.html#apply" onclick="closeMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-2 text-sm"><i class="fa-solid fa-file-pen text-red-500 w-4"></i> APPLY</a>
+                    <a href="index.html#faq" onclick="closeMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-2 text-sm"><i class="fa-solid fa-question-circle text-red-500 w-4"></i> FAQ</a>
+                    <a href="about.html" onclick="closeMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-2 text-sm"><i class="fa-solid fa-building text-red-500 w-4"></i> ABOUT</a>
+                    <a href="terms.html" onclick="closeMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-2 text-sm"><i class="fa-solid fa-scale-balanced text-red-500 w-4"></i> TERMS</a>
+                    <a href="index.html#testimonials" onclick="closeMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-2 text-sm"><i class="fa-solid fa-comment-dots text-red-500 w-4"></i> REVIEWS</a>
+                    <a href="student-visa.html" onclick="closeMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-2 text-sm"><i class="fa-solid fa-user-graduate text-red-500 w-4"></i> STUDENT VISA</a>
+                    <a href="Tracker.html" onclick="closeMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-2 text-sm"> <i class="fa-solid fa-list-check text-red-500 text-base flex-shrink-0"></i>TRACK YOUR APPLICATION</a>
                 </div>
             </div>
         </nav>
@@ -228,7 +346,7 @@
         </section>
 
         <!-- DURATION - Enhanced with counters -->
-        <section class="py-20 bg-white/90">
+        <section class="py-20 bg-white/90" style="background-color: var(--card-bg);">
             <div class="max-w-7xl mx-auto px-5">
                 <div class="text-center mb-12">
                     <span class="bg-gradient-to-r from-red-100 to-red-200 text-red-700 px-5 py-1.5 text-sm font-bold rounded-full inline-flex items-center gap-2">
@@ -269,7 +387,7 @@
         </section>
 
         <!-- INCLUDES - Enhanced Icons -->
-        <section class="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+        <section class="py-20 bg-gradient-to-br from-gray-50 to-gray-100" style="background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));">
             <div class="max-w-7xl mx-auto px-5">
                 <div class="text-center mb-12">
                     <span class="bg-red-100 text-red-700 px-5 py-1.5 text-sm font-bold rounded-full inline-flex items-center gap-2">
@@ -311,8 +429,8 @@
             </div>
         </section>
 
-        <!-- PACKAGES - Enhanced -->
-        <section id="packages" class="py-24 bg-white">
+        <!-- PACKAGES - Enhanced (same content, dark mode auto adapts) -->
+        <section id="packages" class="py-24 bg-white" style="background-color: var(--card-bg);">
             <div class="max-w-7xl mx-auto px-5">
                 <div class="text-center mb-12">
                     <span class="bg-gradient-to-r from-amber-100 to-red-100 text-red-700 px-5 py-1.5 text-sm font-bold rounded-full">🏨 CHOOSE YOUR COMFORT</span>
@@ -324,11 +442,7 @@
                     <!-- 3 STAR -->
                     <div class="package-card p-8 text-center relative overflow-hidden">
                         <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-400 to-amber-600"></div>
-                        <div class="mb-3">
-                            <i class="fa-solid fa-star text-amber-400 text-xl"></i>
-                            <i class="fa-solid fa-star text-amber-400 text-xl"></i>
-                            <i class="fa-solid fa-star text-amber-400 text-xl"></i>
-                        </div>
+                        <div class="mb-3"><i class="fa-solid fa-star text-amber-400 text-xl"></i><i class="fa-solid fa-star text-amber-400 text-xl"></i><i class="fa-solid fa-star text-amber-400 text-xl"></i></div>
                         <h3 class="text-2xl font-bold text-gray-800">3-Star Package</h3>
                         <p class="text-gray-500 text-sm mt-1">Comfort & Value</p>
                         <div class="mt-6 bg-gradient-to-r from-amber-50 to-yellow-50 p-5 rounded-2xl">
@@ -340,26 +454,13 @@
 
                     <!-- 4 STAR - Most Popular -->
                     <div class="package-card p-8 text-center relative border-2 border-red-300 shadow-xl transform scale-105 md:scale-105 z-10">
-                        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-red-600 to-amber-500 text-white text-xs font-bold px-5 py-1.5 rounded-full shadow-lg flex items-center gap-1">
-                            <i class="fa-solid fa-fire"></i> MOST POPULAR
-                        </div>
-                        <div class="mb-3 mt-3">
-                            <i class="fa-solid fa-star text-amber-400 text-xl"></i>
-                            <i class="fa-solid fa-star text-amber-400 text-xl"></i>
-                            <i class="fa-solid fa-star text-amber-400 text-xl"></i>
-                            <i class="fa-solid fa-star text-amber-400 text-xl"></i>
-                        </div>
+                        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-red-600 to-amber-500 text-white text-xs font-bold px-5 py-1.5 rounded-full shadow-lg flex items-center gap-1"><i class="fa-solid fa-fire"></i> MOST POPULAR</div>
+                        <div class="mb-3 mt-3"><i class="fa-solid fa-star text-amber-400 text-xl"></i><i class="fa-solid fa-star text-amber-400 text-xl"></i><i class="fa-solid fa-star text-amber-400 text-xl"></i><i class="fa-solid fa-star text-amber-400 text-xl"></i></div>
                         <h3 class="text-2xl font-bold text-gray-800">4-Star Package</h3>
                         <p class="text-gray-500 text-sm mt-1">Premium Comfort</p>
                         <div class="mt-6 space-y-3">
-                            <div class="bg-gradient-to-r from-blue-50 to-sky-50 p-3 rounded-xl">
-                                <p class="text-sm font-semibold">Triple Sharing</p>
-                                <p class="text-2xl font-bold text-red-600">PKR 160,000</p>
-                            </div>
-                            <div class="bg-gradient-to-r from-blue-50 to-sky-50 p-3 rounded-xl">
-                                <p class="text-sm font-semibold">Double Sharing</p>
-                                <p class="text-2xl font-bold text-red-600">PKR 175,000</p>
-                            </div>
+                            <div class="bg-gradient-to-r from-blue-50 to-sky-50 p-3 rounded-xl"><p class="text-sm font-semibold">Triple Sharing</p><p class="text-2xl font-bold text-red-600">PKR 160,000</p></div>
+                            <div class="bg-gradient-to-r from-blue-50 to-sky-50 p-3 rounded-xl"><p class="text-sm font-semibold">Double Sharing</p><p class="text-2xl font-bold text-red-600">PKR 175,000</p></div>
                         </div>
                         <a href="https://wa.me/923452613587?text=I'm%20interested%20in%204-Star%20Umrah%20Package%20(15%20days)" target="_blank" class="btn-primary inline-block mt-6 text-white font-bold py-3.5 rounded-xl w-full transition-all shadow-md">Book Now <i class="fa-brands fa-whatsapp ml-2"></i></a>
                     </div>
@@ -367,24 +468,12 @@
                     <!-- 5 STAR -->
                     <div class="package-card p-8 text-center relative overflow-hidden">
                         <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-indigo-600"></div>
-                        <div class="mb-3">
-                            <i class="fa-solid fa-star text-amber-400 text-xl"></i>
-                            <i class="fa-solid fa-star text-amber-400 text-xl"></i>
-                            <i class="fa-solid fa-star text-amber-400 text-xl"></i>
-                            <i class="fa-solid fa-star text-amber-400 text-xl"></i>
-                            <i class="fa-solid fa-star text-amber-400 text-xl"></i>
-                        </div>
+                        <div class="mb-3"><i class="fa-solid fa-star text-amber-400 text-xl"></i><i class="fa-solid fa-star text-amber-400 text-xl"></i><i class="fa-solid fa-star text-amber-400 text-xl"></i><i class="fa-solid fa-star text-amber-400 text-xl"></i><i class="fa-solid fa-star text-amber-400 text-xl"></i></div>
                         <h3 class="text-2xl font-bold text-gray-800">5-Star Package</h3>
                         <p class="text-gray-500 text-sm mt-1">Luxury Experience</p>
                         <div class="mt-6 space-y-3">
-                            <div class="bg-gradient-to-r from-purple-50 to-indigo-50 p-3 rounded-xl">
-                                <p class="text-sm font-semibold">Triple Sharing</p>
-                                <p class="text-2xl font-bold text-red-600">PKR 190,000</p>
-                            </div>
-                            <div class="bg-gradient-to-r from-purple-50 to-indigo-50 p-3 rounded-xl">
-                                <p class="text-sm font-semibold">Double Sharing</p>
-                                <p class="text-2xl font-bold text-red-600">PKR 210,000</p>
-                            </div>
+                            <div class="bg-gradient-to-r from-purple-50 to-indigo-50 p-3 rounded-xl"><p class="text-sm font-semibold">Triple Sharing</p><p class="text-2xl font-bold text-red-600">PKR 190,000</p></div>
+                            <div class="bg-gradient-to-r from-purple-50 to-indigo-50 p-3 rounded-xl"><p class="text-sm font-semibold">Double Sharing</p><p class="text-2xl font-bold text-red-600">PKR 210,000</p></div>
                         </div>
                         <a href="https://wa.me/923452613587?text=I'm%20interested%20in%205-Star%20Umrah%20Package%20(15%20days)" target="_blank" class="btn-primary inline-block mt-6 text-white font-bold py-3.5 rounded-xl w-full transition-all shadow-md">Book Now <i class="fa-brands fa-whatsapp ml-2"></i></a>
                     </div>
@@ -396,24 +485,13 @@
                         <div class="absolute -top-5 -right-5 w-32 h-32 bg-amber-300/30 rounded-full blur-2xl"></div>
                         <div class="absolute -bottom-5 -left-5 w-32 h-32 bg-red-300/30 rounded-full blur-2xl"></div>
                         <div class="text-center relative z-10">
-                            <div class="inline-block bg-gradient-to-r from-amber-500 to-red-600 text-white text-xs font-bold px-5 py-1.5 rounded-full mb-4">
-                                🌟 PREMIUM COLLECTION 🌟
-                            </div>
-                            <div class="flex justify-center gap-1 text-2xl text-amber-500 mb-2">
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                            </div>
+                            <div class="inline-block bg-gradient-to-r from-amber-500 to-red-600 text-white text-xs font-bold px-5 py-1.5 rounded-full mb-4">🌟 PREMIUM COLLECTION 🌟</div>
+                            <div class="flex justify-center gap-1 text-2xl text-amber-500 mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                             <h3 class="text-3xl font-bold heading-font">5-Star Premium</h3>
                             <p class="text-gray-700 mt-2 flex items-center justify-center gap-2"><i class="fa-solid fa-eye text-amber-600"></i> Room with view of Kaaba & Masjid al-Haram</p>
-                            <div class="mt-5 bg-white/80 backdrop-blur-sm p-4 rounded-2xl inline-block mx-auto">
-                                <p class="text-sm text-gray-500">Per Person</p>
-                                <p class="text-4xl font-black text-red-700">PKR 250,000</p>
-                            </div>
-                            <p class="text-sm text-amber-700 mt-4 flex items-center justify-center gap-2">
-                                <i class="fa-solid fa-clock rotating-hourglass"></i> Limited slots available. Book early to secure your preferred dates.
-                            </p>
-                            <a href="https://wa.me/923452613587?text=I'm%20interested%20in%20PREMIUM%20Haram%20View%20Umrah%20Package" target="_blank" class="inline-block mt-6 bg-gradient-to-r from-amber-600 to-red-700 hover:from-amber-700 hover:to-red-800 text-white font-bold px-10 py-4 rounded-2xl text-lg shadow-xl transition-all">
-                                Reserve Haram View <i class="fa-brands fa-whatsapp ml-2"></i>
-                            </a>
+                            <div class="mt-5 bg-white/80 backdrop-blur-sm p-4 rounded-2xl inline-block mx-auto"><p class="text-sm text-gray-500">Per Person</p><p class="text-4xl font-black text-red-700">PKR 250,000</p></div>
+                            <p class="text-sm text-amber-700 mt-4 flex items-center justify-center gap-2"><i class="fa-solid fa-clock rotating-hourglass"></i> Limited slots available. Book early to secure your preferred dates.</p>
+                            <a href="https://wa.me/923452613587?text=I'm%20interested%20in%20PREMIUM%20Haram%20View%20Umrah%20Package" target="_blank" class="inline-block mt-6 bg-gradient-to-r from-amber-600 to-red-700 hover:from-amber-700 hover:to-red-800 text-white font-bold px-10 py-4 rounded-2xl text-lg shadow-xl transition-all">Reserve Haram View <i class="fa-brands fa-whatsapp ml-2"></i></a>
                         </div>
                     </div>
                 </div>
@@ -428,12 +506,8 @@
                 <h2 class="text-4xl md:text-5xl font-bold heading-font mb-5">Ready for Your Spiritual Journey?</h2>
                 <p class="text-xl mb-8 text-white/90">Contact us today to secure your spot for this blessed journey to the holy cities.</p>
                 <div class="flex flex-wrap justify-center gap-5">
-                    <a href="https://wa.me/923452613587" target="_blank" class="bg-white text-red-700 hover:bg-amber-100 font-extrabold px-10 py-4 rounded-2xl text-lg flex items-center gap-3 shadow-2xl transition-all">
-                        <i class="fa-brands fa-whatsapp text-2xl text-green-600"></i> BOOK NOW
-                    </a>
-                    <a href="index.html#contact" class="border-2 border-white/80 hover:bg-white/20 backdrop-blur-sm px-8 py-4 rounded-2xl text-lg font-semibold transition-all">
-                        CONTACT US
-                    </a>
+                    <a href="https://wa.me/923452613587" target="_blank" class="bg-white text-red-700 hover:bg-amber-100 font-extrabold px-10 py-4 rounded-2xl text-lg flex items-center gap-3 shadow-2xl transition-all"><i class="fa-brands fa-whatsapp text-2xl text-green-600"></i> BOOK NOW</a>
+                    <a href="index.html#contact" class="border-2 border-white/80 hover:bg-white/20 backdrop-blur-sm px-8 py-4 rounded-2xl text-lg font-semibold transition-all">CONTACT US</a>
                 </div>
                 <p class="text-sm text-white/60 mt-6"><i class="fa-regular fa-clock"></i> 24/7 Support • Quick Response</p>
             </div>
@@ -442,54 +516,26 @@
         <!-- FOOTER -->
         <footer class="relative overflow-hidden bg-gradient-to-br from-gray-900 via-blue-950 to-gray-900 text-white py-12">
             <div class="max-w-7xl mx-auto px-5 grid md:grid-cols-4 gap-10">
-                <div class="space-y-4">
-                    <div class="h-20 w-20 rounded-full bg-white flex items-center justify-center shadow-xl overflow-hidden">
-                        <img src="logo.webp" class="h-full w-full object-contain p-2" onerror="this.src='https://placehold.co/80x80/e11d3f/white?text=NG'">
-                    </div>
-                    <h3 class="text-2xl font-bold tracking-tight">NorthGate</h3>
-                    <p class="text-sm text-red-200 font-medium">Visa Service Center</p>
-                    <p class="text-xs opacity-70 border-l-2 border-red-500 pl-3 py-1">Independent • Ethical • Transparent</p>
-                </div>
-
-                <div>
-                    <h4 class="font-bold mb-6 text-lg border-b border-red-500/30 pb-1 inline-block">Quick Links</h4>
-                    <ul class="quick-links-grid space-y-2 text-sm md:space-y-2">
-                        <li><a href="about.html" class="hover:text-red-300 transition flex items-center gap-2"><span class="text-red-400"></span> About</a></li>
-                        <li><a href="index.html#faq" class="hover:text-red-300 transition flex items-center gap-2"><span class="text-red-400"></span> FAQ</a></li>
-                        <li><a href="index.html#apply" class="hover:text-red-300 transition flex items-center gap-2"><span class="text-red-400"></span> Apply</a></li>
-                        <li><a href="terms.html" class="hover:text-red-300 transition flex items-center gap-2"><span class="text-red-400"></span> Terms</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="font-bold mb-6 text-lg border-b border-red-500/30 pb-1 inline-block">Contact</h4>
-                    <div class="space-y-3">
-                        <a href="https://wa.me/923452613587" target="_blank" class="flex items-center gap-3 hover:text-green-400 transition">
-                            <span class="bg-white/10 p-2 rounded-lg"><i class="fab fa-whatsapp text-green-400 text-lg"></i></span>
-                            <span class="text-sm">+92 345 2613587</span>
-                        </a>
-                        <a href="mailto:support@northgatevisaservices.com" class="flex items-center gap-3 hover:text-red-300 transition">
-                            <span class="bg-white/10 p-2 rounded-lg"><i class="fa-regular fa-envelope text-red-400"></i></span>
-                            <span class="text-sm">support@northgatevisaservices.com</span>
-                        </a>
-                        <div class="flex items-center gap-3">
-                            <span class="bg-white/10 p-2 rounded-lg"><i class="fa-regular fa-clock"></i></span>
-                            <span class="text-sm">Mon-Sat: 9AM - 7PM</span>
-                        </div>
-                    </div>
-                </div>
+                <div class="space-y-4"><div class="h-20 w-20 rounded-full bg-white flex items-center justify-center shadow-xl overflow-hidden"><img src="logo.webp" class="h-full w-full object-contain p-2" onerror="this.src='https://placehold.co/80x80/e11d3f/white?text=NG'"></div><h3 class="text-2xl font-bold tracking-tight">NorthGate</h3><p class="text-sm text-red-200 font-medium">Visa Service Center</p><p class="text-xs opacity-70 border-l-2 border-red-500 pl-3 py-1">Independent • Ethical • Transparent</p></div>
+                <div><h4 class="font-bold mb-6 text-lg border-b border-red-500/30 pb-1 inline-block">Quick Links</h4><ul class="quick-links-grid space-y-2 text-sm md:space-y-2"><li><a href="about.html" class="hover:text-red-300 transition flex items-center gap-2"> About</a></li><li><a href="index.html#faq" class="hover:text-red-300 transition flex items-center gap-2"> FAQ</a></li><li><a href="index.html#apply" class="hover:text-red-300 transition flex items-center gap-2"> Apply</a></li><li><a href="terms.html" class="hover:text-red-300 transition flex items-center gap-2"> Terms</a></li></ul></div>
+                <div><h4 class="font-bold mb-6 text-lg border-b border-red-500/30 pb-1 inline-block">Contact</h4><div class="space-y-3"><a href="https://wa.me/923452613587" target="_blank" class="flex items-center gap-3 hover:text-green-400 transition"><span class="bg-white/10 p-2 rounded-lg"><i class="fab fa-whatsapp text-green-400 text-lg"></i></span><span class="text-sm">+92 345 2613587</span></a><a href="mailto:support@northgatevisaservices.com" class="flex items-center gap-3 hover:text-red-300 transition"><span class="bg-white/10 p-2 rounded-lg"><i class="fa-regular fa-envelope text-red-400"></i></span><span class="text-sm">support@northgatevisaservices.com</span></a><div class="flex items-center gap-3"><span class="bg-white/10 p-2 rounded-lg"><i class="fa-regular fa-clock"></i></span><span class="text-sm">Mon-Sat: 9AM - 7PM</span></div></div></div>
             </div>
-            <div class="text-center text-[10px] text-red-200/60 border-t border-white/10 mt-12 pt-8">
-                © 2026 NorthGate Visa Service Center. All Rights Reserved.
-            </div>
+            <div class="text-center text-[10px] text-red-200/60 border-t border-white/10 mt-12 pt-8">© 2026 NorthGate Visa Service Center. All Rights Reserved.</div>
         </footer>
 
         <script>
             function toggleMenu() {
-                document.getElementById('mobileMenu').classList.toggle('hidden');
+                const menu = document.getElementById('mobileMenu');
+                menu.classList.toggle('hidden');
+                if (!menu.classList.contains('hidden')) {
+                    document.body.classList.add('menu-open');
+                } else {
+                    document.body.classList.remove('menu-open');
+                }
             }
             function closeMenu() {
                 document.getElementById('mobileMenu').classList.add('hidden');
+                document.body.classList.remove('menu-open');
             }
             
             // Smooth scroll for anchor links
@@ -503,6 +549,31 @@
                         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
                 });
+            });
+            
+            // LIGHT / DARK MODE TOGGLE FUNCTIONALITY (Bulb icon)
+            const toggleBtn = document.getElementById('darkModeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            
+            // Check localStorage for saved theme
+            if (localStorage.getItem('theme') === 'dark') {
+                document.body.classList.add('dark');
+                themeIcon.className = 'fa-solid fa-lightbulb text-yellow-300';
+            } else {
+                document.body.classList.remove('dark');
+                themeIcon.className = 'fa-regular fa-lightbulb text-yellow-600';
+            }
+            
+            toggleBtn.addEventListener('click', () => {
+                if (document.body.classList.contains('dark')) {
+                    document.body.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                    themeIcon.className = 'fa-regular fa-lightbulb text-yellow-600';
+                } else {
+                    document.body.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                    themeIcon.className = 'fa-solid fa-lightbulb text-yellow-300';
+                }
             });
         </script>
     </div>
