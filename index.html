@@ -47,10 +47,12 @@
             background: white;
         }
         
+        /* Prevent body scroll when mobile menu is open */
         body.menu-open {
             overflow: hidden;
         }
         
+        /* Fixed background logo - perfectly centered */
         .bg-logo-fixed {
             position: fixed;
             top: 50%;
@@ -112,6 +114,7 @@
             box-shadow: 0 15px 30px -8px rgba(225,29,63,0.4);
         }
         
+        /* Hero buttons styling */
         .hero-gradient-btn {
             background: linear-gradient(135deg, #e11d3f, #1e3a8a);
             transition: all 0.3s ease;
@@ -123,6 +126,7 @@
             background: linear-gradient(135deg, #b91c2c, #172554);
         }
         
+        /* ===== UMRAH BUTTON ===== */
         .umrah-btn {
             background: linear-gradient(135deg, #e11d3f, #1e3a8a);
             transition: all 0.3s ease;
@@ -326,7 +330,7 @@
             gap: 1.8rem;
         }
         
-        /* Mobile menu options - CHOTAY SIZE so all show without scroll */
+        /* Mobile navbar options - smaller so all fit without scroll */
         @media (max-width: 640px) {
             #mobileMenu .flex.flex-col.gap-2 a {
                 padding-top: 0.5rem !important;
@@ -557,6 +561,7 @@
 </head>
 <body>
 
+    <!-- Fixed Background Logo - stays centered forever -->
     <img src="logo.webp" class="bg-logo-fixed" alt="NorthGate Background Logo" onerror="this.style.display='none'">
 
     <div class="content-wrapper">
@@ -575,6 +580,7 @@
         }
         </script>
 
+        <!-- Navbar with sticky behavior -->
         <nav class="bg-white/95 backdrop-blur-md border-b border-red-200 sticky top-0 z-50 shadow-sm">
             <div class="max-w-7xl mx-auto px-5 lg:px-8">
                 <div class="flex justify-between items-center py-3 md:py-4">
@@ -609,6 +615,7 @@
                 </div>
             </div>
 
+            <!-- Mobile Menu - options with smaller font so all fit -->
             <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 py-3 shadow-lg max-h-[70vh] overflow-y-auto">
                 <div class="flex flex-col gap-1 text-base font-semibold">
                     <a href="index.html" onclick="closeMobileMenu()" class="py-2 px-3 rounded-xl bg-red-50 text-red-600 flex items-center gap-2 text-sm"><i class="fa-solid fa-house text-red-500 w-4"></i> HOME</a>
@@ -626,7 +633,7 @@
             </div>
         </nav>
 
-        <!-- REST OF YOUR COMPLETE ORIGINAL CONTENT - FULLY RESTORED -->
+        <!-- Hero Section -->
         <section id="home" class="hero-bg text-white min-h-[90vh] flex items-center relative">
             <div class="max-w-7xl mx-auto px-5 lg:px-8 grid md:grid-cols-2 gap-12 items-center py-16">
                 <div class="space-y-7">
@@ -648,6 +655,7 @@
                         Your trusted partner for U.S, Canada, Italy, Schengen & worldwide visas. <span class="capitalize">Transparent, ethical, result-driven.</span>
                     </p>
 
+                    <!-- THREE BUTTONS -->
                     <div class="flex flex-wrap gap-5 items-center">
                         <a href="#apply" class="hero-gradient-btn text-white font-extrabold px-8 py-4 rounded-2xl text-lg shadow-2xl transition-all hover:scale-105">
                             APPLY NOW
@@ -695,6 +703,7 @@
             </div>
         </section>
 
+        <!-- Process Section -->
         <section id="process" class="py-20 bg-white/95">
             <div class="max-w-7xl mx-auto px-5 lg:px-8">
                 <div class="text-center mb-12">
@@ -707,6 +716,7 @@
             </div>
         </section>
 
+        <!-- Services Section -->
         <section id="services" class="py-20 bg-gradient-to-br from-red-50/95 to-blue-50/95">
             <div class="max-w-7xl mx-auto px-5 lg:px-8">
                 <h2 class="text-4xl font-bold heading-font text-center mb-12">OUR SERVICES</h2>
@@ -750,6 +760,7 @@
             </div>
         </section>
 
+        <!-- Why Choose Us Section -->
         <section id="why" class="py-20 bg-white/95">
             <div class="max-w-7xl mx-auto px-5 lg:px-8">
                 <div class="text-center mb-12">
@@ -771,6 +782,7 @@
             </div>
         </section>
 
+        <!-- FAQ Section -->
         <section id="faq" class="py-20 bg-gradient-to-br from-red-50/95 to-blue-50/95">
             <div class="max-w-4xl mx-auto px-5">
                 <h2 class="text-4xl font-bold heading-font text-center mb-12">Frequently Asked Questions</h2>
@@ -778,6 +790,7 @@
             </div>
         </section>
 
+        <!-- Apply Section -->
         <section id="apply" class="py-20 bg-white/95">
             <div class="max-w-7xl mx-auto px-5">
                 <h2 class="text-4xl font-bold heading-font text-center mb-3">How to Apply</h2>
@@ -861,6 +874,7 @@
             </div>
         </section>
 
+        <!-- Testimonials Section -->
         <section id="testimonials" class="py-20 bg-gradient-to-br from-blue-50/90 to-red-50/90">
             <div class="max-w-7xl mx-auto px-5 lg:px-8">
                 <div class="text-center mb-12">
@@ -903,6 +917,7 @@
             </div>
         </section>
 
+        <!-- Review Modal -->
         <div id="reviewModal" class="modal">
             <div class="modal-content p-6">
                 <div class="flex justify-between items-center mb-4">
@@ -938,6 +953,7 @@
             </div>
         </div>
 
+        <!-- Footer -->
         <footer class="relative overflow-hidden bg-gradient-to-br from-gray-900 via-blue-950 to-gray-900 text-white py-12">
             <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-red-500/50 to-transparent"></div>
             <div class="absolute -top-24 -right-24 w-64 h-64 bg-red-600/10 rounded-full blur-3xl"></div>
@@ -1005,18 +1021,30 @@
                 } catch (error) { console.error(error); reviews = [ { name: "Ahmed J.", visaType: "U.S B1/B2 Visa", rating: 5, text: "NorthGate made my US visa process seamless. Highly recommended!", date: "June 2026" }, { name: "Sana R.", visaType: "Canada Student Visa", rating: 5, text: "Their guidance on financial documents was spot on. Thank you!", date: "March 2026" }, { name: "M. Khan", visaType: "Schengen (Italy)", rating: 4, text: "Professional and responsive. Received Schengen visa without any hiccup.", date: "April 2026" } ]; }
                 renderReviews();
             }
+            
             async function saveReviewToSheet(review) { try { await fetch(GOOGLE_SHEETS_API_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(review) }); return true; } catch(e) { return false; } }
+            
             function getInitials(name) { return name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0,2); }
+            
             function getGradient(name) { const gradients = ['from-red-400 to-blue-500','from-green-400 to-teal-500','from-amber-400 to-orange-500','from-purple-400 to-pink-500','from-red-500 to-gray-700','from-blue-400 to-cyan-500']; let hash=0; for(let i=0;i<name.length;i++) hash+=name.charCodeAt(i); return gradients[hash%gradients.length]; }
+            
             function renderReviews() { const container = document.getElementById('reviewsContainer'); const visible = reviews.slice(0,currentDisplayCount); if(visible.length===0) container.innerHTML='<div class="text-center py-10 col-span-3"><p class="text-gray-500">No reviews yet. Be the first!</p></div>'; else container.innerHTML = visible.map(r => `<div class="testimonial-card border border-gray-200 rounded-2xl p-6 shadow-md bg-white"><div class="flex items-center gap-4 mb-4"><div class="w-14 h-14 rounded-full bg-gradient-to-br ${getGradient(r.name)} flex items-center justify-center text-white text-xl font-bold shadow-md">${getInitials(r.name)}</div><div><h4 class="font-bold text-gray-800">${r.name}</h4><p class="text-xs text-gray-500">${r.visaType} • ${r.date||'Recently'}</p><div class="star-rating text-yellow-400 text-sm mt-1">${'<i class="fa-solid fa-star"></i>'.repeat(r.rating)}${'<i class="fa-regular fa-star"></i>'.repeat(5-r.rating)}</div></div></div><div class="testimonial-quote text-gray-300">“”</div><p class="text-gray-700 mt-2 leading-relaxed">"${r.text}"</p><div class="mt-4 flex items-center gap-2 text-xs text-red-600"><i class="fa-solid fa-check-circle"></i> Verified Client</div></div>`).join(''); const loadMoreContainer = document.getElementById('loadMoreBtnContainer'); if(currentDisplayCount>=reviews.length || reviews.length<=3) loadMoreContainer.style.display='none'; else loadMoreContainer.style.display='block'; const total=reviews.reduce((s,r)=>s+r.rating,0); const avg=reviews.length?(total/reviews.length).toFixed(1):'0'; document.getElementById('avgRating').innerText=avg; document.getElementById('reviewCount').innerText=reviews.length; }
+            
             function loadMoreReviews() { currentDisplayCount+=3; renderReviews(); }
+            
             let selectedRating=0;
             function initStarSelector() { document.querySelectorAll('#starSelector i').forEach(s=>{ s.addEventListener('click',function(){ selectedRating=parseInt(this.dataset.rating); document.getElementById('ratingValue').value=selectedRating; document.querySelectorAll('#starSelector i').forEach((el,idx)=>{ if(idx<selectedRating) el.className='fa-solid fa-star cursor-pointer hover:text-yellow-400 transition text-yellow-400'; else el.className='fa-regular fa-star cursor-pointer hover:text-yellow-400 transition'; }); }); }); }
+            
             function openReviewModal() { document.getElementById('reviewModal').classList.add('active'); document.getElementById('reviewForm').reset(); selectedRating=0; document.getElementById('ratingValue').value=''; document.querySelectorAll('#starSelector i').forEach(s=>{ s.className='fa-regular fa-star cursor-pointer hover:text-yellow-400 transition'; }); }
+            
             function closeReviewModal() { document.getElementById('reviewModal').classList.remove('active'); }
+            
             async function submitReview(event) { event.preventDefault(); const name=document.getElementById('reviewerName').value; const visaType=document.getElementById('visaType').value; const rating=parseInt(document.getElementById('ratingValue').value); const text=document.getElementById('reviewText').value; if(!rating){ alert('Please select a rating'); return; } const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; const date=`${months[new Date().getMonth()]} ${new Date().getFullYear()}`; const newReview={name,visaType,rating,text,date}; const btn=event.target.querySelector('button[type="submit"]'); const original=btn.innerText; btn.innerText='Submitting...'; btn.disabled=true; await saveReviewToSheet(newReview); reviews.unshift(newReview); currentDisplayCount=3; renderReviews(); btn.innerText=original; btn.disabled=false; closeReviewModal(); alert('Thank you for your review!'); }
+            
             const faqs=[{q:"Are you affiliated with the government?",a:"No. Northgate Visa Service Center is a private and independent firm. We are not affiliated with or endorsed by the U.S. Department of State or IRCC."},{q:"Do you guarantee visa approval?",a:"No. Visa approval is solely at the discretion of the respective government authority. We do not provide guarantees."},{q:"What services do you provide?",a:"We provide: Visa application form assistance, Documentation review, Interview preparation guidance, and General process consultation."},{q:"Can you speed up visa processing?",a:"No. Processing times are determined entirely by the relevant embassy or immigration authority."},{q:"Do you provide sponsorships, or invitation letters?",a:"No. We do not provide fake documents or sponsorship arrangements."},{q:"Are you a registered company?",a:"Yes. Northgate Visa Service Center is registered with SECP and FBR."},{q:"What are your service fees?",a:"Our service fees vary depending on the visa category. Government visa fees are paid separately."},{q:"What happens if my visa is refused?",a:"Decisions are made by government authorities. We can review the case and provide guidance for reapplication."},{q:"Is my personal information secure?",a:"Yes. We maintain strict confidentiality."}];
+            
             function populateFaqs(){ const container=document.getElementById('faqList'); container.innerHTML=faqs.map(f=>`<div class="faq-item bg-white rounded-2xl p-5 cursor-pointer shadow-sm hover:shadow-md transition" onclick="toggleFaq(this)"><div class="flex justify-between items-center"><h4 class="font-bold">${f.q}</h4><i class="fa-solid fa-chevron-down text-red-600 transition-transform"></i></div><div class="faq-answer mt-3 text-gray-600 text-sm leading-relaxed hidden">${f.a}</div></div>`).join(''); }
+            
             function toggleFaq(el){ el.classList.toggle('active'); const ans=el.querySelector('.faq-answer'); const icon=el.querySelector('i'); if(ans){ if(ans.style.display==='block'){ ans.style.display='none'; icon.style.transform='rotate(0deg)'; } else { ans.style.display='block'; icon.style.transform='rotate(180deg)'; } } }
             
             function toggleMobileMenu() {
