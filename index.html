@@ -47,7 +47,6 @@
             background: white;
         }
         
-        /* Stop body scroll when mobile menu is open */
         body.menu-open {
             overflow: hidden;
         }
@@ -327,7 +326,22 @@
             gap: 1.8rem;
         }
         
+        /* Mobile menu options - CHOTAY SIZE so all show without scroll */
         @media (max-width: 640px) {
+            #mobileMenu .flex.flex-col.gap-2 a {
+                padding-top: 0.5rem !important;
+                padding-bottom: 0.5rem !important;
+                font-size: 0.85rem !important;
+                gap: 0.5rem !important;
+            }
+            #mobileMenu {
+                padding-top: 0.75rem !important;
+                padding-bottom: 0.75rem !important;
+            }
+            #mobileMenu .flex.flex-col {
+                gap: 0.25rem !important;
+            }
+            
             .hero-bg {
                 min-height: 70vh !important;
             }
@@ -595,24 +609,24 @@
                 </div>
             </div>
 
-            <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 px-6 py-5 shadow-lg max-h-[80vh] overflow-y-auto">
-                <div class="flex flex-col gap-2 text-base font-semibold">
-                    <a href="index.html" onclick="closeMobileMenu()" class="py-3 px-3 rounded-xl bg-red-50 text-red-600 flex items-center gap-3"><i class="fa-solid fa-house text-red-500 w-5"></i> HOME</a>
-                    <a href="#services" onclick="closeMobileMenu()" class="py-3 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-briefcase text-red-500 w-5"></i> SERVICES</a>
-                    <a href="countries.html" onclick="closeMobileMenu()" class="py-3 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-globe text-red-500 w-5"></i> COUNTRIES</a>
-                    <a href="#why" onclick="closeMobileMenu()" class="py-3 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-star text-red-500 w-5"></i> WHY US</a>
-                    <a href="#apply" onclick="closeMobileMenu()" class="py-3 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-file-pen text-red-500 w-5"></i> APPLY</a>
-                    <a href="#faq" onclick="closeMobileMenu()" class="py-3 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-question-circle text-red-500 w-5"></i> FAQ</a>
-                    <a href="about.html" onclick="closeMobileMenu()" class="py-3 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-building text-red-500 w-5"></i> ABOUT US</a>
-                    <a href="terms.html" onclick="closeMobileMenu()" class="py-3 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-scale-balanced text-red-500 w-5"></i> TERMS</a>
-                    <a href="#testimonials" onclick="closeMobileMenu()" class="py-3 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-comment-dots text-red-500 w-5"></i> REVIEWS</a>
-                    <a href="student-visa.html" onclick="closeMobileMenu()" class="py-3 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-user-graduate text-red-500 w-5"></i> STUDENT VISA</a>
-                    <a href="Tracker.html" onclick="closeMobileMenu()" class="py-3 px-3 rounded-xl hover:bg-red-50 flex items-center gap-3"> <i class="fa-solid fa-list-check text-red-500 text-lg flex-shrink-0"></i>TRACK YOUR APPLICATION</a>
+            <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 py-3 shadow-lg max-h-[70vh] overflow-y-auto">
+                <div class="flex flex-col gap-1 text-base font-semibold">
+                    <a href="index.html" onclick="closeMobileMenu()" class="py-2 px-3 rounded-xl bg-red-50 text-red-600 flex items-center gap-2 text-sm"><i class="fa-solid fa-house text-red-500 w-4"></i> HOME</a>
+                    <a href="#services" onclick="closeMobileMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-2 text-sm"><i class="fa-solid fa-briefcase text-red-500 w-4"></i> SERVICES</a>
+                    <a href="countries.html" onclick="closeMobileMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-2 text-sm"><i class="fa-solid fa-globe text-red-500 w-4"></i> COUNTRIES</a>
+                    <a href="#why" onclick="closeMobileMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-2 text-sm"><i class="fa-solid fa-star text-red-500 w-4"></i> WHY US</a>
+                    <a href="#apply" onclick="closeMobileMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-2 text-sm"><i class="fa-solid fa-file-pen text-red-500 w-4"></i> APPLY</a>
+                    <a href="#faq" onclick="closeMobileMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-2 text-sm"><i class="fa-solid fa-question-circle text-red-500 w-4"></i> FAQ</a>
+                    <a href="about.html" onclick="closeMobileMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-2 text-sm"><i class="fa-solid fa-building text-red-500 w-4"></i> ABOUT US</a>
+                    <a href="terms.html" onclick="closeMobileMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-2 text-sm"><i class="fa-solid fa-scale-balanced text-red-500 w-4"></i> TERMS</a>
+                    <a href="#testimonials" onclick="closeMobileMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-2 text-sm"><i class="fa-solid fa-comment-dots text-red-500 w-4"></i> REVIEWS</a>
+                    <a href="student-visa.html" onclick="closeMobileMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-2 text-sm"><i class="fa-solid fa-user-graduate text-red-500 w-4"></i> STUDENT VISA</a>
+                    <a href="Tracker.html" onclick="closeMobileMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-2 text-sm"> <i class="fa-solid fa-list-check text-red-500 text-base flex-shrink-0"></i>TRACK YOUR APPLICATION</a>
                 </div>
             </div>
         </nav>
 
-        <!-- REST OF YOUR COMPLETE ORIGINAL CONTENT - FULLY RESTORED (SAME AS YOUR ORIGINAL) -->
+        <!-- REST OF YOUR COMPLETE ORIGINAL CONTENT - FULLY RESTORED -->
         <section id="home" class="hero-bg text-white min-h-[90vh] flex items-center relative">
             <div class="max-w-7xl mx-auto px-5 lg:px-8 grid md:grid-cols-2 gap-12 items-center py-16">
                 <div class="space-y-7">
@@ -1005,7 +1019,6 @@
             function populateFaqs(){ const container=document.getElementById('faqList'); container.innerHTML=faqs.map(f=>`<div class="faq-item bg-white rounded-2xl p-5 cursor-pointer shadow-sm hover:shadow-md transition" onclick="toggleFaq(this)"><div class="flex justify-between items-center"><h4 class="font-bold">${f.q}</h4><i class="fa-solid fa-chevron-down text-red-600 transition-transform"></i></div><div class="faq-answer mt-3 text-gray-600 text-sm leading-relaxed hidden">${f.a}</div></div>`).join(''); }
             function toggleFaq(el){ el.classList.toggle('active'); const ans=el.querySelector('.faq-answer'); const icon=el.querySelector('i'); if(ans){ if(ans.style.display==='block'){ ans.style.display='none'; icon.style.transform='rotate(0deg)'; } else { ans.style.display='block'; icon.style.transform='rotate(180deg)'; } } }
             
-            // Fixed toggle function - prevents background scroll when menu is open
             function toggleMobileMenu() {
                 const menu = document.getElementById('mobileMenu');
                 menu.classList.toggle('hidden');
