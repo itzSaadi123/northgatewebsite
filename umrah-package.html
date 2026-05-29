@@ -16,46 +16,10 @@
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        /* Light & Dark Mode Root Variables */
-        :root {
-            --bg-gradient-start: #fef9f5;
-            --bg-gradient-end: #f0f2f5;
-            --card-bg: #ffffff;
-            --text-primary: #1f2937;
-            --text-secondary: #4b5563;
-            --navbar-bg: rgba(255, 255, 255, 0.95);
-            --navbar-border: #fee2e2;
-            --footer-bg: linear-gradient(135deg, #111827, #1e3a8a, #111827);
-            --footer-text: #ffffff;
-            --shadow-sm: 0 5px 20px rgba(0,0,0,0.05);
-            --shadow-hover: 0 25px 40px rgba(225,29,63,0.2);
-            --badge-bg: #fee2e2;
-            --badge-text: #b91c1c;
-            --info-card-bg: #ffffff;
-        }
-        
-        body.dark {
-            --bg-gradient-start: #0f172a;
-            --bg-gradient-end: #1e293b;
-            --card-bg: #1e293b;
-            --text-primary: #f1f5f9;
-            --text-secondary: #cbd5e1;
-            --navbar-bg: rgba(15, 23, 42, 0.95);
-            --navbar-border: #334155;
-            --footer-bg: linear-gradient(135deg, #020617, #0f172a, #020617);
-            --footer-text: #cbd5e1;
-            --shadow-sm: 0 5px 20px rgba(0,0,0,0.3);
-            --shadow-hover: 0 25px 40px rgba(225,29,63,0.4);
-            --badge-bg: #450a0a;
-            --badge-text: #fca5a5;
-            --info-card-bg: #0f172a;
-        }
-        
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
-            color: var(--text-primary);
-            transition: background 0.3s ease, color 0.2s ease;
+            background: linear-gradient(135deg, #fef9f5 0%, #f0f2f5 100%);
+            color: #1f2937;
         }
         
         /* Prevent body scroll when mobile menu is open */
@@ -106,24 +70,21 @@
         .nav-link:hover:after { width: 100%; }
         
         .package-card {
-            background: var(--card-bg);
+            background: #ffffff;
             border-radius: 28px;
             transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-            box-shadow: var(--shadow-sm);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
         }
         .package-card:hover {
             transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
+            box-shadow: 0 25px 40px rgba(225,29,63,0.2);
         }
         
         .info-card {
-            background: var(--info-card-bg);
+            background: #ffffff;
             border-radius: 20px;
             transition: all 0.3s;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-        body.dark .info-card {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
         .info-card:hover {
             transform: translateY(-5px);
@@ -176,59 +137,6 @@
             pointer-events: none;
         }
         
-        /* Dark mode overrides for specific components */
-        body.dark .bg-white\/95 {
-            background-color: var(--navbar-bg) !important;
-            border-bottom-color: #334155 !important;
-        }
-        body.dark .bg-white {
-            background-color: var(--card-bg) !important;
-        }
-        body.dark .text-gray-700,
-        body.dark .text-gray-800,
-        body.dark .text-gray-500 {
-            color: var(--text-secondary) !important;
-        }
-        body.dark .bg-gray-50,
-        body.dark .bg-gradient-to-br.from-gray-50 {
-            background: #0f172a !important;
-        }
-        body.dark .bg-white\/90 {
-            background-color: #0f172a !important;
-        }
-        body.dark .bg-gradient-to-r.from-red-50,
-        body.dark .bg-gradient-to-br.from-red-50 {
-            background: #2d1a1a !important;
-        }
-        body.dark .border-red-200 {
-            border-color: #7f1d1d !important;
-        }
-        body.dark .bg-gradient-to-r.from-amber-50,
-        body.dark .bg-gradient-to-r.from-blue-50,
-        body.dark .bg-gradient-to-r.from-purple-50,
-        body.dark .bg-gradient-to-r.from-amber-50.to-yellow-50 {
-            background: #2d2a1a !important;
-        }
-        body.dark .bg-white\/80 {
-            background-color: rgba(30, 41, 59, 0.8) !important;
-        }
-        body.dark footer {
-            background: var(--footer-bg) !important;
-        }
-        body.dark footer .text-white {
-            color: var(--footer-text) !important;
-        }
-        body.dark .umrah-hero {
-            background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(60,20,20,0.85)), url('https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=1600');
-        }
-        body.dark #mobileMenu {
-            background-color: #0f172a !important;
-            border-color: #334155 !important;
-        }
-        body.dark .nav-link {
-            color: #e2e8f0;
-        }
-        
         @media (max-width: 640px) {
             .umrah-hero { min-height: 60vh; background-position: center 20%; }
             .umrah-hero h1 { font-size: 32px !important; }
@@ -245,20 +153,6 @@
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f1f1; }
         ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #e11d3f, #1e3a8a); border-radius: 10px; }
-        body.dark ::-webkit-scrollbar-track { background: #1e293b; }
-        
-        /* Theme Toggle Button Styling */
-        .theme-toggle {
-            background: rgba(0,0,0,0.05);
-            border-radius: 40px;
-            transition: all 0.2s;
-        }
-        body.dark .theme-toggle {
-            background: rgba(255,255,255,0.1);
-        }
-        .theme-toggle:hover {
-            transform: scale(1.05);
-        }
     </style>
 </head>
 <body>
@@ -267,8 +161,8 @@
 
     <div class="content-wrapper">
 
-        <!-- NAVBAR with Light/Dark Toggle Button + WhatsApp Icon + Bulb Icon -->
-        <nav class="bg-white/95 backdrop-blur-md border-b border-red-200 sticky top-0 z-50 shadow-sm" style="background-color: var(--navbar-bg); border-bottom-color: var(--navbar-border);">
+        <!-- NAVBAR - Same style as index.html (No Dark Mode) -->
+        <nav class="bg-white/95 backdrop-blur-md border-b border-red-200 sticky top-0 z-50 shadow-sm">
             <div class="max-w-7xl mx-auto px-5 lg:px-8">
                 <div class="flex justify-between items-center py-3 md:py-4">
                     <div class="flex items-center gap-3">
@@ -293,15 +187,12 @@
                             <i class="fab fa-whatsapp text-lg"></i>
                             <span class="hidden sm:inline">WhatsApp</span>
                         </a>
-                        <button id="darkModeToggle" class="theme-toggle w-10 h-10 rounded-full flex items-center justify-center text-xl transition-all shadow-md focus:outline-none" aria-label="Light/Dark Mode">
-                            <i id="themeIcon" class="fa-regular fa-lightbulb text-yellow-600 dark:text-yellow-400"></i>
-                        </button>
                         <button onclick="toggleMenu()" class="md:hidden text-3xl text-red-600 focus:outline-none">☰</button>
                     </div>
                 </div>
             </div>
             
-            <!-- Mobile Menu - Same as index.html (absolute position, smaller options) -->
+            <!-- Mobile Menu - Same as index.html -->
             <div id="mobileMenu" class="hidden md:hidden absolute left-0 right-0 top-full z-50 bg-white border-b border-gray-200 px-4 py-3 shadow-xl max-h-[70vh] overflow-y-auto">
                 <div class="flex flex-col gap-1 text-base font-semibold">
                     <a href="index.html" onclick="closeMenu()" class="py-2 px-3 rounded-xl hover:bg-red-50 flex items-center gap-2 text-sm"><i class="fa-solid fa-house text-red-500 w-4"></i> HOME</a>
@@ -319,7 +210,7 @@
             </div>
         </nav>
 
-        <!-- HERO SECTION - Enhanced -->
+        <!-- HERO SECTION -->
         <section class="umrah-hero text-white relative">
             <div class="floating-shape"></div>
             <div class="max-w-7xl mx-auto px-5 text-center py-20 md:py-24">
@@ -345,8 +236,8 @@
             </div>
         </section>
 
-        <!-- DURATION - Enhanced with counters -->
-        <section class="py-20 bg-white/90" style="background-color: var(--card-bg);">
+        <!-- DURATION SECTION -->
+        <section class="py-20 bg-white/90">
             <div class="max-w-7xl mx-auto px-5">
                 <div class="text-center mb-12">
                     <span class="bg-gradient-to-r from-red-100 to-red-200 text-red-700 px-5 py-1.5 text-sm font-bold rounded-full inline-flex items-center gap-2">
@@ -386,8 +277,8 @@
             </div>
         </section>
 
-        <!-- INCLUDES - Enhanced Icons -->
-        <section class="py-20 bg-gradient-to-br from-gray-50 to-gray-100" style="background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));">
+        <!-- INCLUDES SECTION -->
+        <section class="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
             <div class="max-w-7xl mx-auto px-5">
                 <div class="text-center mb-12">
                     <span class="bg-red-100 text-red-700 px-5 py-1.5 text-sm font-bold rounded-full inline-flex items-center gap-2">
@@ -429,8 +320,8 @@
             </div>
         </section>
 
-        <!-- PACKAGES - Enhanced (same content, dark mode auto adapts) -->
-        <section id="packages" class="py-24 bg-white" style="background-color: var(--card-bg);">
+        <!-- PACKAGES SECTION -->
+        <section id="packages" class="py-24 bg-white">
             <div class="max-w-7xl mx-auto px-5">
                 <div class="text-center mb-12">
                     <span class="bg-gradient-to-r from-amber-100 to-red-100 text-red-700 px-5 py-1.5 text-sm font-bold rounded-full">🏨 CHOOSE YOUR COMFORT</span>
@@ -490,7 +381,7 @@
                             <h3 class="text-3xl font-bold heading-font">5-Star Premium</h3>
                             <p class="text-gray-700 mt-2 flex items-center justify-center gap-2"><i class="fa-solid fa-eye text-amber-600"></i> Room with view of Kaaba & Masjid al-Haram</p>
                             <div class="mt-5 bg-white/80 backdrop-blur-sm p-4 rounded-2xl inline-block mx-auto"><p class="text-sm text-gray-500">Per Person</p><p class="text-4xl font-black text-red-700">PKR 250,000</p></div>
-                            <p class="text-sm text-amber-700 mt-4 flex items-center justify-center gap-2"><i class="fa-solid fa-clock rotating-hourglass"></i> Limited slots available. Book early to secure your preferred dates.</p>
+                            <p class="text-sm text-amber-700 mt-4 flex items-center justify-center gap-2"><i class="fa-solid fa-clock"></i> Limited slots available. Book early to secure your preferred dates.</p>
                             <a href="https://wa.me/923452613587?text=I'm%20interested%20in%20PREMIUM%20Haram%20View%20Umrah%20Package" target="_blank" class="inline-block mt-6 bg-gradient-to-r from-amber-600 to-red-700 hover:from-amber-700 hover:to-red-800 text-white font-bold px-10 py-4 rounded-2xl text-lg shadow-xl transition-all">Reserve Haram View <i class="fa-brands fa-whatsapp ml-2"></i></a>
                         </div>
                     </div>
@@ -549,31 +440,6 @@
                         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
                 });
-            });
-            
-            // LIGHT / DARK MODE TOGGLE FUNCTIONALITY (Bulb icon)
-            const toggleBtn = document.getElementById('darkModeToggle');
-            const themeIcon = document.getElementById('themeIcon');
-            
-            // Check localStorage for saved theme
-            if (localStorage.getItem('theme') === 'dark') {
-                document.body.classList.add('dark');
-                themeIcon.className = 'fa-solid fa-lightbulb text-yellow-300';
-            } else {
-                document.body.classList.remove('dark');
-                themeIcon.className = 'fa-regular fa-lightbulb text-yellow-600';
-            }
-            
-            toggleBtn.addEventListener('click', () => {
-                if (document.body.classList.contains('dark')) {
-                    document.body.classList.remove('dark');
-                    localStorage.setItem('theme', 'light');
-                    themeIcon.className = 'fa-regular fa-lightbulb text-yellow-600';
-                } else {
-                    document.body.classList.add('dark');
-                    localStorage.setItem('theme', 'dark');
-                    themeIcon.className = 'fa-solid fa-lightbulb text-yellow-300';
-                }
             });
         </script>
     </div>
