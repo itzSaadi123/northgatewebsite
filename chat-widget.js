@@ -264,8 +264,18 @@
     { keys: ["challan","mcb","bank","payment","pay fee","bank challan","how to pay"], ans: "After your case review, you will receive a <strong>fee challan on your registered email</strong>. Pay at any nearest <strong>MCB Bank branch</strong>. You'll receive a confirmation email within 24 hours." },
     { keys: ["terms","condition","policy","terms and conditions","refund","cancellation"], ans: "Please read our full terms and conditions here: <a href='https://northgatevisaservices.com/terms.html' target='_blank'>Terms & Conditions →</a>" },
     { keys: ["about","who are you","northgate","company","team","about us","background"], ans: "NorthGate Visa Service Center is an <strong>independent, ethical, and transparent</strong> visa consultancy registered with SECP &amp; FBR. We specialise in U.S. and Canada visas, with assistance available worldwide. <a href='https://northgatevisaservices.com/about.html' target='_blank'>About us →</a>" },
-    { keys: ["hello","hi","hey","assalam","salam","good morning","good afternoon","good evening","helo","hii","sup"], ans: "Assalam o Alaikum! 👋 Welcome to <strong>NorthGate Visa Service Center</strong>. How can we help you today? You can ask us about visa services, fees, application process, Umrah packages, or anything else!" },
-    { keys: ["thank","thanks","thankyou","thank you","shukriya","jazakallah"], ans: "You're most welcome! 😊 For personalised help, feel free to email us at <a href='mailto:support@northgatevisaservices.com'>support@northgatevisaservices.com</a>." }
+    { keys: ["hello","hi","hey","assalam","salam","good morning","good afternoon","good evening","helo","hii","sup"], ans: [
+      "Assalam o Alaikum! 👋 Welcome to <strong>NorthGate Visa Service Center</strong>. How can we help you today?",
+      "Hello! 😊 How can we assist you today? Feel free to ask about our visa services, fees, or Umrah packages!",
+      "Hi there! Welcome to NorthGate. Ask us anything about visa applications, student visas, or Umrah packages!",
+      "Assalam o Alaikum! 🌟 Glad you reached out. What can we help you with today?"
+    ]},
+    { keys: ["thank","thanks","thankyou","thank you","shukriya","jazakallah"], ans: [
+      "You're most welcome! 😊 Feel free to email us at <a href='mailto:support@northgatevisaservices.com'>support@northgatevisaservices.com</a> for further help.",
+      "Jazakallah Khair! 🌟 We are always here to help. Email us anytime at <a href='mailto:support@northgatevisaservices.com'>support@northgatevisaservices.com</a>.",
+      "Our pleasure! 😊 If you have more questions, we are happy to assist.",
+      "You're welcome! Don't hesitate to reach out anytime — we are here for you."
+    ]}
   ];
 
   let ngIsOpen = false;
@@ -329,7 +339,11 @@
       }
       if (score > bestScore) { bestScore = score; best = item; }
     }
-    return bestScore > 0 ? best.ans : null;
+    if (!best) return null;
+    if (Array.isArray(best.ans)) {
+      return best.ans[Math.floor(Math.random() * best.ans.length)];
+    }
+    return best.ans;
   }
 
   window.ngSendMsg = function() {
