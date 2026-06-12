@@ -19,6 +19,7 @@
     border: none !important;
     cursor: pointer !important;
     box-shadow: 0 6px 24px rgba(0,0,0,0.22) !important;
+    animation: ng-glow 2.5s infinite !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -28,6 +29,10 @@
     margin: 0 !important;
   }
   #ng-chat-btn:hover { transform: scale(1.07) !important; }
+  @keyframes ng-glow {
+    0%, 100% { box-shadow: 0 6px 24px rgba(0,0,0,0.22), 0 0 0 0 rgba(192,57,43,0.5); }
+    50% { box-shadow: 0 6px 24px rgba(0,0,0,0.22), 0 0 18px 8px rgba(192,57,43,0.25); }
+  }
   #ng-chat-btn i { color: white !important; font-size: 26px !important; }
   #ng-chat-btn .ng-badge {
     position: absolute !important;
@@ -202,7 +207,8 @@
   }
   @media (max-width: 768px) {
     #ng-chat-box { width: calc(100vw - 20px) !important; right: 10px !important; bottom: 88px !important; }
-    #ng-chat-btn { right: 16px !important; bottom: 16px !important; }
+    #ng-chat-btn { right: 16px !important; bottom: 16px !important; width: 62px !important; height: 62px !important; }
+    #ng-chat-btn i { font-size: 26px !important; }
   }
   `;
   document.head.appendChild(style);
@@ -253,7 +259,7 @@
     { keys: ["canada","canadian","pr","permanent resident","canada visa"], ans: "We assist with <strong>Canada Visa applications</strong>. Fill the form here: <a href='https://northgatevisaservicecenter.github.io/Canada_form/' target='_blank'>Canada Visa Form</a><br>Our team will review your case within 24 hours." },
     { keys: ["italy","italian","schengen","europe","european","germany","france","spain","netherlands","belgium"], ans: "We assist with <strong>Italy &amp; Schengen Visa applications</strong>. Fill the form here: <a href='https://northgatevisaservicecenter.github.io/Italy_form/' target='_blank'>Italy / Schengen Visa Form</a>" },
     { keys: ["countries","which countries","available","worldwide","other countries","all countries"], ans: "We assist with visas for <strong>U.S., Canada, Italy, Schengen countries</strong>, and many more worldwide. See the full list here: <a href='https://northgatevisaservices.com/countries.html' target='_blank'>All Countries</a>" },
-    { keys: ["track","tracking","status","application status","where is","check status","tracker"], ans: "You can track your application live using your <strong>Tracking ID (NGV-2026...)</strong> here: <a href='https://northgatevisaservices.com/Tracker.html' target='_blank'>Track My Application →</a>" },
+    { keys: ["track","tracking","status","application status","where is","check status","tracker"], ans: "You can track your application status using your <strong>Tracking ID </strong> here: <a href='https://northgatevisaservices.com/Tracker.html' target='_blank'>Track My Application →</a>" },
     { keys: ["student visa","study abroad","student","university","admission","college","study","education","academic"], ans: "We provide <strong>complete student visa &amp; university admission processing</strong>:<br>✅ Profile evaluation &amp; university shortlisting<br>✅ Admission application<br>✅ Offer letter assistance<br>✅ Visa file preparation &amp; interview guidance<br><br>Learn more: <a href='https://northgatevisaservices.com/student-visa.html' target='_blank'>Student Visa Page →</a>" },
     { keys: ["umrah","makkah","madinah","mecca","medina","hajj","saudi","holy","ziyarat","spiritual","umrah price","umrah cost"], ans: "We offer a <strong>15-Day Umrah Package (June–July 2026)</strong>:<br><br>🕌 <strong>3-Star:</strong> PKR 135,000/person<br>⭐ <strong>4-Star:</strong> PKR 160,000 (Triple) | PKR 175,000 (Double)<br>🌟 <strong>5-Star:</strong> PKR 190,000 (Triple) | PKR 210,000 (Double)<br>💎 <strong>5-Star Premium</strong> (Haram View): PKR 250,000/person<br><br>Includes: Return air tickets, Umrah visa, hotel, airport transfers.<br><br><a href='https://northgatevisaservices.com/umrah-package.html' target='_blank'>Full Package Details →</a>" },
     { keys: ["contact","phone","number","whatsapp","call","reach","email","address","location"], ans: "You can reach us through:<br><br>📱 <strong>WhatsApp:</strong> <a href='https://wa.me/923452613587' target='_blank'>+92 345 2613587</a><br>📧 <strong>Email:</strong> <a href='mailto:support@northgatevisaservices.com'>support@northgatevisaservices.com</a><br>🕐 <strong>Hours:</strong> Mon–Sat, 9AM – 7PM" },
