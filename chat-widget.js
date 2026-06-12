@@ -216,7 +216,7 @@
 </button>
 <div id="ng-chat-box">
   <div class="ng-header">
-    <div class="ng-avatar"><i class="fa-solid fa-shield-check"></i></div>
+    <div class="ng-avatar" style="overflow:hidden;"><img src="/logo.webp" style="width:36px;height:36px;object-fit:cover;border-radius:50%;display:block;"></div>
     <div class="ng-header-info">
       <h4>NorthGate Support</h4>
       <span>Online — Typically replies instantly</span>
