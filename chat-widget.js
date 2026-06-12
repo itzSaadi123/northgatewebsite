@@ -202,8 +202,7 @@
   }
   @media (max-width: 768px) {
     #ng-chat-box { width: calc(100vw - 20px) !important; right: 10px !important; bottom: 88px !important; }
-    #ng-chat-btn { right: 16px !important; bottom: 16px !important; width: 50px !important; height: 50px !important; }
-    #ng-chat-btn i { font-size: 20px !important; }
+    #ng-chat-btn { right: 16px !important; bottom: 16px !important; }
   }
   `;
   document.head.appendChild(style);
@@ -216,7 +215,7 @@
 </button>
 <div id="ng-chat-box">
   <div class="ng-header">
-    <div class="ng-avatar" style="overflow:hidden;"><img src="/logo.webp" style="width:36px;height:36px;object-fit:cover;border-radius:50%;display:block;"></div>
+    <div class="ng-avatar" style="overflow:hidden;"><img src="https://northgatevisaservices.com/logo.webp" style="width:36px;height:36px;object-fit:contain;display:block;border-radius:6px;"></div>
     <div class="ng-header-info">
       <h4>NorthGate Support</h4>
       <span>Online — Typically replies instantly</span>
