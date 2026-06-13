@@ -6,6 +6,21 @@
     document.head.appendChild(fa);
   }
 
+  // Load Tawk.to (hidden, autoStart off)
+  if (!window.Tawk_API) {
+    window.Tawk_API = window.Tawk_API || {};
+    window.Tawk_API.autoStart = false;
+    window.Tawk_LoadStart = new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/6a2d5b89e394351c2cee8651/1jr0ir4i7';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  }
+
   var style = document.createElement('style');
   style.innerHTML = `
   #ng-chat-btn {
@@ -154,6 +169,18 @@
     font-family: Inter, sans-serif !important;
   }
   .ng-qbtn:hover { background: #1e3a8a !important; color: white !important; }
+  .ng-agent-btn {
+    background: linear-gradient(135deg, #25d366, #128c7e) !important;
+    border: none !important;
+    color: white !important;
+    font-size: 11.5px !important;
+    font-weight: 700 !important;
+    padding: 5px 11px !important;
+    border-radius: 20px !important;
+    cursor: pointer !important;
+    white-space: nowrap !important;
+    font-family: Inter, sans-serif !important;
+  }
   .ng-input-row {
     display: flex !important;
     align-items: center !important;
@@ -231,6 +258,7 @@
     <button class="ng-close-btn" onclick="toggleChat()"><i class="fa-solid fa-xmark"></i></button>
   </div>
   <div class="ng-messages" id="ng-messages"></div>
+
   <div class="ng-quick-btns" id="ng-quick-btns">
     <button class="ng-qbtn" onclick="ngQuickAsk('Services')">📋 Services</button>
     <button class="ng-qbtn" onclick="ngQuickAsk('Fees')">💰 Fees</button>
@@ -238,6 +266,7 @@
     <button class="ng-qbtn" onclick="ngQuickAsk('Umrah')">🕌 Umrah</button>
     <button class="ng-qbtn" onclick="ngQuickAsk('Student Visa')">🎓 Student Visa</button>
     <button class="ng-qbtn" onclick="ngQuickAsk('Track Application')">📍 Track Application</button>
+    <button class="ng-agent-btn" onclick="ngTalkToAgent()">🧑‍💼 Talk to Agent</button>
   </div>
   <div class="ng-input-row">
     <input type="text" id="ng-user-input" placeholder="Type your question..." onkeydown="if(event.key==='Enter') ngSendMsg()">
@@ -257,8 +286,8 @@
     { keys: ["refused","rejected","refusal","denied","visa refused","what if refused","reapply"], ans: "Visa decisions are made by government authorities. If your visa is refused, we can <strong>review the refusal reason</strong> and provide strategic guidance for a reapplication." },
     { keys: ["personal","information","data","secure","confidential","privacy","safe"], ans: "Yes — we maintain <strong>strict confidentiality</strong> of all personal and application data shared with us." },
     { keys: ["apply","how to apply","start","begin","process","procedure","application form","submit form"], ans: "To apply, select your country:<br><br>🇺🇸 <a href='https://northgatevisaservicecenter.github.io/U.S_Form/' target='_blank'>U.S. Visa Form</a><br>🇨🇦 <a href='https://northgatevisaservicecenter.github.io/Canada_form/' target='_blank'>Canada Visa Form</a><br>🇮🇹 <a href='https://northgatevisaservicecenter.github.io/Italy_form/' target='_blank'>Italy Visa Form</a><br>🌍 <a href='https://northgatevisaservices.com/countries.html' target='_blank'>Other Countries</a><br><br>After submission, our team contacts you within <strong>24 hours</strong>." },
-    { keys: ["us visa","usa","america","american","united states","b1","b2","f1","tourist","work visa us"], ans: "We assist with <strong>U.S. Visa applications</strong> including tourist (B1/B2), student (F1), and other categories. Fill the form here: <a href='https://northgatevisaservicecenter.github.io/U.S_Form/' target='_blank'>U.S. Visa Form</a>" },
-    { keys: ["canada","canadian","pr","permanent resident","canada visa"], ans: "We assist with <strong>Canada Visa applications</strong>. Fill the form here: <a href='https://northgatevisaservicecenter.github.io/Canada_form/' target='_blank'>Canada Visa Form</a><br>Our team will review your case within 24 hours." },
+    { keys: ["us visa","usa","u.s","america","american","united states","b1","b2","f1","tourist","work visa us"], ans: "We assist with <strong>U.S. Visa applications</strong> including tourist (B1/B2), student (F1), and other categories. Fill the form here: <a href='https://northgatevisaservicecenter.github.io/U.S_Form/' target='_blank'>U.S. Visa Form</a>" },
+    { keys: ["canada","canadian","pr","canada visa"], ans: "We assist with <strong>Canada Visa applications</strong>. Fill the form here: <a href='https://northgatevisaservicecenter.github.io/Canada_form/' target='_blank'>Canada Visa Form</a><br>Our team will review your case within 24 hours." },
     { keys: ["italy","italian"], ans: "We assist with <strong>Italy Visa applications</strong>. Fill the form here: <a href='https://northgatevisaservicecenter.github.io/Italy_form/' target='_blank'>Italy Visa Form</a>" },
     { keys: ["schengen","europe","european","germany","france","spain","netherlands","belgium"], ans: "We assist with <strong>Schengen Visa applications</strong>. Click here: <a href='https://northgatevisaservices.com/countries.html' target='_blank'>Schengen Visa →</a>" },
     { keys: ["countries","which countries","available","worldwide","other countries","all countries"], ans: "We assist with visas for <strong>U.S., Canada, Italy, Schengen countries</strong>, and many more worldwide. See the full list here: <a href='https://northgatevisaservices.com/countries.html' target='_blank'>All Countries</a>" },
@@ -272,6 +301,7 @@
     { keys: ["challan","mcb","bank","payment","pay fee","bank challan","how to pay"], ans: "After your case review, you will receive a <strong>fee challan on your registered email</strong>. Pay at any nearest <strong>MCB Bank branch</strong>. You'll receive a confirmation email within 24 hours." },
     { keys: ["terms","condition","policy","terms and conditions","refund","cancellation"], ans: "Please read our full terms and conditions here: <a href='https://northgatevisaservices.com/terms.html' target='_blank'>Terms & Conditions →</a>" },
     { keys: ["about","who are you","northgate","company","team","about us","background"], ans: "NorthGate Visa Service Center is an <strong>independent, ethical, and transparent</strong> visa consultancy registered with SECP &amp; FBR. We specialise in U.S. and Canada visas, with assistance available worldwide. <a href='https://northgatevisaservices.com/about.html' target='_blank'>About us →</a>" },
+    { keys: ["agent","talk to agent","human","real person","live chat","live agent","speak to","connect with"], ans: "Connecting you with a live agent now! 🧑‍💼 Please wait a moment..." },
     { keys: ["walikum","waliakum","walaikum","wa alaikum","وعلیکم"], ans: [
       "Wa Alaikum! 😊 How can we help you today?",
       "Wa Alaikum wa Rahmatullahi! 🌟 What can we assist you with?",
@@ -359,6 +389,28 @@
     return best.ans;
   }
 
+  window.ngTalkToAgent = function() {
+    document.getElementById('ng-quick-btns').style.display = 'none';
+    ngAddMsg('user', 'Talk to Agent');
+    ngShowTyping();
+    setTimeout(() => {
+      ngHideTyping();
+      ngAddMsg('bot', "A live agent will be with you shortly! 🧑‍💼 A chat window is opening for you...");
+      setTimeout(() => {
+        // Close our bot chat first
+        document.getElementById('ng-chat-box').classList.remove('ng-open');
+        document.getElementById('ng-btn-icon').className = 'fa-solid fa-comments';
+        ngIsOpen = false;
+        // Then open Tawk.to
+        if (window.Tawk_API && typeof window.Tawk_API.maximize === 'function') {
+          window.Tawk_API.maximize();
+        } else if (window.Tawk_API && typeof window.Tawk_API.toggle === 'function') {
+          window.Tawk_API.toggle();
+        }
+      }, 800);
+    }, 800);
+  };
+
   window.ngSendMsg = function() {
     const inp = document.getElementById('ng-user-input');
     const text = inp.value.trim();
@@ -371,6 +423,10 @@
       const ans = ngFindAnswer(text);
       if (ans) {
         ngAddMsg('bot', ans);
+        // If agent requested via typing
+        if (text.toLowerCase().includes('agent') || text.toLowerCase().includes('human') || text.toLowerCase().includes('live')) {
+          setTimeout(() => { window.ngTalkToAgent && window.ngTalkToAgent(); }, 1200);
+        }
       } else {
         ngAddMsg('bot', "For further details on this, feel free to email us at <a href='mailto:support@northgatevisaservices.com'><strong>support@northgatevisaservices.com</strong></a> — we are happy to assist you.");
       }
