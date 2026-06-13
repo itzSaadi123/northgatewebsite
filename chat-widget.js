@@ -6,10 +6,18 @@
     document.head.appendChild(fa);
   }
 
-  // Load Tawk.to (hidden, autoStart off)
+  // Load Tawk.to properly with initialization listeners to prevent white blank screen
   if (!window.Tawk_API) {
     window.Tawk_API = window.Tawk_API || {};
-    window.Tawk_API.autoStart = false;
+    window.Tawk_API.autoStart = false; // Background me ready rakhne k liye
+    
+    // Tawk.to fully initialize hone par automatic optimization register karega
+    window.Tawk_API.onLoad = function(){
+      if(typeof window.Tawk_API.hideWidget === 'function') {
+        window.Tawk_API.hideWidget();
+      }
+    };
+
     window.Tawk_LoadStart = new Date();
     (function(){
       var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -390,24 +398,42 @@
   }
 
   window.ngTalkToAgent = function() {
-    document.getElementById('ng-quick-btns').style.display = 'none';
+    const quickBtns = document.getElementById('ng-quick-btns');
+    if (quickBtns) quickBtns.style.display = 'none';
+    
     ngAddMsg('user', 'Talk to Agent');
     ngShowTyping();
+    
     setTimeout(() => {
       ngHideTyping();
       ngAddMsg('bot', "A live agent will be with you shortly! 🧑‍💼 A chat window is opening for you...");
+      
       setTimeout(() => {
-        // Close our bot chat first
-        document.getElementById('ng-chat-box').classList.remove('ng-open');
-        document.getElementById('ng-btn-icon').className = 'fa-solid fa-comments';
+        // 1. Apne custom custom layout box ko close karein
+        const chatBox = document.getElementById('ng-chat-box');
+        const btnIcon = document.getElementById('ng-btn-icon');
+        if (chatBox) chatBox.classList.remove('ng-open');
+        if (btnIcon) btnIcon.className = 'fa-solid fa-comments';
         ngIsOpen = false;
-        // Then open Tawk.to
-        if (window.Tawk_API && typeof window.Tawk_API.maximize === 'function') {
-          window.Tawk_API.maximize();
-        } else if (window.Tawk_API && typeof window.Tawk_API.toggle === 'function') {
-          window.Tawk_API.toggle();
+        
+        // 2. Tawk.to engine rendering triggers
+        if (window.Tawk_API) {
+          try {
+            // Background container pull layer ko activate karein (Sabse important step)
+            if (typeof window.Tawk_API.showWidget === 'function') {
+              window.Tawk_API.showWidget();
+            }
+            // Ab structural full widget viewport ko pop karein
+            if (typeof window.Tawk_API.maximize === 'function') {
+              window.Tawk_API.maximize();
+            } else if (typeof window.Tawk_API.toggle === 'function') {
+              window.Tawk_API.toggle();
+            }
+          } catch(e) {
+            console.error("Critical: Tawk.to API integration bypass down:", e);
+          }
         }
-      }, 800);
+      }, 1000);
     }, 800);
   };
 
