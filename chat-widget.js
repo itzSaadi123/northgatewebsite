@@ -406,32 +406,32 @@
     
     setTimeout(() => {
       ngHideTyping();
-      ngAddMsg('bot', "A live agent will be with you shortly! 🧑‍💼 A chat window is opening for you...");
+      ngAddMsg('bot', "A live agent will be with you shortly! 🧑‍💼 Opening a secure chat window for you...");
       
       setTimeout(() => {
-        // 1. Apne custom custom layout box ko close karein
+        // 1. Close custom custom viewport box layout
         const chatBox = document.getElementById('ng-chat-box');
         const btnIcon = document.getElementById('ng-btn-icon');
         if (chatBox) chatBox.classList.remove('ng-open');
         if (btnIcon) btnIcon.className = 'fa-solid fa-comments';
         ngIsOpen = false;
         
-        // 2. Tawk.to engine rendering triggers
+        // 2. GitHub Pages Strict Iframe Sandbox Cross-Origin Bypass
         if (window.Tawk_API) {
           try {
-            // Background container pull layer ko activate karein (Sabse important step)
             if (typeof window.Tawk_API.showWidget === 'function') {
               window.Tawk_API.showWidget();
             }
-            // Ab structural full widget viewport ko pop karein
             if (typeof window.Tawk_API.maximize === 'function') {
               window.Tawk_API.maximize();
-            } else if (typeof window.Tawk_API.toggle === 'function') {
-              window.Tawk_API.toggle();
+            } else {
+              window.open('https://tawk.to/chat/6a2d5b89e394351c2cee8651/1jr0ir4i7', '_blank');
             }
           } catch(e) {
-            console.error("Critical: Tawk.to API integration bypass down:", e);
+            window.open('https://tawk.to/chat/6a2d5b89e394351c2cee8651/1jr0ir4i7', '_blank');
           }
+        } else {
+          window.open('https://tawk.to/chat/6a2d5b89e394351c2cee8651/1jr0ir4i7', '_blank');
         }
       }, 1000);
     }, 800);
