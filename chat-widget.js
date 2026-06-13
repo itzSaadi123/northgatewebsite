@@ -221,7 +221,7 @@
 </button>
 <div id="ng-chat-box">
   <div class="ng-header">
-    <div class="ng-avatar" style="overflow:hidden;"><img src="https://northgatevisaservices.com/logo.webp" style="width:36px;height:36px;object-fit:contain;display:block;border-radius:6px;"></div>
+    <div class="ng-avatar" style="overflow:hidden;"><img src="https://itzsaadi123.github.io/northgatewebsite/logo.webp" style="width:36px;height:36px;object-fit:contain;display:block;border-radius:6px;"></div>
     <div class="ng-header-info">
       <h4>NorthGate Support</h4>
       <span>Online — Typically replies instantly</span>
@@ -257,9 +257,10 @@
     { keys: ["apply","how to apply","start","begin","process","procedure","application form","submit form"], ans: "To apply, select your country:<br><br>🇺🇸 <a href='https://northgatevisaservicecenter.github.io/U.S_Form/' target='_blank'>U.S. Visa Form</a><br>🇨🇦 <a href='https://northgatevisaservicecenter.github.io/Canada_form/' target='_blank'>Canada Visa Form</a><br>🇮🇹 <a href='https://northgatevisaservicecenter.github.io/Italy_form/' target='_blank'>Italy Visa Form</a><br>🌍 <a href='https://northgatevisaservices.com/countries.html' target='_blank'>Other Countries</a><br><br>After submission, our team contacts you within <strong>24 hours</strong>." },
     { keys: ["us visa","usa","america","american","united states","b1","b2","f1","tourist","work visa us"], ans: "We assist with <strong>U.S. Visa applications</strong> including tourist (B1/B2), student (F1), and other categories. Fill the form here: <a href='https://northgatevisaservicecenter.github.io/U.S_Form/' target='_blank'>U.S. Visa Form</a>" },
     { keys: ["canada","canadian","pr","permanent resident","canada visa"], ans: "We assist with <strong>Canada Visa applications</strong>. Fill the form here: <a href='https://northgatevisaservicecenter.github.io/Canada_form/' target='_blank'>Canada Visa Form</a><br>Our team will review your case within 24 hours." },
-    { keys: ["italy","italian","schengen","europe","european","germany","france","spain","netherlands","belgium"], ans: "We assist with <strong>Italy &amp; Schengen Visa applications</strong>. Fill the form here: <a href='https://northgatevisaservicecenter.github.io/Italy_form/' target='_blank'>Italy / Schengen Visa Form</a>" },
+    { keys: ["italy","italian"], ans: "We assist with <strong>Italy Visa applications</strong>. Fill the form here: <a href='https://northgatevisaservicecenter.github.io/Italy_form/' target='_blank'>Italy Visa Form</a>" },
+    { keys: ["schengen","europe","european","germany","france","spain","netherlands","belgium"], ans: "We assist with <strong>Schengen Visa applications</strong>. Fill the form here: <a href='https://northgatevisaservices.com/countries.html' target='_blank'>Other Countries Form →</a>" },
     { keys: ["countries","which countries","available","worldwide","other countries","all countries"], ans: "We assist with visas for <strong>U.S., Canada, Italy, Schengen countries</strong>, and many more worldwide. See the full list here: <a href='https://northgatevisaservices.com/countries.html' target='_blank'>All Countries</a>" },
-    { keys: ["track","tracking","status","application status","where is","check status","tracker"], ans: "You can track your application status using your <strong>Tracking ID </strong> here: <a href='https://northgatevisaservices.com/Tracker.html' target='_blank'>Track My Application →</a>" },
+    { keys: ["track","tracking","status","application status","where is","check status","tracker"], ans: "You can track your application live using your <strong>Tracking ID (NGV-2026...)</strong> here: <a href='https://northgatevisaservices.com/Tracker.html' target='_blank'>Track My Application →</a>" },
     { keys: ["student visa","study abroad","student","university","admission","college","study","education","academic"], ans: "We provide <strong>complete student visa &amp; university admission processing</strong>:<br>✅ Profile evaluation &amp; university shortlisting<br>✅ Admission application<br>✅ Offer letter assistance<br>✅ Visa file preparation &amp; interview guidance<br><br>Learn more: <a href='https://northgatevisaservices.com/student-visa.html' target='_blank'>Student Visa Page →</a>" },
     { keys: ["umrah","makkah","madinah","mecca","medina","hajj","saudi","holy","ziyarat","spiritual","umrah price","umrah cost"], ans: "We offer a <strong>15-Day Umrah Package (June–July 2026)</strong>:<br><br>🕌 <strong>3-Star:</strong> PKR 135,000/person<br>⭐ <strong>4-Star:</strong> PKR 160,000 (Triple) | PKR 175,000 (Double)<br>🌟 <strong>5-Star:</strong> PKR 190,000 (Triple) | PKR 210,000 (Double)<br>💎 <strong>5-Star Premium</strong> (Haram View): PKR 250,000/person<br><br>Includes: Return air tickets, Umrah visa, hotel, airport transfers.<br><br><a href='https://northgatevisaservices.com/umrah-package.html' target='_blank'>Full Package Details →</a>" },
     { keys: ["contact","phone","number","whatsapp","call","reach","email","address","location"], ans: "You can reach us through:<br><br>📱 <strong>WhatsApp:</strong> <a href='https://wa.me/923452613587' target='_blank'>+92 345 2613587</a><br>📧 <strong>Email:</strong> <a href='mailto:support@northgatevisaservices.com'>support@northgatevisaservices.com</a><br>🕐 <strong>Hours:</strong> Mon–Sat, 9AM – 7PM" },
@@ -275,11 +276,11 @@
       "Hi there! Welcome to NorthGate. Ask us anything about visa applications, student visas, or Umrah packages!",
       "Assalam o Alaikum! 🌟 Glad you reached out. What can we help you with today?"
     ]},
-    { keys: ["thank","thanks","thankyou","thank you","shukriya","jazakallah"], ans: [
+    { keys: ["thank","thanku" , "thanks","thankyou","thank you","shukriya","jazakallah"], ans: [
       "You're most welcome! 😊 Feel free to email us at <a href='mailto:support@northgatevisaservices.com'>support@northgatevisaservices.com</a> for further help.",
       "Jazakallah Khair! 🌟 We are always here to help. Email us anytime at <a href='mailto:support@northgatevisaservices.com'>support@northgatevisaservices.com</a>.",
       "Our pleasure! 😊 If you have more questions, we are happy to assist.",
-      "You're welcome! Don't hesitate to reach out anytime — we are here for you."
+      "You're welcome! Don't hesitate to reach out anytime. we are here for you."
     ]}
   ];
 
@@ -364,7 +365,7 @@
       if (ans) {
         ngAddMsg('bot', ans);
       } else {
-        ngAddMsg('bot', "For further details on this, feel free to email us at <a href='mailto:support@northgatevisaservices.com'><strong>support@northgatevisaservices.com</strong></a> — we are happy to assist you.");
+        ngAddMsg('bot', "For further details on this, feel free to email us at <a href='mailto:support@northgatevisaservices.com'><strong>support@northgatevisaservices.com</strong></a>  we are happy to assist you.");
       }
     }, 800 + Math.random() * 400);
   };
