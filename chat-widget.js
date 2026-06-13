@@ -221,7 +221,9 @@
 </button>
 <div id="ng-chat-box">
   <div class="ng-header">
-    <div class="ng-avatar" style="overflow:hidden;"><img src="https://itzsaadi123.github.io/northgatewebsite/logo.webp" style="width:36px;height:36px;object-fit:contain;display:block;border-radius:6px;"></div>
+    <div class="ng-avatar" style="overflow:hidden;padding:2px;background:white !important;border-radius:50% !important;">
+      <img src="https://northgatevisaservices.com/logo.webp" style="width:34px;height:34px;object-fit:contain;display:block;border-radius:50%;">
+    </div>
     <div class="ng-header-info">
       <h4>NorthGate Support</h4>
       <span>Online — Typically replies instantly</span>
@@ -270,17 +272,22 @@
     { keys: ["challan","mcb","bank","payment","pay fee","bank challan","how to pay"], ans: "After your case review, you will receive a <strong>fee challan on your registered email</strong>. Pay at any nearest <strong>MCB Bank branch</strong>. You'll receive a confirmation email within 24 hours." },
     { keys: ["terms","condition","policy","terms and conditions","refund","cancellation"], ans: "Please read our full terms and conditions here: <a href='https://northgatevisaservices.com/terms.html' target='_blank'>Terms & Conditions →</a>" },
     { keys: ["about","who are you","northgate","company","team","about us","background"], ans: "NorthGate Visa Service Center is an <strong>independent, ethical, and transparent</strong> visa consultancy registered with SECP &amp; FBR. We specialise in U.S. and Canada visas, with assistance available worldwide. <a href='https://northgatevisaservices.com/about.html' target='_blank'>About us →</a>" },
-    { keys: ["hello","hi","hey","assalam","salam","good morning","good afternoon","good evening","helo","hii","sup"], ans: [
+    { keys: ["walikum","waliakum","walaikum","wa alaikum","وعلیکم"], ans: [
+      "Wa Alaikum! 😊 How can we help you today?",
+      "Wa Alaikum wa Rahmatullahi! 🌟 What can we assist you with?",
+      "Wa Alaikum! Feel free to ask us anything!"
+    ]},
+    { keys: ["hello","hi","hey","good morning","good afternoon","good evening","helo","hii","sup"], ans: [
       "Assalam o Alaikum! 👋 Welcome to <strong>NorthGate Visa Service Center</strong>. How can we help you today?",
       "Hello! 😊 How can we assist you today? Feel free to ask about our visa services, fees, or Umrah packages!",
       "Hi there! Welcome to NorthGate. Ask us anything about visa applications, student visas, or Umrah packages!",
       "Assalam o Alaikum! 🌟 Glad you reached out. What can we help you with today?"
     ]},
-    { keys: ["thank","thanku" , "thanks","thankyou","thank you","shukriya","jazakallah"], ans: [
+    { keys: ["thank","thanku","thanks","thankyou","thank you","shukriya","jazakallah"], ans: [
       "You're most welcome! 😊 Feel free to email us at <a href='mailto:support@northgatevisaservices.com'>support@northgatevisaservices.com</a> for further help.",
       "Jazakallah Khair! 🌟 We are always here to help. Email us anytime at <a href='mailto:support@northgatevisaservices.com'>support@northgatevisaservices.com</a>.",
       "Our pleasure! 😊 If you have more questions, we are happy to assist.",
-      "You're welcome! Don't hesitate to reach out anytime. we are here for you."
+      "You're welcome! Don't hesitate to reach out anytime — we are here for you."
     ]}
   ];
 
@@ -365,7 +372,7 @@
       if (ans) {
         ngAddMsg('bot', ans);
       } else {
-        ngAddMsg('bot', "For further details on this, feel free to email us at <a href='mailto:support@northgatevisaservices.com'><strong>support@northgatevisaservices.com</strong></a>  we are happy to assist you.");
+        ngAddMsg('bot', "For further details on this, feel free to email us at <a href='mailto:support@northgatevisaservices.com'><strong>support@northgatevisaservices.com</strong></a> — we are happy to assist you.");
       }
     }, 800 + Math.random() * 400);
   };
