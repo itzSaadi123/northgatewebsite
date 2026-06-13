@@ -6,27 +6,25 @@
     document.head.appendChild(fa);
   }
 
-  // Load Tawk.to properly with initialization listeners to prevent white blank screen
-  if (!window.Tawk_API) {
-    window.Tawk_API = window.Tawk_API || {};
-    window.Tawk_API.autoStart = false; // Background me ready rakhne k liye
-    
-    // Tawk.to fully initialize hone par automatic optimization register karega
-    window.Tawk_API.onLoad = function(){
-      if(typeof window.Tawk_API.hideWidget === 'function') {
-        window.Tawk_API.hideWidget();
-      }
-    };
+  // Pure global script initialization architecture for GitHub pages compatibility
+  window.Tawk_API = window.Tawk_API || {};
+  window.Tawk_LoadStart = new Date();
+  
+  // Custom tracking logic state rules
+  window.Tawk_API.onLoad = function() {
+    if (typeof window.Tawk_API.hideWidget === 'function') {
+      window.Tawk_API.hideWidget();
+    }
+  };
 
-    window.Tawk_LoadStart = new Date();
-    (function(){
-      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-      s1.async=true;
-      s1.src='https://embed.tawk.to/6a2d5b89e394351c2cee8651/1jr0ir4i7';
-      s1.charset='UTF-8';
-      s1.setAttribute('crossorigin','*');
-      s0.parentNode.insertBefore(s1,s0);
-    })();
+  if (!document.getElementById('ng-tawk-script')) {
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.id = 'ng-tawk-script';
+    s1.src = 'https://embed.tawk.to/6a2d5b89e394351c2cee8651/1jr0ir4i7';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin', '*');
+    s0.parentNode.insertBefore(s1, s0);
   }
 
   var style = document.createElement('style');
@@ -406,33 +404,17 @@
     
     setTimeout(() => {
       ngHideTyping();
-      ngAddMsg('bot', "A live agent will be with you shortly! 🧑‍💼 Opening a secure chat window for you...");
+      ngAddMsg('bot', "A live agent will be with you shortly! 🧑‍💼 Opening secure communication streaming channel...");
       
       setTimeout(() => {
-        // 1. Close custom custom viewport box layout
         const chatBox = document.getElementById('ng-chat-box');
         const btnIcon = document.getElementById('ng-btn-icon');
         if (chatBox) chatBox.classList.remove('ng-open');
         if (btnIcon) btnIcon.className = 'fa-solid fa-comments';
         ngIsOpen = false;
         
-        // 2. GitHub Pages Strict Iframe Sandbox Cross-Origin Bypass
-        if (window.Tawk_API) {
-          try {
-            if (typeof window.Tawk_API.showWidget === 'function') {
-              window.Tawk_API.showWidget();
-            }
-            if (typeof window.Tawk_API.maximize === 'function') {
-              window.Tawk_API.maximize();
-            } else {
-              window.open('https://tawk.to/chat/6a2d5b89e394351c2cee8651/1jr0ir4i7', '_blank');
-            }
-          } catch(e) {
-            window.open('https://tawk.to/chat/6a2d5b89e394351c2cee8651/1jr0ir4i7', '_blank');
-          }
-        } else {
-          window.open('https://tawk.to/chat/6a2d5b89e394351c2cee8651/1jr0ir4i7', '_blank');
-        }
+        // Target explicit direct synchronization routing link to prevent frame restrictions completely
+        window.open('https://tawk.to/chat/6a2d5b89e394351c2cee8651/1jr0ir4i7', '_blank');
       }, 1000);
     }, 800);
   };
@@ -449,7 +431,6 @@
       const ans = ngFindAnswer(text);
       if (ans) {
         ngAddMsg('bot', ans);
-        // If agent requested via typing
         if (text.toLowerCase().includes('agent') || text.toLowerCase().includes('human') || text.toLowerCase().includes('live')) {
           setTimeout(() => { window.ngTalkToAgent && window.ngTalkToAgent(); }, 1200);
         }
